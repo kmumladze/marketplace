@@ -1,3 +1,22 @@
+import marketplaceLogo from "./assets/marketplace.svg";
+import messageLogo from "./assets/message.svg";
+import heartLogo from "./assets/heart.svg";
+import cartLogo from "./assets/cart.svg";
+
 export default function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <header className="flex gap-4 justify-around my-4">
+      <div className="flex items-center gap-3 border-4 border-blue-500 hover:border-blue-700 p-5 rounded-xl">
+        <img
+          className="max-w-16"
+          src={marketplaceLogo}
+          alt="marketplace logo"
+        />
+        <h3 className="font-mono text-xl font-bold text-stone">Marketplace</h3>
+      </div>
+      <div>
+        <button>Log In</button>
+      </div>
+    </header>
+  );
 }
