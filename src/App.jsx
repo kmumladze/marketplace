@@ -8,10 +8,15 @@ export default function App() {
 
   useEffect(() => {
     async function fetchProducts() {
-      const response = await fetch("https://dummyjson.com/products");
-      const resData = await response.json();
-      console.log(resData);
-      setProducts(resData.products);
+      try {
+        const response = await fetch("https://dummyjson.com/products");
+        const resData = await response.json();
+        console.log(resData);
+        const first15 = resData.products.slice(0, 8);
+        setProducts(first15);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
     fetchProducts();
   }, []);
