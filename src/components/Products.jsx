@@ -1,3 +1,5 @@
+import heartLogo from "../assets/heart.svg";
+
 export default function Products({ products }) {
   return (
     <main className="bg-blue-200 flex justify-around min-h-screen">
@@ -9,7 +11,10 @@ export default function Products({ products }) {
           </div>
         )}
         {products.map((product) => (
-          <div className="flex flex-col items-start w-52" key={product.id}>
+          <div
+            className="flex flex-col items-start w-52 cursor-pointer"
+            key={product.id}
+          >
             <img
               className="rounded-xl bg-stone-200"
               src={product.thumbnail}
@@ -20,9 +25,15 @@ export default function Products({ products }) {
               <p>{product.brand}</p>
               <p className="font-bold">{product.price} $</p>
             </div>
-            <button className="bg-blue-500 p-3 rounded-2xl py-1 hover:text-stone-50 cursor-pointer">
-              See Details
-            </button>
+            <div className="flex gap-4 justify-around">
+              <button className="bg-blue-500 p-3 rounded-2xl py-1 hover:text-stone-50 cursor-pointer">
+                Add to Cart
+              </button>
+              <button className="flex items-center">
+                <img src={heartLogo} alt="heart logo" />
+                <h3>Save</h3>
+              </button>
+            </div>
           </div>
         ))}
       </div>

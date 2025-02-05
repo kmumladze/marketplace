@@ -2,12 +2,12 @@ import marketplaceLogo from "../assets/marketplace.svg";
 import messageLogo from "../assets/message.svg";
 import heartLogo from "../assets/heart.svg";
 import cartLogo from "../assets/cart.svg";
-import HeartIcon from "./icons/HeartIcon.tsx";
+import logIn from "../assets/login.svg";
 
 export default function Header({ setSearch, search }) {
   return (
     <header className="flex gap-4 justify-around my-4 items-center">
-      <div className="flex items-center gap-3 border-4 border-blue-500 hover:border-blue-700 p-5 rounded-xl">
+      <div className="flex items-center gap-3 border-4 border-blue-500 hover:border-blue-700 p-5 rounded-xl cursor-pointer">
         <img
           className="max-w-16"
           src={marketplaceLogo}
@@ -23,10 +23,19 @@ export default function Header({ setSearch, search }) {
         value={search}
       />
       <div className="flex w-9 gap-3">
-        <img src={messageLogo} alt="" />
-        <img src={heartLogo} alt="" />
-        {/* <HeartIcon /> */}
-        <img src={cartLogo} alt="" />
+        <img className="cursor-pointer" src={messageLogo} alt="" />
+        <img
+          className="cursor-pointer
+          hover:bg-red-500
+          rounded-xl"
+          src={heartLogo}
+          alt=""
+        />
+        <img className="cursor-pointer" src={cartLogo} alt="" />
+      </div>
+      <div className="flex gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300">
+        <img className="w-7" src={logIn} alt="log in logo" />
+        <h3>Log In</h3>
       </div>
     </header>
   );
