@@ -10,7 +10,6 @@ export default function Categories({ getProductsByCategory }) {
           "https://dummyjson.com/products/category-list"
         );
         const resData = await response.json();
-        console.log(resData);
         setProductsByCategory(resData);
       } catch (error) {
         console.error("Error fetching data:", error);

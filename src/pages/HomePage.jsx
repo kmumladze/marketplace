@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-import Header from "./components/Header.jsx";
-import Products from "./components/Products.jsx";
-import Categories from "./components/Categories.jsx";
+import Header from "../components/Header.jsx";
+import Products from "../components/Products.jsx";
+import Categories from "../components/Categories.jsx";
 
-export default function App() {
+export default function HomePage() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
 
@@ -13,7 +13,6 @@ export default function App() {
       try {
         const response = await fetch("https://dummyjson.com/products?limit=0");
         const resData = await response.json();
-        console.log(resData);
         setProducts(resData.products);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -32,7 +31,6 @@ export default function App() {
         `https://dummyjson.com/products/category/${category}`
       );
       const resData = await response.json();
-      console.log(resData);
       setProducts(resData.products);
     } catch (error) {
       console.error("Error fetching data:", error);
