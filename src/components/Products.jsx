@@ -1,15 +1,15 @@
 export default function Products({ products }) {
   return (
-    <main className="bg-blue-200 flex justify-around h-screen">
-      <div className="grid grid-cols-4 gap-8 p-5">
+    <main className="bg-blue-200 flex justify-around min-h-screen">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-5">
         {products.length === 0 && (
-          <div className="m-auto">
+          <div className="flex flex-col justify-center items-center">
             <p>No exact matches found</p>
             <p>Try searching for something else instead? </p>
           </div>
         )}
         {products.map((product) => (
-          <div className="flex flex-col items-start  w-52" key={product.id}>
+          <div className="flex flex-col items-start w-52" key={product.id}>
             <img
               className="rounded-xl bg-stone-200"
               src={product.thumbnail}

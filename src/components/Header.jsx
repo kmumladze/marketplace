@@ -2,7 +2,7 @@ import marketplaceLogo from "../assets/marketplace.svg";
 import messageLogo from "../assets/message.svg";
 import heartLogo from "../assets/heart.svg";
 import cartLogo from "../assets/cart.svg";
-import HeartIcon from "./icons/HeartIcon";
+import HeartIcon from "./icons/HeartIcon.tsx";
 
 export default function Header({ setSearch, search }) {
   return (
@@ -24,8 +24,8 @@ export default function Header({ setSearch, search }) {
       />
       <div className="flex w-9 gap-3">
         <img src={messageLogo} alt="" />
-        {/* <img src={heartLogo} alt="" /> */}
-        <HeartIcon />
+        <img src={heartLogo} alt="" />
+        {/* <HeartIcon /> */}
         <img src={cartLogo} alt="" />
       </div>
     </header>
