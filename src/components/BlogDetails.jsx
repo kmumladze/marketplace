@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import UserInfo from "./UserInfo.jsx";
 import Header from "./Header.jsx";
+import { Link } from "react-router";
 
 export default function BlogDetails() {
   const { id } = useParams();
@@ -31,7 +32,9 @@ export default function BlogDetails() {
         <div className="flex flex-col p-6 gap-4 bg-stone-200 rounded-xl w-1/2 justify-center items-center">
           <h1 className="font-bold text-2xl">{blog.title}</h1>
           {/* <strong>Author</strong> {blog.userId} */}
-          <UserInfo userId={blog.userId} />
+          <Link to={`/users/${blog.userId}`}>
+            <UserInfo userId={blog.userId} />
+          </Link>
           <p>{blog.body}</p>
         </div>
       </main>
