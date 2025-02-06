@@ -4,6 +4,8 @@ import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
 import HomePage from "./pages/HomePage.jsx";
 import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
+import BlogPage from "./pages/BlogPage.jsx";
+import BlogDetails from "./components/BlogDetails.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -11,6 +13,8 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="products/:productId" element={<ProductDetailsPage />} />
+        <Route path="blog" element={<BlogPage />} />
+        <Route path="blog/:id" element={<BlogDetails />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>

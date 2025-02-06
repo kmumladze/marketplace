@@ -10,7 +10,6 @@ export default function Reviews({ productId, review, rating, reviewQuantity }) {
           `https://dummyjson.com/products/${productId}`
         );
         const data = await response.json();
-        console.log(data);
         setReviews(data.reviews);
       } catch (error) {
         console.error("Error fetching data:", error);

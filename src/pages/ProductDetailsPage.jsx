@@ -23,7 +23,12 @@ export default function ProductDetailsPage() {
   }, [productId]);
 
   if (product === null) {
-    return <div>loading...</div>;
+    return (
+      <>
+        <Header />
+        <div>loading...</div>
+      </>
+    );
   }
 
   return (

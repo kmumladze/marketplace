@@ -3,7 +3,7 @@ import messageLogo from "../assets/message.svg";
 import heartLogo from "../assets/heart.svg";
 import cartLogo from "../assets/cart.svg";
 import logIn from "../assets/login.svg";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export default function Header({ setSearch, search }) {
   return (
@@ -25,6 +25,10 @@ export default function Header({ setSearch, search }) {
           </h3>
         </div>
       </NavLink>
+      <Link to="/blog">
+        <h3>Blog</h3>
+      </Link>
+
       <input
         type="text"
         placeholder="Search"
