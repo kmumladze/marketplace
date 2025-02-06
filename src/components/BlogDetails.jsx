@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
 import { useParams } from "react-router-dom";
+import UserInfo from "./UserInfo.jsx";
+import Header from "./Header.jsx";
 
 export default function BlogDetails() {
   const { id } = useParams();
@@ -23,12 +25,16 @@ export default function BlogDetails() {
   if (!blog) return <p>Loading...</p>;
 
   return (
-    <div className="flex flex-col justify-center items-center p-4 m-4 gap-4">
-      <h1 className="font-bold text-2xl">{blog.title}</h1>
-      <p>
-        <strong>Author</strong> {blog.userId}
-      </p>
-      <p>{blog.body}</p>
-    </div>
+    <>
+      <Header />
+      <main className="flex justify-center items-center min-h-screen bg-blue-200">
+        <div className="flex flex-col p-6 gap-4 bg-stone-200 rounded-xl w-1/2 justify-center items-center">
+          <h1 className="font-bold text-2xl">{blog.title}</h1>
+          {/* <strong>Author</strong> {blog.userId} */}
+          <UserInfo userId={blog.userId} />
+          <p>{blog.body}</p>
+        </div>
+      </main>
+    </>
   );
 }

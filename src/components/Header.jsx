@@ -26,7 +26,7 @@ export default function Header({ setSearch, search }) {
         </div>
       </NavLink>
       <Link to="/blog">
-        <h3>Blog</h3>
+        <h3 className="font-bold text-blue-500 text-xl">Blog</h3>
       </Link>
 
       <input
