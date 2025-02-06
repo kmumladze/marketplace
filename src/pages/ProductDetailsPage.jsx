@@ -29,7 +29,7 @@ export default function ProductDetailsPage() {
   return (
     <>
       <Header />
-      <div className="flex gap-6 items-center justify-center mt-6 bg-stone-50 min-h-screen">
+      <div className="flex flex-col md:flex-row gap-6 items-center justify-center mt-6 bg-stone-50 min-h-screen">
         <div className="flex flex-col items-center gap-4">
           <img
             className="w-56 bg-stone-100 rounded-xl"
