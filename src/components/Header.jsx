@@ -3,14 +3,28 @@ import messageLogo from "../assets/message.svg";
 import heartLogo from "../assets/heart.svg";
 import cartLogo from "../assets/cart.svg";
 import logIn from "../assets/login.svg";
+import { NavLink } from "react-router";
 
 export default function Header({ setSearch, search }) {
   return (
     <header className="flex flex-col md:flex-row gap-4 justify-between md:justify-around items-center my-4">
-      <div className="flex items-center gap-3 border-4 border-blue-500 hover:border-blue-700 p-5 rounded-xl cursor-pointer">
-        <img className="max-w-8" src={marketplaceLogo} alt="marketplace logo" />
-        <h3 className="font-mono text-xl font-bold text-stone">Marketplace</h3>
-      </div>
+      <NavLink
+        to="/"
+        className={({ isActive }) =>
+          isActive ? "bg-blue-100 rounded-xl" : "text-gray-700"
+        }
+      >
+        <div className="flex items-center gap-3 border-4 border-blue-500 hover:border-blue-700 p-5 rounded-xl cursor-pointer">
+          <img
+            className="max-w-8"
+            src={marketplaceLogo}
+            alt="marketplace logo"
+          />
+          <h3 className="font-mono text-xl font-bold text-stone">
+            Marketplace
+          </h3>
+        </div>
+      </NavLink>
       <input
         type="text"
         placeholder="Search"
