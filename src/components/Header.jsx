@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 import marketplaceLogo from "../assets/marketplace.svg";
-import messageLogo from "../assets/message.svg";
-import heartLogo from "../assets/heart.svg";
-import cartLogo from "../assets/cart.svg";
 import logIn from "../assets/login.svg";
 import { Link, NavLink } from "react-router";
 
 import { IoSunnyOutline } from "react-icons/io5";
 import { FaRegMoon } from "react-icons/fa6";
+import { TiMessages } from "react-icons/ti";
+import { FaRegHeart } from "react-icons/fa";
+import { HiOutlineShoppingBag } from "react-icons/hi";
 
 export default function Header({ setSearch, search }) {
   const [dark, setDark] = useState(false);
@@ -65,15 +65,15 @@ export default function Header({ setSearch, search }) {
 
       {/*  */}
       <div className="flex justify-center items-center gap-3 w-9 mt-4 md:mt-0">
-        <img className="cursor-pointer w-8" src={messageLogo} alt="" />
-        <img
-          className="cursor-pointer
-          hover:bg-red-500
-          rounded-xl w-8"
-          src={heartLogo}
-          alt="heart logo"
-        />
-        <img className="cursor-pointer w-8" src={cartLogo} alt="" />
+        <button>
+          <TiMessages size={32} />
+        </button>
+        <button>
+          <FaRegHeart size={32} />
+        </button>
+        <button>
+          <HiOutlineShoppingBag size={32} />
+        </button>
       </div>
       <div className="flex gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300 mt-4 md:mt-0 dark:bg-gray-500">
         <img className="w-5" src={logIn} alt="log in logo" />
