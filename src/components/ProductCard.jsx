@@ -1,5 +1,3 @@
-import heartLogo from "../assets/heart.svg";
-
 export default function ProductCard({ product }) {
   return (
     <div className="flex flex-col items-start w-52 cursor-pointer dark:border-4 border-gray-800 rounded-lg overflow-hidden p-1">
@@ -18,7 +16,7 @@ export default function ProductCard({ product }) {
           Add to Cart
         </button>
         <button className="flex items-center">
-          <img src={heartLogo} alt="heart logo" />
+          {/* <img src={heartLogo} alt="heart logo" /> */}
           <h3>Save</h3>
         </button>
       </div>
