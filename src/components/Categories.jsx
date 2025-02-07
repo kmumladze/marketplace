@@ -19,15 +19,15 @@ export default function Categories({ getProductsByCategory }) {
   }, []);
 
   return (
-    <main className="bg-blue-100 flex justify-around">
-      <div className="flex flex-wrap gap-4 justify-center my-4">
+    <main className="bg-blue-100 flex justify-around dark:bg-gray-900">
+      <div className="flex flex-wrap gap-4 justify-center my-4 ">
         {productsByCategory.map((category, index) => (
           <div
             key={index}
-            className="flex bg-blue-300 p-4 rounded-md w-40 cursor-pointer hover:opacity-55"
+            className="font-mono text-xs flex justify-center items-center bg-blue-300 p-4 rounded-md w-40 cursor-pointer hover:opacity-55 dark:bg-gray-500 dark:text-white"
             onClick={() => getProductsByCategory(category)}
           >
-            <h1 className="text-lg font-semibold">{category}</h1>
+            <h1 className="text-base font-mono text-center">{category}</h1>
           </div>
         ))}
       </div>
