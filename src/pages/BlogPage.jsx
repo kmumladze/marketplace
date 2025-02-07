@@ -25,10 +25,10 @@ export default function BlogPage() {
   return (
     <>
       <Header />
-      <div className="flex flex-col gap-5 m-6">
+      <div className="flex flex-col gap-5 dark:bg-gray-900 dark:text-white">
         {blogs.map((blog, index) => (
           <div
-            className="flex flex-col gap-4 border-4 p-4 rounded-lg"
+            className="flex flex-col gap-4 border-4 p-4 rounded-lg m-5"
             key={index}
           >
             <h1 className="text-bold text-2xl">{blog.title}</h1>

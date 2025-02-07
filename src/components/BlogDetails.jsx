@@ -28,10 +28,9 @@ export default function BlogDetails() {
   return (
     <>
       <Header />
-      <main className="flex justify-center items-center min-h-screen bg-blue-200">
-        <div className="flex flex-col p-6 gap-4 bg-stone-200 rounded-xl w-1/2 justify-center items-center">
+      <main className="flex justify-center items-center min-h-screen bg-blue-200 dark:bg-gray-900">
+        <div className="flex flex-col p-6 gap-4 bg-stone-200 rounded-xl w-1/2 justify-center items-center dark:bg-gray-500">
           <h1 className="font-bold text-2xl">{blog.title}</h1>
-          {/* <strong>Author</strong> {blog.userId} */}
           <Link to={`/users/${blog.userId}`}>
             <UserInfo userId={blog.userId} />
           </Link>
