@@ -3,7 +3,7 @@ import ProductCard from "./ProductCard";
 
 export default function Products({ products }) {
   return (
-    <main className="bg-blue-200 flex justify-around min-h-screen">
+    <main className="bg-blue-200 flex justify-around min-h-screen dark:bg-gray-900 dark:text-white">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-5">
         {products.length === 0 && (
           <div className="flex flex-col justify-center items-center">
