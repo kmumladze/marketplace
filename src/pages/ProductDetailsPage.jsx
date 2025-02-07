@@ -34,10 +34,10 @@ export default function ProductDetailsPage() {
   return (
     <>
       <Header />
-      <div className="flex flex-col md:flex-row gap-6 items-center justify-center mt-6 bg-stone-50 min-h-screen">
+      <div className="flex flex-col md:flex-row gap-6 items-center justify-center bg-stone-50 min-h-screen dark:bg-gray-900 dark:text-white">
         <div className="flex flex-col items-center gap-4">
           <img
-            className="w-56 bg-stone-100 rounded-xl"
+            className="w-56 bg-stone-100 rounded-xl dark:bg-opacity-25"
             src={product.thumbnail}
             alt="Product photo"
           />
@@ -48,7 +48,7 @@ export default function ProductDetailsPage() {
             reviewQuantity={product.reviews.length}
           />
         </div>
-        <div className="flex flex-col gap-4 w-auto overflow-hidden bg-stone-100 p-6">
+        <div className="flex flex-col gap-4 w-auto overflow-hidden bg-stone-100 p-6 dark:bg-gray-900 dark:text-white dark:border-4">
           <h1 className="font-bold text-2xl">{product.title}</h1>
           <div className="flex gap-4 text-green-600">
             <h3>

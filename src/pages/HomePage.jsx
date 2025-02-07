@@ -38,10 +38,10 @@ export default function HomePage() {
   }
 
   return (
-    <>
+    <main className="dark:bg-gray-900">
       <Header search={search} setSearch={setSearch} />
       <Categories getProductsByCategory={handleClick} />
       <Products products={filteredProducts} />
-    </>
+    </main>
   );
 }

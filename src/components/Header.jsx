@@ -19,14 +19,14 @@ export default function Header({ setSearch, search }) {
   };
 
   return (
-    <header className="flex flex-col md:flex-row gap-4 justify-between md:justify-around items-center my-4 dark:bg-gray-900 dark:text-white transition duration-300">
+    <header className="flex flex-col md:flex-row gap-4 justify-between md:justify-around items-center dark:bg-gray-900 dark:text-white transition duration-300">
       <NavLink
         to="/"
-        className={({ isActive }) =>
-          isActive ? "bg-blue-100 rounded-xl" : "text-gray-700"
-        }
+        // className={({ isActive }) =>
+        //   isActive ? "bg-blue-100 rounded-xl" : "text-gray-700"
+        // }
       >
-        <div className="flex items-center gap-3 border-4 border-blue-500 hover:border-blue-700 p-5 rounded-xl cursor-pointer dark:bg-gray-500">
+        <div className="flex items-center my-4 gap-3 border-4 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-500">
           <img
             className="max-w-8"
             src={marketplaceLogo}
