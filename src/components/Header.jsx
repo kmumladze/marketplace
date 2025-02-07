@@ -1,7 +1,5 @@
 import { useState } from "react";
 
-import marketplaceLogo from "../assets/marketplace.svg";
-import logIn from "../assets/login.svg";
 import { Link, NavLink } from "react-router";
 
 import { IoSunnyOutline } from "react-icons/io5";
@@ -9,6 +7,7 @@ import { FaRegMoon } from "react-icons/fa6";
 import { TiMessages } from "react-icons/ti";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
+import { FaRegUser } from "react-icons/fa";
 
 export default function Header({ setSearch, search }) {
   const [dark, setDark] = useState(false);
@@ -27,11 +26,7 @@ export default function Header({ setSearch, search }) {
         // }
       >
         <div className="flex items-center my-4 gap-3 border-4 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-500">
-          <img
-            className="max-w-8"
-            src={marketplaceLogo}
-            alt="marketplace logo"
-          />
+          <HiOutlineShoppingBag size={32} color="#3b82f6" />
           <h3 className="font-mono text-2xl font-bold text-gray-800 dark:text-white">
             Marketplace
           </h3>
@@ -75,8 +70,8 @@ export default function Header({ setSearch, search }) {
           <HiOutlineShoppingBag size={32} />
         </button>
       </div>
-      <div className="flex gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300 mt-4 md:mt-0 dark:bg-gray-500">
-        <img className="w-5" src={logIn} alt="log in logo" />
+      <div className="flex items-center gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300 mt-4 md:mt-0 dark:bg-gray-500">
+        <FaRegUser />
         <h3>Log In</h3>
       </div>
     </header>

@@ -1,6 +1,8 @@
+import { FaRegHeart } from "react-icons/fa";
+
 export default function ProductCard({ product }) {
   return (
-    <div className="flex flex-col items-start w-52 cursor-pointer dark:border-4 border-gray-800 rounded-lg overflow-hidden p-1">
+    <div className="flex flex-col items-start w-56 cursor-pointer dark:border-4 border-gray-800 rounded-lg overflow-hidden p-3">
       <img
         className="rounded-xl bg-opacity-25 dark:bg-opacity-25"
         src={product.thumbnail}
@@ -11,13 +13,13 @@ export default function ProductCard({ product }) {
         <p>{product.brand}</p>
         <p className="font-bold">{product.price} $</p>
       </div>
-      <div className="flex gap-4 justify-around">
-        <button className="bg-blue-500 p-3 rounded-2xl py-1 hover:text-stone-50 cursor-pointer">
-          Add to Cart
+      <div className="flex gap-3 justify-around">
+        <button className="bg-blue-500 rounded-xl px-2 hover:text-stone-50 cursor-pointer">
+          <p>Add to Cart</p>
         </button>
-        <button className="flex items-center">
-          {/* <img src={heartLogo} alt="heart logo" /> */}
-          <h3>Save</h3>
+        <button className="flex items-center gap-1 rounded-xl bg-red-500 px-2 py-2">
+          <FaRegHeart size={25} />
+          <p>Save</p>
         </button>
       </div>
     </div>
