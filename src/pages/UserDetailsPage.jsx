@@ -25,10 +25,10 @@ export default function UserDetailsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen">
-        <div className="flex flex-col justify-evenly items-center mt-10 md:flex-row bg-stone-300 p-6">
+      <main className="min-h-screen dark:bg-gray-500 dark:text-white">
+        <div className="flex flex-col justify-evenly items-center md:flex-row p-6 dark:bg-gray-500">
           <img
-            className="bg-stone-100 rounded-full w-1/4"
+            className="bg-stone-100 rounded-full w-1/4 dark:bg-opacity-20"
             src={user.image}
             alt="user image"
           />
