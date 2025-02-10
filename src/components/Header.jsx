@@ -25,7 +25,7 @@ export default function Header({ setSearch, search }) {
         //   isActive ? "bg-blue-100 rounded-xl" : "text-gray-700"
         // }
       >
-        <div className="flex items-center my-4 gap-3 border-4 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-500">
+        <div className="flex items-center gap-3 mt-4 mb-6 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-500">
           <HiOutlineShoppingBag size={32} color="text-blue-500" />
           <h3 className="font-mono text-2xl text-gray-800 dark:text-white">
             Marketplace
@@ -76,7 +76,7 @@ export default function Header({ setSearch, search }) {
         </button>
       </div>
       <Link to="/login">
-        <div className="flex items-center gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300 mt-4 md:mt-0 dark:bg-gray-500">
+        <div className="flex items-center gap-3 my-4 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-500 md:mt-0 dark:bg-gray-500">
           <FaRegUser />
           <h3>Log In</h3>
         </div>
