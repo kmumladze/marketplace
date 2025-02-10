@@ -26,8 +26,8 @@ export default function Header({ setSearch, search }) {
         // }
       >
         <div className="flex items-center my-4 gap-3 border-4 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-500">
-          <HiOutlineShoppingBag size={32} color="#3b82f6" />
-          <h3 className="font-mono text-2xl font-bold text-gray-800 dark:text-white">
+          <HiOutlineShoppingBag size={32} color="text-blue-500" />
+          <h3 className="font-mono text-2xl text-gray-800 dark:text-white">
             Marketplace
           </h3>
         </div>
@@ -75,10 +75,12 @@ export default function Header({ setSearch, search }) {
           {/* )} */}
         </button>
       </div>
-      <div className="flex items-center gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300 mt-4 md:mt-0 dark:bg-gray-500">
-        <FaRegUser />
-        <h3>Log In</h3>
-      </div>
+      <Link to="/login">
+        <div className="flex items-center gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300 mt-4 md:mt-0 dark:bg-gray-500">
+          <FaRegUser />
+          <h3>Log In</h3>
+        </div>
+      </Link>
     </header>
   );
 }
