@@ -9,7 +9,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { FaRegUser } from "react-icons/fa";
 
-export default function Header({ setSearch, search }) {
+export default function Header({ setSearch, search, cart }) {
   const [dark, setDark] = useState(false);
 
   const darkModeHandler = () => {
@@ -66,8 +66,13 @@ export default function Header({ setSearch, search }) {
         <button>
           <FaRegHeart size={32} />
         </button>
-        <button>
+        <button className="relative">
           <HiOutlineShoppingBag size={32} />
+          {cart.length > 0 && (
+            <span className="absolute right-0 bottom-0 bg-red-400 w-4 h-4 rounded-full flex justify-center items-center text-sm">
+              {cart.length}
+            </span>
+          )}
         </button>
       </div>
       <div className="flex items-center gap-2 border-4 rounded-xl p-4 border-blue-400 cursor-pointer hover:bg-blue-300 mt-4 md:mt-0 dark:bg-gray-500">

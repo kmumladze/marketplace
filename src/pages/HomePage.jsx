@@ -7,6 +7,7 @@ import Categories from "../components/Categories.jsx";
 export default function HomePage() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -37,11 +38,16 @@ export default function HomePage() {
     }
   }
 
+  function addToCart(product) {
+    setCart((prevCart) => [...prevCart, product]);
+  }
+
   return (
     <main className="dark:bg-gray-900">
-      <Header search={search} setSearch={setSearch} />
+      <Header search={search} setSearch={setSearch} cart={cart} />
       <Categories getProductsByCategory={handleClick} />
-      <Products products={filteredProducts} />
+      <Products products={filteredProducts} addToCart={addToCart} />
+      {/* <ShoppingCart cartItems={cart} /> */}
     </main>
   );
 }
