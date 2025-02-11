@@ -34,6 +34,9 @@ export default function LogInPage() {
             console.log("Invalid password");
           } else {
             console.log("You logged in successfully");
+
+            localStorage.setItem("user", JSON.stringify(foundUser));
+
             usenavigate("/");
           }
         })

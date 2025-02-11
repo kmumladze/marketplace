@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { Link, NavLink } from "react-router";
 
@@ -11,6 +11,19 @@ import { FaRegUser } from "react-icons/fa";
 
 export default function Header({ setSearch, search }) {
   const [dark, setDark] = useState(false);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+  };
 
   const darkModeHandler = () => {
     setDark(!dark);
@@ -75,12 +88,28 @@ export default function Header({ setSearch, search }) {
           {/* )} */}
         </button>
       </div>
-      <Link to="/login">
+
+      {user ? (
         <div className="flex items-center gap-3 my-4 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer md:mt-0 dark:bg-gray-700">
           <FaRegUser />
-          <h3>Log In</h3>
+          <h3>{user.username}</h3>
+          <Link to="/login">
+            <button
+              className="ml-4 text-red-500 text-sm"
+              onClick={handleLogout}
+            >
+              Log Out
+            </button>
+          </Link>
         </div>
-      </Link>
+      ) : (
+        <Link to="/login">
+          <div className="flex items-center gap-3 my-4 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer md:mt-0 dark:bg-gray-700">
+            <FaRegUser />
+            <h3>Log In</h3>
+          </div>
+        </Link>
+      )}
     </header>
   );
 }
