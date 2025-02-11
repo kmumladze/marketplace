@@ -1,8 +1,61 @@
+import { useState } from "react";
 import blueImg from "../assets/blue.jpg";
 import { HiOutlineShoppingBag } from "react-icons/hi";
-import { NavLink } from "react-router";
+import { NavLink, useNavigate } from "react-router";
 
 export default function LogInPage() {
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+
+  const usenavigate = useNavigate();
+
+  function ProceedLogin(e) {
+    e.preventDefault();
+    if (validate()) {
+      console.log("proceeding with login...");
+
+      fetch("https://dummyjson.com/users")
+        .then((res) => res.json())
+        .then((resp) => {
+          console.log(resp);
+
+          if (!resp.users || resp.users.length === 0) {
+            console.log("No users found");
+            return;
+          }
+
+          const foundUser = resp.users.find(
+            (user) => user.username === userName
+          );
+
+          if (!foundUser) {
+            console.log("Invalid username");
+          } else if (foundUser.password !== password) {
+            console.log("Invalid password");
+          } else {
+            console.log("You logged in successfully");
+            usenavigate("/");
+          }
+        })
+        .catch((err) => {
+          console.log("Login Failed due to: " + err.message);
+        });
+    }
+  }
+
+  const validate = () => {
+    let result = true;
+    if (userName === "" || userName === null) {
+      result = false;
+      console.warn("Please Enter Username");
+    }
+    if (password === "" || password === null) {
+      result = false;
+      console.warn("Please Enter Password");
+    }
+    return result;
+  };
+
   return (
     <div
       className="flex flex-col items-center justify-center min-h-screen bg-cover bg-center p-6 md:p-12"
@@ -21,10 +74,18 @@ export default function LogInPage() {
           Welcome to Marketplace - Let's create an account
         </p>
 
-        <form className="w-full flex flex-col gap-4">
+        <form onSubmit={ProceedLogin} className="w-full flex flex-col gap-4">
           <div className="flex flex-col gap-2">
-            <label className="text-gray-700 text-sm md:text-base">Name</label>
+            <label
+              htmlFor="name"
+              className="text-gray-700 text-sm md:text-base"
+            >
+              Name
+            </label>
             <input
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
+              id="name"
               className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               type="text"
               placeholder="Enter your name"
@@ -33,10 +94,16 @@ export default function LogInPage() {
           </div>
 
           <div className="flex flex-col gap-2">
-            <label className="text-gray-700 text-sm md:text-base">
+            <label
+              htmlFor="password"
+              className="text-gray-700 text-sm md:text-base"
+            >
               Password
             </label>
             <input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              id="password"
               className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
               type="password"
               placeholder="Create your password"
