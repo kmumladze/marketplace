@@ -3,6 +3,8 @@ import blueImg from "../assets/blue.jpg";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { NavLink, useNavigate } from "react-router";
 
+import Swal from "sweetalert2";
+
 export default function LogInPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +32,19 @@ export default function LogInPage() {
 
           if (!foundUser) {
             console.log("Invalid username");
+            Swal.fire({
+              icon: "error",
+              title: "Login Failed",
+              text: "Your username or password is incorrect. ",
+              footer: '<a href="#">Please try again.</a>',
+            });
           } else if (foundUser.password !== password) {
+            Swal.fire({
+              icon: "error",
+              title: "Login Failed",
+              text: "Your username or password is incorrect. Please try again.",
+              footer: '<a href="#">Why do I have this issue?</a>',
+            });
             console.log("Invalid password");
           } else {
             console.log("You logged in successfully");
@@ -41,7 +55,12 @@ export default function LogInPage() {
           }
         })
         .catch((err) => {
-          console.log("Login Failed due to: " + err.message);
+          Swal.fire({
+            icon: "error",
+            title: "Login Failed",
+            text: `due to:  ${err.message}`,
+            footer: '<a href="#">Why do I have this issue?</a>',
+          });
         });
     }
   }
