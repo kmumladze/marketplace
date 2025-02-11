@@ -91,12 +91,16 @@ export default function Header({ setSearch, search }) {
 
       {user ? (
         <div className="flex items-center gap-3 my-4 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer md:mt-0 dark:bg-gray-700">
-          <img
-            className="w-6 h-6 rounded-full dark:bg-stone-300"
-            src={user.image}
-            alt="user image"
-          />
-          <h3>{user.username}</h3>
+          <Link to={`/users/${user.id}`}>
+            <div className="flex gap-2">
+              <img
+                className="w-6 h-6 rounded-full dark:bg-stone-300"
+                src={user.image}
+                alt="user image"
+              />
+              <h3>{user.username}</h3>
+            </div>
+          </Link>
           <Link to="/login">
             <button
               className="ml-4 text-red-500 text-sm"
