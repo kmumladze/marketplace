@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 
-import { Link, NavLink } from "react-router";
+import { Link, NavLink } from "react-router-dom";
 
 import { IoSunnyOutline } from "react-icons/io5";
 import { FaRegMoon } from "react-icons/fa6";
@@ -8,8 +8,11 @@ import { TiMessages } from "react-icons/ti";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { FaRegUser } from "react-icons/fa";
+import { CartContext } from "../providers/CartProvider";
 
 export default function Header({ setSearch, search }) {
+  const { cart } = useContext(CartContext);
+
   const [dark, setDark] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -81,11 +84,11 @@ export default function Header({ setSearch, search }) {
         </button>
         <button className="relative">
           <HiOutlineShoppingBag size={32} />
-          {/* {cart.length > 0 && ( */}
-          <span className="absolute right-0 bottom-0 bg-red-400 w-4 h-4 rounded-full flex justify-center items-center text-sm">
-            {/* {cart.length} */} 0
-          </span>
-          {/* )} */}
+          {cart.length > 0 && (
+            <span className="absolute right-0 bottom-0 bg-red-400 w-4 h-4 rounded-full flex justify-center items-center text-sm">
+              {cart.length}
+            </span>
+          )}
         </button>
       </div>
 
