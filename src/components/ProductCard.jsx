@@ -14,7 +14,7 @@ export default function ProductCard({ product }) {
       <img
         className="rounded-xl bg-opacity-25 dark:bg-opacity-25"
         src={product.thumbnail}
-        alt=""
+        alt="product image"
       />{" "}
       <div className="h-28">
         <h1 className="font-bold">{product.title}</h1>
@@ -24,7 +24,11 @@ export default function ProductCard({ product }) {
       <div className="flex gap-3 justify-around">
         <button
           className="bg-blue-500 rounded-xl px-2 hover:text-stone-50 cursor-pointer"
-          onClick={addCart}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addCart();
+          }}
         >
           <p>Add to Cart</p>
         </button>
