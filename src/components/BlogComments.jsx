@@ -49,6 +49,10 @@ export default function Blogcomments() {
                 >
                   <p className="font-semibold">{comment.user.username}</p>
                   <p>{comment.body}</p>
+                  <div className="flex justify-end items-center">
+                    <AiFillLike className="text-red-500" />{" "}
+                    <p className="text-red-500 text-sm">{comment.likes}</p>
+                  </div>
                 </li>
               ))}
             </ul>
