@@ -47,7 +47,7 @@ export default function Blogcomments() {
                   key={comment.id}
                   className="p-3 bg-gray-100 dark:bg-gray-600 rounded-lg"
                 >
-                  <p className="font-semibold">{comment.user.username}</p>
+                  <p className="font-semibold">{comment.user.fullName}</p>
                   <p>{comment.body}</p>
                   <div className="flex justify-end items-center">
                     <AiFillLike className="text-red-500" />{" "}
