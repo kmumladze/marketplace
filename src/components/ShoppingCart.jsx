@@ -4,6 +4,12 @@ import { CartContext } from "../providers/CartProvider";
 
 export default function ShoppingCart() {
   const { cart } = useContext(CartContext);
+
+  const totalPrice = cart.reduce(
+    (acc, cart) => acc + cart.price * cart.quantity,
+    0
+  );
+
   return (
     <div className="flex flex-col p-4">
       {cart.length === 0 ? (
@@ -21,6 +27,7 @@ export default function ShoppingCart() {
           ))}
         </ul>
       )}
+      <p>{totalPrice}</p>
     </div>
   );
 }
