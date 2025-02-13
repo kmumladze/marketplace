@@ -3,7 +3,19 @@ import { useContext } from "react";
 import { CartContext } from "../providers/CartProvider";
 
 export default function ShoppingCart() {
-  const { cart, updateItemQuantity } = useContext(CartContext);
+  const { cart, setCart } = useContext(CartContext);
+
+  function updateQuantity(productId, amount) {
+    const productIdx = cart.findIndex((product) => product.id === productId);
+    const cloneCart = [...cart];
+
+    cloneCart[productIdx].quantity += amount;
+
+    if (cloneCart[productIdx].quantity === 0) {
+      cloneCart.splice(productIdx, 1);
+    }
+    setCart(cloneCart);
+  }
 
   const totalPrice = cart.reduce(
     (acc, product) => acc + product.price * product.quantity,
@@ -17,25 +29,27 @@ export default function ShoppingCart() {
         <p>No items in cart</p>
       ) : (
         <ul className="space-y-3">
-          {cart.map((cart, index) => (
+          {cart.map((product, index) => (
             <li
               key={index}
               className="flex items-center gap-2 p-3 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
             >
-              <p className="font-bold">{cart.title}</p>
-              <p className="font-bold font-mono">${cart.price}</p>
+              <p className="font-bold flex-1">{product.title}</p>
+              <p className="font-bold font-mono w-16 text-center">
+                ${product.price}
+              </p>
 
               <div className="flex items-center gap-1 bg-stone-200 rounded-xl p-2">
                 <button
                   className="bg-transparent border-none rounded-md cursor-pointer"
-                  onClick={() => updateItemQuantity(cart.id, -1)}
+                  onClick={() => updateQuantity(product.id, -1)}
                 >
                   -
                 </button>
-                <span>{cart.quantity}</span>
+                <span>{product.quantity}</span>
                 <button
                   className="bg-transparent border-none rounded-md cursor-pointer"
-                  onClick={() => updateItemQuantity(cart.id, 1)}
+                  onClick={() => updateQuantity(product.id, 1)}
                 >
                   +
                 </button>
