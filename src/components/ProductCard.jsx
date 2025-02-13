@@ -5,8 +5,23 @@ import { CartContext } from "../providers/CartProvider.js";
 export default function ProductCard({ product }) {
   const { cart, setCart } = useContext(CartContext);
 
+  // console.log(cart);
+
   const addCart = () => {
-    setCart([...cart, product]);
+    const productId = product.id;
+
+    const isProduct = cart.find((pro) => pro.id === productId) !== undefined;
+
+    if (isProduct) {
+      const productIdx = cart.findIndex((product) => product.id === productId);
+      const cloneCart = [...cart];
+
+      cloneCart[productIdx].quantity += 1;
+
+      setCart(cloneCart);
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
   };
 
   return (

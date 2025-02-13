@@ -5,10 +5,13 @@ import { CartContext } from "../providers/CartProvider";
 export default function ShoppingCart() {
   const { cart } = useContext(CartContext);
 
+  console.log(cart);
+
   const totalPrice = cart.reduce(
-    (acc, cart) => acc + cart.price * cart.quantity,
+    (acc, product) => acc + product.price * product.quantity,
     0
   );
+  const formattedPrice = `$${totalPrice.toFixed(2)}`;
 
   return (
     <div className="flex flex-col p-4">
@@ -27,7 +30,7 @@ export default function ShoppingCart() {
           ))}
         </ul>
       )}
-      <p>{totalPrice}</p>
+      <p>{formattedPrice}</p>
     </div>
   );
 }
