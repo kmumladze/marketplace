@@ -8,7 +8,7 @@ import { TiMessages } from "react-icons/ti";
 import { FaRegHeart } from "react-icons/fa";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { FaRegUser } from "react-icons/fa";
-import { CartContext } from "../providers/CartProvider";
+import { CartContext } from "../providers/CartProvider.js";
 import CartModal from "./CartModal.jsx";
 
 export default function Header({ setSearch, search }) {
