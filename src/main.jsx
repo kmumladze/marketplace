@@ -2,6 +2,7 @@ import { StrictMode, useState } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import { BrowserRouter, Route, Routes } from "react-router";
+import { HeroUIProvider } from "@heroui/react";
 import HomePage from "./pages/HomePage.jsx";
 import ProductDetailsPage from "./pages/ProductDetailsPage.jsx";
 import BlogPage from "./pages/BlogPage.jsx";
@@ -17,26 +18,28 @@ function Main() {
 
   return (
     <StrictMode>
-      <CartContext.Provider
-        value={{
-          cart,
-          setCart,
-        }}
-      >
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route
-              path="products/:productId"
-              element={<ProductDetailsPage />}
-            />
-            <Route path="blog" element={<BlogPage />} />
-            <Route path="blog/:id" element={<BlogDetails />} />
-            <Route path="users/:userId" element={<UserDetailsPage />} />
-            <Route path="login" element={<LogInPage />} />
-          </Routes>
-        </BrowserRouter>
-      </CartContext.Provider>
+      <HeroUIProvider>
+        <CartContext.Provider
+          value={{
+            cart,
+            setCart,
+          }}
+        >
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route
+                path="products/:productId"
+                element={<ProductDetailsPage />}
+              />
+              <Route path="blog" element={<BlogPage />} />
+              <Route path="blog/:id" element={<BlogDetails />} />
+              <Route path="users/:userId" element={<UserDetailsPage />} />
+              <Route path="login" element={<LogInPage />} />
+            </Routes>
+          </BrowserRouter>
+        </CartContext.Provider>
+      </HeroUIProvider>
     </StrictMode>
   );
 }
