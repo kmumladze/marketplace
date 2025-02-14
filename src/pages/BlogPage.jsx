@@ -32,7 +32,7 @@ export default function BlogPage() {
   console.log(blogs);
 
   return (
-    <>
+    <div className="dark:bg-gray-900">
       <Header />
 
       <div className="grid grid-cols-4 m-4 gap-5 dark:bg-gray-900 dark:text-white">
@@ -49,6 +49,6 @@ export default function BlogPage() {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

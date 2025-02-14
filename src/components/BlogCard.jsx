@@ -91,10 +91,10 @@ export default function BlogCard({ blog }) {
             Read More
           </Button>
           <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-            <ModalContent>
+            <ModalContent className="dark:text-white">
               {(onClose) => (
                 <>
-                  <ModalHeader className="flex flex-col gap-1">
+                  <ModalHeader className="flex flex-col gap-1 text-center">
                     {blog.title}
                   </ModalHeader>
                   <ModalBody>
@@ -102,6 +102,7 @@ export default function BlogCard({ blog }) {
                       <UserInfo userId={blog.userId} />
                     </Link>
                     <p>{blog.body}</p>
+                    {/* <Blogcomments /> */}
                     <div className="flex gap-6 justify-end">
                       <p className="text-green-600">
                         Likes: {blog.reactions?.likes || 0}

@@ -39,7 +39,7 @@ export default function ShoppingCart() {
                 ${product.price}
               </p>
 
-              <div className="flex items-center gap-1 bg-stone-200 rounded-xl p-2">
+              <div className="flex items-center gap-1 bg-stone-200 rounded-xl p-2 dark:text-gray-800">
                 <button
                   className="bg-transparent border-none rounded-md cursor-pointer"
                   onClick={() => updateQuantity(product.id, -1)}
