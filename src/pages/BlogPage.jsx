@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Header from "../components/Header.jsx";
-import { Link } from "react-router";
+import BlogCard from "../components/BlogCard.jsx";
 
 export default function BlogPage() {
   const [curPage, setCurPage] = useState(1);
@@ -35,40 +35,14 @@ export default function BlogPage() {
     <>
       <Header />
 
-      <div className="flex flex-col gap-5 dark:bg-gray-900 dark:text-white">
+      <div className="grid grid-cols-4 m-4 gap-5 dark:bg-gray-900 dark:text-white">
         {blogs.map((blog, index) => (
-          <div
-            className="flex flex-col gap-4 border-4 p-4 rounded-lg m-5"
-            key={index}
-          >
-            <h1 className="text-bold text-2xl">{blog.title}</h1>
-            <p>{blog.body.slice(0, 150)}...</p>
-            <div className="flex gap-6 flex-col">
-              <p>Blog review: {blog.views || "No views available"}</p>
-              {/* <p>Author: {blog.userId || "No user info"}</p> */}
-              <div>
-                <Link to={`/blog/${blog.id}`}>
-                  <button className="bg-blue-500 text-stone-950 p-4 rounded-xl hover:text-white hover:transition-colors">
-                    Read Blog
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            <div className="flex gap-6 justify-end">
-              <p className="text-green-500">
-                Likes: {blog.reactions?.likes || 0}
-              </p>
-              <p className="text-red-500">
-                Dislikes: {blog.reactions?.dislikes || 0}
-              </p>
-            </div>
-          </div>
+          <BlogCard blog={blog} key={index} />
         ))}
 
-        <div className="flex justify-center">
+        <div className="flex justify-center items-center">
           <button
-            className="bg-blue-500 text-stone-950 px-6 py-4 m-4 rounded-xl hover:text-white hover:transition-colors"
+            className="bg-blue-500 text-stone-950 p-4 m-4 rounded-xl hover:text-white hover:transition-colors"
             onClick={loadMoreOnClick}
           >
             Load More
