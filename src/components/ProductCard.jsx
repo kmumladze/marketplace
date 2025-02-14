@@ -25,7 +25,7 @@ export default function ProductCard({ product }) {
   };
 
   return (
-    <div className="flex flex-col items-start w-56 cursor-pointer dark:border-4 border-gray-800 rounded-lg overflow-hidden p-3">
+    <div className="flex flex-col items-start w-56 cursor-pointer dark:border-4 border-gray-800 rounded-lg overflow-hidden p-3 shadow-2xl dark:shadow-slate-600">
       <img
         className="rounded-xl bg-opacity-25 dark:bg-opacity-25"
         src={product.thumbnail}

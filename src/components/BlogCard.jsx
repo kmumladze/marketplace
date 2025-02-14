@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router";
 import { UsersContext } from "../providers/UsersProvider";
+import UserInfo from "./UserInfo";
+import Blogcomments from "./BlogComments.jsx";
 
 import React from "react";
 import {
@@ -12,8 +14,18 @@ import {
   Button,
 } from "@heroui/react";
 
+import {
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  useDisclosure,
+} from "@heroui/react";
+
 export default function BlogCard({ blog }) {
   const [isFollowed, setIsFollowed] = React.useState(false);
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const { users } = useContext(UsersContext);
 
@@ -75,11 +87,39 @@ export default function BlogCard({ blog }) {
             </div>
           </div>
 
-          <Link to={`/blog/${blog.id}`}>
-            <buton className="bg-blue-500 border-none rounded-full px-2 py-1 text-white cursot-pointer text-sm flex justify-end">
-              <p>Read More</p>
-            </buton>
-          </Link>
+          <Button onPress={onOpen} className="bg-blue-500 text-white">
+            Read More
+          </Button>
+          <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
+            <ModalContent>
+              {(onClose) => (
+                <>
+                  <ModalHeader className="flex flex-col gap-1">
+                    {blog.title}
+                  </ModalHeader>
+                  <ModalBody>
+                    <Link to={`/users/${blog.userId}`}>
+                      <UserInfo userId={blog.userId} />
+                    </Link>
+                    <p>{blog.body}</p>
+                    <div className="flex gap-6 justify-end">
+                      <p className="text-green-600">
+                        Likes: {blog.reactions?.likes || 0}
+                      </p>
+                      <p className="text-red-600">
+                        Dislikes: {blog.reactions?.dislikes || 0}
+                      </p>
+                    </div>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button color="danger" variant="light" onPress={onClose}>
+                      Close
+                    </Button>
+                  </ModalFooter>
+                </>
+              )}
+            </ModalContent>
+          </Modal>
         </div>
       </CardFooter>
     </Card>
