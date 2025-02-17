@@ -1,12 +1,5 @@
 import { useState, useEffect, useContext, useRef } from "react";
 import React from "react";
-import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-} from "@heroui/react";
 
 import { Link, NavLink } from "react-router-dom";
 
@@ -19,7 +12,7 @@ import { FaRegUser } from "react-icons/fa";
 import { CartContext } from "../providers/CartProvider.js";
 import CartModal from "./CartModal.jsx";
 
-export default function Header({ setSearch, search, setSortLow, setSortHigh }) {
+export default function Header({ setSearch, search }) {
   const modal = useRef();
 
   const { cart } = useContext(CartContext);
@@ -27,20 +20,6 @@ export default function Header({ setSearch, search, setSortLow, setSortHigh }) {
   const [dark, setDark] = useState(false);
   const [user, setUser] = useState(null);
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Sort"]));
-
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replace(/_/g, ""),
-    [selectedKeys]
-  );
-
-  const handleChange = (keys) => {
-    setSelectedKeys(keys);
-    if (keys.has("Price Low to High")) {
-      setSortLow();
-    } else {
-      setSortHigh();
-    }
-  };
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -102,28 +81,6 @@ export default function Header({ setSearch, search, setSortLow, setSortHigh }) {
           value={search}
         />
 
-        <Dropdown>
-          <DropdownTrigger>
-            <Button className="capitalize" variant="bordered">
-              {selectedValue}
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu
-            disallowEmptySelection
-            aria-label="Single selection example"
-            selectedKeys={selectedKeys}
-            selectionMode="single"
-            variant="flat"
-            onSelectionChange={handleChange}
-          >
-            <DropdownItem key="Price Low to High">
-              Price Low to High
-            </DropdownItem>
-            <DropdownItem key="Price High to Low">
-              Price High to Low
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
         {/*  */}
         <button
           className="p-2 rounded-full transition bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
