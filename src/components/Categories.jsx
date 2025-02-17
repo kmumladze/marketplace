@@ -40,12 +40,12 @@ export default function Categories({ getProductsByCategory }) {
   }, []);
 
   return (
-    <main className="bg-blue-100 flex justify-around items-center dark:bg-gray-900">
+    <main className="bg-gray-100 flex justify-around items-center dark:bg-gray-900">
       {/*  */}
       <div className="flex flex-wrap gap-3 my-3">
         {sizes.map((size) => (
           <Button
-            className="font-mono text-xl justify-center items-center bg-blue-300 p-6 rounded-md cursor-pointer hover:opacity-55 dark:bg-gray-500 dark:text-white"
+            className="font-mono text-xl justify-center items-center bg-gray-300 p-6 rounded-md cursor-pointer hover:opacity-55 dark:bg-gray-500 dark:text-white"
             key={size}
             onPress={() => handleOpen(size)}
           >
@@ -55,7 +55,7 @@ export default function Categories({ getProductsByCategory }) {
       </div>
       <div className="flex flex-wrap gap-3 my-3 ">
         <Link to="/blog">
-          <h3 className="font-mono text-md justify-center items-center bg-blue-300 p-2 rounded-md cursor-pointer hover:opacity-55 dark:bg-gray-500 dark:text-white">
+          <h3 className="font-mono text-md justify-center items-center bg-gray-300 p-2 rounded-md cursor-pointer hover:opacity-55 dark:bg-gray-500 dark:text-white">
             Blog
           </h3>
         </Link>
@@ -72,7 +72,7 @@ export default function Categories({ getProductsByCategory }) {
                   {productsByCategory.map((category, index) => (
                     <div
                       key={index}
-                      className="font-mono text-xs flex justify-center items-center bg-blue-300 p-4 rounded-md w-40 cursor-pointer hover:opacity-55 dark:bg-gray-500 dark:text-white"
+                      className="font-mono text-xs flex justify-center items-center bg-gray-300 p-4 rounded-md w-40 cursor-pointer hover:opacity-55 dark:bg-gray-500 dark:text-white"
                       onClick={() => {
                         onClose();
                         getProductsByCategory(category);
