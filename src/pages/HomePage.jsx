@@ -18,6 +18,7 @@ export default function HomePage() {
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [sort, setSort] = useState(null);
 
   useEffect(() => {
     async function fetchProducts() {
@@ -25,7 +26,9 @@ export default function HomePage() {
 
       try {
         const response = await fetch(
-          `https://dummyjson.com/products?limit=${LIMIT}&skip=${currentSkip}`
+          `https://dummyjson.com/products?limit=${LIMIT}&skip=${currentSkip}${
+            sort !== null ? `&sortBy=price&order=${sort}` : ""
+          }`
         );
         const resData = await response.json();
         setProducts(resData.products);
@@ -34,7 +37,7 @@ export default function HomePage() {
       }
     }
     fetchProducts();
-  }, [currentPage]);
+  }, [currentPage, sort]);
 
   const filteredProducts = products.filter((product) =>
     product.title.toLowerCase().includes(search.toLowerCase())
@@ -56,13 +59,21 @@ export default function HomePage() {
     setCart((prevCart) => [...prevCart, product]);
   }
 
+  function handleSortClick(newSort) {
+    setSort(newSort);
+  }
+
   return (
     <main className="dark:bg-gray-900">
       <Header search={search} setSearch={setSearch} cart={cart} />
 
       <Categories getProductsByCategory={handleClick} />
 
-      <Products products={filteredProducts} addToCart={addToCart} />
+      <Products
+        products={filteredProducts}
+        addToCart={addToCart}
+        setSort={handleSortClick}
+      />
       <Pagination
         className="bg-gray-200 flex justify-center dark:bg-gray-900 py-10 w-full rounded-lg shadow-md items-center gap-2"
         page={currentPage}

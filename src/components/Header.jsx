@@ -19,7 +19,6 @@ export default function Header({ setSearch, search }) {
 
   const [dark, setDark] = useState(false);
   const [user, setUser] = useState(null);
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Sort"]));
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
