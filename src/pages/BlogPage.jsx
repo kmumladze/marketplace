@@ -35,18 +35,20 @@ export default function BlogPage() {
     <div className="dark:bg-gray-900">
       <Header />
 
-      <div className="grid grid-cols-4 m-4 gap-5 dark:bg-gray-900 dark:text-white">
-        {blogs.map((blog, index) => (
-          <BlogCard blog={blog} key={index} />
-        ))}
+      <div className="flex justify-center">
+        <div className="grid grid-cols-3 m-4 gap-5 dark:bg-gray-900 dark:text-white">
+          {blogs.map((blog, index) => (
+            <BlogCard blog={blog} key={index} />
+          ))}
 
-        <div className="flex justify-center items-center">
-          <button
-            className="bg-blue-500 text-stone-950 p-4 m-4 rounded-xl hover:text-white hover:transition-colors"
-            onClick={loadMoreOnClick}
-          >
-            Load More
-          </button>
+          <div className="flex justify-center items-center">
+            <button
+              className="bg-blue-500 text-stone-950 p-4 m-4 rounded-xl hover:text-white hover:transition-colors"
+              onClick={loadMoreOnClick}
+            >
+              Load More
+            </button>
+          </div>
         </div>
       </div>
     </div>

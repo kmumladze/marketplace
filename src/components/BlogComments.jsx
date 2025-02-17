@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router";
-
 import { AiFillLike } from "react-icons/ai";
 
-export default function Blogcomments() {
-  const { id } = useParams();
+export default function Blogcomments({ id }) {
   const [blogComments, setBlogComments] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,6 +12,8 @@ export default function Blogcomments() {
           `https://dummyjson.com/comments/post/${id}`
         );
         const resData = await response.json();
+        console.log(resData);
+
         // console.log(resData);
         setBlogComments(resData.comments);
       } catch (error) {
@@ -29,7 +28,7 @@ export default function Blogcomments() {
   }, [id]);
 
   return (
-    <div className="mt-6 bg-stone-200 dark:bg-gray-500 p-4 rounded-lg w-1/2">
+    <div className="mt-6 bg-stone-200 dark:bg-gray-500 p-4 rounded-lg w-full">
       {loading ? (
         <p>Loading comments...</p>
       ) : (

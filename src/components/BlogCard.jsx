@@ -102,7 +102,7 @@ export default function BlogCard({ blog }) {
                       <UserInfo userId={blog.userId} />
                     </Link>
                     <p>{blog.body}</p>
-                    {/* <Blogcomments /> */}
+                    <Blogcomments id={blog.id} />
                     <div className="flex gap-6 justify-end">
                       <p className="text-green-600">
                         Likes: {blog.reactions?.likes || 0}
