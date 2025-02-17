@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+
 import {
   Pagination,
   PaginationItem,
@@ -39,6 +40,22 @@ export default function HomePage() {
     product.title.toLowerCase().includes(search.toLowerCase())
   );
 
+  const setLowToHigh = () => {
+    console.log("sortiing");
+
+    const productsClone = [...products];
+    const sortedProducts = productsClone.sort((a, b) => a.price - b.price);
+    setProducts(sortedProducts);
+  };
+
+  const setHighToLow = () => {
+    const productsClone = [...products];
+    const reverseSortedProducts = productsClone.sort(
+      (a, b) => b.price - a.price
+    );
+    setProducts(reverseSortedProducts);
+  };
+
   async function handleClick(category) {
     try {
       const response = await fetch(
@@ -57,7 +74,14 @@ export default function HomePage() {
 
   return (
     <main className="dark:bg-gray-900">
-      <Header search={search} setSearch={setSearch} cart={cart} />
+      <Header
+        search={search}
+        setSearch={setSearch}
+        cart={cart}
+        setSortLow={setLowToHigh}
+        setSortHigh={setHighToLow}
+      />
+
       <Categories getProductsByCategory={handleClick} />
 
       <Products products={filteredProducts} addToCart={addToCart} />
