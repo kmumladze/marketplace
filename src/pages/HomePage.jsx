@@ -8,6 +8,7 @@ import {
 import Header from "../components/Header.jsx";
 import Products from "../components/Products.jsx";
 import Categories from "../components/Categories.jsx";
+import FooterPage from "./FooterPage.jsx";
 
 const LIMIT = 8;
 const TOTAL_ITEMS = 194;
@@ -79,6 +80,7 @@ export default function HomePage() {
         total={TOTAL_PAGES}
         onChange={setCurrentPage}
       />
+      <FooterPage />
     </main>
   );
 }
