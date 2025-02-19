@@ -11,7 +11,9 @@ import {
 } from "@heroui/react";
 
 export default function Products({ products, setSort }) {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Sort"]));
+  const [selectedKeys, setSelectedKeys] = React.useState(
+    new Set(["Sort by ⇵"])
+  );
 
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replace(/_/g, ""),
@@ -32,30 +34,33 @@ export default function Products({ products, setSort }) {
 
   return (
     <main className="bg-gray-200 flex flex-col justify-around items-center min-h-screen dark:bg-gray-900 dark:text-white">
-      <div className="w-1/2 flex justify-center m-5">
-        <Dropdown>
-          <DropdownTrigger>
-            <Button className="capitalize" variant="bordered">
-              {selectedValue}
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu
-            disallowEmptySelection
-            aria-label="Single selection example"
-            selectedKeys={selectedKeys}
-            selectionMode="single"
-            variant="flat"
-            onSelectionChange={handleSortChange}
-          >
-            <DropdownItem key="Price(Low to High)">
-              Sort by price: low to high
-            </DropdownItem>
-            <DropdownItem key="Price(High to Low)">
-              Sort by price: high to low
-            </DropdownItem>
-            <DropdownItem key="Reset">Reset</DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+      <div className="flex justify-around w-full items-center">
+        <h1 className="font-bold text-2xl">Products For You!</h1>
+        <div className="flex justify-center m-5">
+          <Dropdown>
+            <DropdownTrigger>
+              <Button className="capitalize" variant="bordered">
+                {selectedValue}
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              disallowEmptySelection
+              aria-label="Single selection example"
+              selectedKeys={selectedKeys}
+              selectionMode="single"
+              variant="flat"
+              onSelectionChange={handleSortChange}
+            >
+              <DropdownItem key="Price(Low to High)">
+                Sort by price: low to high
+              </DropdownItem>
+              <DropdownItem key="Price(High to Low)">
+                Sort by price: high to low
+              </DropdownItem>
+              <DropdownItem key="Reset">Reset</DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-5">
