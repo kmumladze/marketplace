@@ -34,12 +34,12 @@ export default function ShoppingCart() {
               key={index}
               className="flex items-center gap-2 p-3 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
             >
-              <p className="font-bold flex-1">{product.title}</p>
+              <p className="font-bold">{product.title}</p>
               <p className="font-bold font-mono w-16 text-center">
                 ${product.price}
               </p>
 
-              <div className="flex items-center gap-1 bg-stone-200 rounded-xl p-2 dark:text-gray-800">
+              <div className="flex items-center gap-1 bg-stone-200 rounded-xl p-2">
                 <button
                   className="bg-transparent border-none rounded-md cursor-pointer"
                   onClick={() => updateQuantity(product.id, -1)}

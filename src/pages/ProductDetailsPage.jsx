@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import Header from "../components/Header.jsx";
 import Reviews from "../components/Reviews.jsx";
+import { CartContext } from "../providers/CartProvider.js";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
+  const { cart, setCart } = useContext(CartContext);
+  // console.log(cart);
 
   useEffect(() => {
     async function fetchProductsDetails() {
@@ -31,6 +34,23 @@ export default function ProductDetailsPage() {
     );
   }
 
+  const addCart = () => {
+    const productId = product.id;
+
+    const isProduct = cart.find((pro) => pro.id === productId) !== undefined;
+
+    if (isProduct) {
+      const productIdx = cart.findIndex((product) => product.id === productId);
+      const cloneCart = [...cart];
+
+      cloneCart[productIdx].quantity += 1;
+
+      setCart(cloneCart);
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -48,30 +68,46 @@ export default function ProductDetailsPage() {
             reviewQuantity={product.reviews.length}
           />
         </div>
-        <div className="flex flex-col gap-4 w-auto overflow-hidden bg-stone-100 p-6 dark:bg-gray-900 dark:text-white dark:border-4">
-          <h1 className="font-bold text-2xl">{product.title}</h1>
-          <div className="flex gap-4 text-green-600">
-            <h3>
-              {"⭐".repeat(product.rating)} ({product.rating})
-            </h3>
-            <p>{product.reviews.length} reviews</p>
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col gap-4 w-auto overflow-hidden bg-stone-100 p-6 dark:bg-gray-900 dark:text-white dark:border-4">
+            <h1 className="font-bold text-2xl">{product.title}</h1>
+            <div className="flex gap-4 text-green-600">
+              <h3>
+                {"⭐".repeat(product.rating)} ({product.rating})
+              </h3>
+              <p>{product.reviews.length} reviews</p>
+            </div>
+            <p>
+              <b>Price: </b>$ {product.price}
+            </p>
+            <p className="w-96 text-sm">{product.description}</p>
+            <div className="flex gap-10 text-sm">
+              <div className="flex flex-col gap-2">
+                <b>Category:</b>
+                <b>Brand:</b>
+                <b>Shipping:</b>
+                <b>Return:</b>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <p>{product.category}</p>
+                <p> {product.brand}</p>
+                <p> {product.shippingInformation}</p>
+                <p> {product.returnPolicy}</p>
+              </div>
+            </div>
+
+            <p className="text-red-600 text-sm">
+              Only {product.stock} Stocks Left!
+            </p>
+
+            <button
+              className="bg-blue-500 rounded-xl p-2 hover:text-stone-50 cursor-pointer w-1/2 m-4"
+              onClick={addCart}
+            >
+              Add to Cart
+            </button>
           </div>
-          <p>
-            <b>Price: </b>$ {product.price}
-          </p>
-          <p>
-            <b>Category:</b> {product.category}
-          </p>
-          <p>
-            <b>Brand: </b>
-            {product.brand}
-          </p>
-          <p className="text-red-600 text-sm">
-            Only {product.stock} Stocks Left!
-          </p>
-          <p className="w-96">
-            <b>Description:</b> {product.description}
-          </p>
         </div>
       </div>
     </>
