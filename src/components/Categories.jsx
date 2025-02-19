@@ -209,9 +209,11 @@ export default function Categories({ getProductsByCategory }) {
                           getProductsByCategory(category);
                         }}
                       >
-                        <h1 className="text-base font-mono text-center">
-                          {category}
-                        </h1>
+                        <a href="#products">
+                          <h1 className="text-base font-mono text-center">
+                            {category}
+                          </h1>
+                        </a>
                       </div>
                     ))}
                   </div>

@@ -15,7 +15,6 @@ const CartModal = forwardRef(function Modal({ title, actions, onClose }, ref) {
   });
 
   function handleClick(e) {
-    // console.log(e);
     const rect = e.target.getBoundingClientRect();
 
     const clickedInDialog =
