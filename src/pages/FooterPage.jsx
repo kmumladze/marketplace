@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 export default function FooterPage() {
   return (
     <footer className="bg-gray-900 text-white py-10">
@@ -13,12 +15,16 @@ export default function FooterPage() {
           <h3 className="text-xl font-medium mb-3">Quick Links</h3>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:text-gray-300">
-                About Us
-              </a>
+              <Link to="aboutus">
+                <p className="hover:text-gray-300">About Us</p>
+              </Link>
             </li>
+
+            {/* <li>
+              <a href="#">About Us</a>
+            </li> */}
             <li>
-              <a href="#" className="hover:text-gray-300">
+              <a href="#products" className="hover:text-gray-300">
                 Shop
               </a>
             </li>

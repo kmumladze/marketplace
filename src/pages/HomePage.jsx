@@ -9,6 +9,7 @@ import Header from "../components/Header.jsx";
 import Products from "../components/Products.jsx";
 import Categories from "../components/Categories.jsx";
 import FooterPage from "./FooterPage.jsx";
+import AboutUsPage from "./AboutUsPage.jsx";
 
 const LIMIT = 8;
 const TOTAL_ITEMS = 194;

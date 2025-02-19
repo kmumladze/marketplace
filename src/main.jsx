@@ -11,6 +11,7 @@ import UserDetailsPage from "./pages/UserDetailsPage.jsx";
 import LogInPage from "./pages/LogInPage.jsx";
 import { CartContext } from "./providers/CartProvider.js";
 import { UsersContext } from "./providers/UsersProvider.js";
+import AboutUsPage from "./pages/AboutUsPage.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -75,6 +76,7 @@ function Main() {
                 <Route path="blog/:id" element={<BlogDetails />} />
                 <Route path="users/:userId" element={<UserDetailsPage />} />
                 <Route path="login" element={<LogInPage />} />
+                <Route path="aboutus" element={<AboutUsPage />} />
               </Routes>
             </BrowserRouter>
           </CartContext.Provider>
