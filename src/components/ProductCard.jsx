@@ -3,26 +3,7 @@ import { useContext } from "react";
 import { CartContext } from "../providers/CartProvider.js";
 
 export default function ProductCard({ product }) {
-  const { cart, setCart } = useContext(CartContext);
-
-  // console.log(cart);
-
-  const addCart = () => {
-    const productId = product.id;
-
-    const isProduct = cart.find((pro) => pro.id === productId) !== undefined;
-
-    if (isProduct) {
-      const productIdx = cart.findIndex((product) => product.id === productId);
-      const cloneCart = [...cart];
-
-      cloneCart[productIdx].quantity += 1;
-
-      setCart(cloneCart);
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    }
-  };
+  const { addToCart } = useContext(CartContext);
 
   return (
     <div className="flex flex-col items-start w-56 cursor-pointer dark:border-4 border-gray-800 rounded-lg overflow-hidden p-3 shadow-2xl dark:shadow-slate-800">
@@ -42,7 +23,7 @@ export default function ProductCard({ product }) {
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            addCart();
+            addToCart(product);
           }}
         >
           <p>Add to Cart</p>

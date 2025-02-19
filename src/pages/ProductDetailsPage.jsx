@@ -7,7 +7,7 @@ import { CartContext } from "../providers/CartProvider.js";
 export default function ProductDetailsPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
-  const { cart, setCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   // console.log(cart);
 
   useEffect(() => {
@@ -33,23 +33,6 @@ export default function ProductDetailsPage() {
       </>
     );
   }
-
-  const addCart = () => {
-    const productId = product.id;
-
-    const isProduct = cart.find((pro) => pro.id === productId) !== undefined;
-
-    if (isProduct) {
-      const productIdx = cart.findIndex((product) => product.id === productId);
-      const cloneCart = [...cart];
-
-      cloneCart[productIdx].quantity += 1;
-
-      setCart(cloneCart);
-    } else {
-      setCart([...cart, { ...product, quantity: 1 }]);
-    }
-  };
 
   return (
     <>
@@ -103,7 +86,7 @@ export default function ProductDetailsPage() {
 
             <button
               className="bg-blue-500 rounded-xl p-2 hover:text-stone-50 cursor-pointer w-1/2 m-4"
-              onClick={addCart}
+              onClick={() => addToCart(product)}
             >
               Add to Cart
             </button>

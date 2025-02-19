@@ -18,6 +18,8 @@ function Main() {
   const [cart, setCart] = useState([]);
   const [users, setUsers] = useState([]);
 
+  console.log(cart);
+
   useEffect(() => {
     async function fetchUsers() {
       try {
@@ -30,6 +32,21 @@ function Main() {
     }
     fetchUsers();
   }, []);
+
+  const addToCart = (product) => {
+    const isProduct = cart.find((pro) => pro.id === product.id) !== undefined;
+
+    if (isProduct) {
+      const productIdx = cart.findIndex((product) => product.id === product.id);
+      const cloneCart = [...cart];
+
+      cloneCart[productIdx].quantity += 1;
+
+      setCart(cloneCart);
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
 
   return (
     <StrictMode>
@@ -44,6 +61,7 @@ function Main() {
             value={{
               cart,
               setCart,
+              addToCart,
             }}
           >
             <BrowserRouter>
