@@ -68,7 +68,6 @@ export default function HomePage() {
       <Header search={search} setSearch={setSearch} cart={cart} />
 
       <Categories getProductsByCategory={handleClick} />
-
       <Products
         products={filteredProducts}
         addToCart={addToCart}
