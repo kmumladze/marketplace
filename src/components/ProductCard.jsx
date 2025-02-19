@@ -39,7 +39,7 @@ export default function ProductCard({ product }) {
             addToCart(product);
           }}
         >
-          <p className="text-black">Add to Cart</p>
+          <p className="text-black dark:text-white">Add to Cart</p>
         </button>
       </div>
     </div>

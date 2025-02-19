@@ -1,5 +1,5 @@
 import { useState } from "react";
-import blueImg from "../assets/blue.jpg";
+import blueImg from "../assets/bluecover.jpg";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { NavLink, useNavigate } from "react-router";
 
@@ -141,7 +141,7 @@ export default function LogInPage() {
           </div>
 
           <button
-            className="mt-3 md:mt-4 bg-blue-500 text-white font-mono text-base md:text-lg py-2 rounded-xl w-full hover:bg-blue-700 transition"
+            className="mt-3 md:mt-4 bg-blue-600 text-white font-mono text-base md:text-lg py-2 rounded-xl w-full hover:bg-blue-700 transition"
             type="submit"
           >
             Log In

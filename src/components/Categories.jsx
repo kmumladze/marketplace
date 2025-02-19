@@ -43,7 +43,7 @@ export default function Categories({ getProductsByCategory }) {
   }, []);
 
   return (
-    <main className="bg-gray-200 flex justify-around items-center dark:bg-gray-900">
+    <main className="bg-blue-950 bg-opacity-15 flex justify-around items-center dark:bg-gray-900">
       {/*  */}
       <div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8 m-4">
         <Card className="col-span-12 sm:col-span-4 h-[300px]">
@@ -173,7 +173,7 @@ export default function Categories({ getProductsByCategory }) {
         <div className="flex flex-wrap gap-3 my-3">
           {sizes.map((size) => (
             <Button
-              className="flex flex-col items-center bg-stone-200 dark:bg-gray-800 p-6 rounded-xl shadow-lg w-72 text-medium hover:bg-gray-300 hover:transition-background"
+              className="flex flex-col items-center bg-stone-200 dark:bg-gray-700 p-6 rounded-xl shadow-lg w-72 text-medium hover:bg-gray-300 hover:transition-background"
               key={size}
               onPress={() => handleOpen(size)}
             >
@@ -186,7 +186,7 @@ export default function Categories({ getProductsByCategory }) {
 
         <div className="w-full">
           <Link to="/blog">
-            <h3 className="flex flex-col items-center bg-stone-200 dark:bg-gray-800 dark:text-white p-2 rounded-xl shadow-lg w-72 hover:bg-gray-300 hover:transition-background">
+            <h3 className="flex flex-col items-center bg-stone-200 dark:bg-gray-700 dark:text-white p-2 rounded-xl shadow-lg w-72 hover:bg-gray-300 hover:transition-background">
               Blog
             </h3>
           </Link>
