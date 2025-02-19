@@ -43,7 +43,7 @@ export default function Categories({ getProductsByCategory }) {
   }, []);
 
   return (
-    <main className="bg-gray-100 flex justify-around items-center dark:bg-gray-900">
+    <main className="bg-gray-200 flex justify-around items-center dark:bg-gray-900">
       {/*  */}
       <div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8 m-4">
         <Card className="col-span-12 sm:col-span-4 h-[300px]">

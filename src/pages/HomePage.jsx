@@ -75,7 +75,7 @@ export default function HomePage() {
         setSort={handleSortClick}
       />
       <Pagination
-        className="bg-gray-200 flex justify-center dark:bg-gray-900 py-10 w-full rounded-lg shadow-md items-center gap-2"
+        className="bg-gray-300 flex justify-center dark:bg-gray-900 py-10 w-full rounded-lg shadow-md items-center gap-2"
         page={currentPage}
         total={TOTAL_PAGES}
         onChange={setCurrentPage}
