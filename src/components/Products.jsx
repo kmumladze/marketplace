@@ -33,10 +33,10 @@ export default function Products({ products, setSort }) {
   }
 
   return (
-    <main className="bg-gray-300 flex flex-col justify-around items-center min-h-screen dark:bg-gray-900 dark:text-white">
+    <main className="bg-gray-3a00 flex flex-col justify-around items-center min-h-screen dark:bg-gray-900 dark:text-white">
       <div className="flex justify-around w-full items-center">
         <h1 className="font-bold text-2xl">Products For You!</h1>
-        <div className="flex justify-center m-5">
+        <div className="flex justify-center m-5 z-0">
           <Dropdown>
             <DropdownTrigger>
               <Button className="capitalize" variant="bordered">
