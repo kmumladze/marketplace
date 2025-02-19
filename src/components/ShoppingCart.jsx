@@ -34,10 +34,15 @@ export default function ShoppingCart() {
               key={index}
               className="flex items-center gap-2 p-3 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
             >
-              <p className="font-bold">{product.title}</p>
-              <p className="font-bold font-mono w-16 text-center">
-                ${product.price}
-              </p>
+              <div className="flex items-center justify-between w-full">
+                <div className="flex items-center">
+                  <img className="w-14" src={product.thumbnail} alt="" />
+                  <p className="font-bold">{product.title}</p>
+                </div>
+                <p className="font-bold font-mono w-16 text-center mx-4">
+                  ${product.price}
+                </p>
+              </div>
 
               <div className="flex items-center gap-1 bg-stone-200 rounded-xl p-2">
                 <button
