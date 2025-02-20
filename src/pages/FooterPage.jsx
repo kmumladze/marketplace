@@ -42,25 +42,34 @@ export default function FooterPage() {
         <div>
           <h3 className="text-xl font-medium mb-3">Customer Service</h3>
           <ul className="space-y-2">
-            <li>
+            {/* <li>
               <a href="#" className="hover:text-gray-300">
                 Shipping & Returns
               </a>
-            </li>
+            </li> */}
             <li>
-              <a href="#" className="hover:text-gray-300">
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                className="hover:text-gray-300"
+              >
                 Privacy Policy
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">
+              <a
+                href="https://policies.google.com/terms"
+                target="_blank"
+                className="hover:text-gray-300"
+              >
                 Terms & Conditions
               </a>
             </li>
+
             <li>
-              <a href="#" className="hover:text-gray-300">
-                Help Center
-              </a>
+              <Link to="contactUs">
+                <p className="hover:text-gray-300">Help Center</p>
+              </Link>
             </li>
           </ul>
         </div>

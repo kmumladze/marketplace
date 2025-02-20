@@ -35,7 +35,7 @@ export default function Products({ products, setSort }) {
   return (
     <main
       id="products"
-      className="bg-gray-3a00 flex flex-col justify-around items-center min-h-screen dark:bg-gray-900 dark:text-white"
+      className="bg-gray-300 flex flex-col justify-around items-center min-h-screen dark:bg-gray-900 dark:text-white"
     >
       <div className="flex justify-around w-full items-center">
         <h1 className="font-bold text-2xl">Products For You!</h1>
