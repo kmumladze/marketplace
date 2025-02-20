@@ -22,10 +22,36 @@ export default function Header({ setSearch, search }) {
 
   useEffect(() => {
     // TODO: replace with Get current auth user
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
+
+    async function fetchUser() {
+      try {
+        const token = localStorage.getItem("token");
+        // TODO: replace with Get current auth user
+        /* providing accessToken in bearer */
+        if (!token) {
+          return;
+        }
+
+        fetch("https://dummyjson.com/auth/me", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`, // Pass JWT via Authorization header
+          },
+        })
+          .then((res) => res.json())
+          .then((res) => {
+            console.log(res);
+            setUser(res);
+          });
+
+        const storedToken = localStorage.getItem("token");
+        if (!storedToken) return;
+        setUser(JSON.parse(storedToken));
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     }
+    fetchUser();
   }, []);
 
   const cartQuantity = cart.length;
