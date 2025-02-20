@@ -15,7 +15,7 @@ export default function FooterPage() {
           <h3 className="text-xl font-medium mb-3">Quick Links</h3>
           <ul className="space-y-2">
             <li>
-              <Link to="aboutus">
+              <Link to="/aboutus">
                 <p className="hover:text-gray-300">About Us</p>
               </Link>
             </li>
@@ -27,12 +27,12 @@ export default function FooterPage() {
             </li>
 
             <li>
-              <Link to="contactUs">
+              <Link to="/contactUs">
                 <p className="hover:text-gray-300">Contact</p>
               </Link>
             </li>
             <li>
-              <Link to="FaQ">
+              <Link to="/FaQ">
                 <p className="hover:text-gray-300">FaQs</p>
               </Link>
             </li>
@@ -67,7 +67,7 @@ export default function FooterPage() {
             </li>
 
             <li>
-              <Link to="contactUs">
+              <Link to="/contactUs">
                 <p className="hover:text-gray-300">Help Center</p>
               </Link>
             </li>
