@@ -21,6 +21,7 @@ export default function Header({ setSearch, search }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
+    // TODO: replace with Get current auth user
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
       setUser(JSON.parse(storedUser));

@@ -9,50 +9,30 @@ export default function LogInPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
-  const usenavigate = useNavigate();
+  const navigate = useNavigate();
 
   function ProceedLogin(e) {
     e.preventDefault();
     if (validate()) {
       console.log("proceeding with login...");
 
-      fetch("https://dummyjson.com/users")
+      fetch("https://dummyjson.com/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: userName,
+          password: password,
+        }),
+      })
         .then((res) => res.json())
-        .then((resp) => {
-          console.log(resp);
+        .then((res) => {
+          console.log(res);
 
-          if (!resp.users || resp.users.length === 0) {
-            console.log("No users found");
-            return;
-          }
+          const token = res.accessToken;
 
-          const foundUser = resp.users.find(
-            (user) => user.username === userName
-          );
+          localStorage.setItem("token", token);
 
-          if (!foundUser) {
-            console.log("Invalid username");
-            Swal.fire({
-              icon: "error",
-              title: "Login Failed",
-              text: "Your username or password is incorrect. ",
-              footer: '<a href="#">Please try again.</a>',
-            });
-          } else if (foundUser.password !== password) {
-            Swal.fire({
-              icon: "error",
-              title: "Login Failed",
-              text: "Your username or password is incorrect. Please try again.",
-              footer: '<a href="#">Why do I have this issue?</a>',
-            });
-            console.log("Invalid password");
-          } else {
-            console.log("You logged in successfully");
-
-            localStorage.setItem("user", JSON.stringify(foundUser));
-
-            usenavigate("/");
-          }
+          navigate("/");
         })
         .catch((err) => {
           Swal.fire({

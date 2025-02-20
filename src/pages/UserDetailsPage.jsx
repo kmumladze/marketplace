@@ -10,6 +10,7 @@ export default function UserDetailsPage() {
   useEffect(() => {
     async function fetchUser() {
       try {
+        // TODO: replace with Get current auth user
         const response = await fetch(`https://dummyjson.com/users/${userId}`);
         const resData = await response.json();
         console.log(resData);
