@@ -20,18 +20,16 @@ export default function FooterPage() {
               </Link>
             </li>
 
-            {/* <li>
-              <a href="#">About Us</a>
-            </li> */}
             <li>
-              <a href="#products" className="hover:text-gray-300">
+              <a href="/" className="hover:text-gray-300">
                 Shop
               </a>
             </li>
+
             <li>
-              <a href="#" className="hover:text-gray-300">
-                Contact
-              </a>
+              <Link to="contactUs">
+                <p className="hover:text-gray-300">Contact</p>
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:text-gray-300">
