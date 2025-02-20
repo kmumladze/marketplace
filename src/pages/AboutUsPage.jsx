@@ -15,8 +15,8 @@ export default function AboutUsPage() {
   return (
     <main>
       <Header />
-      <div className="flex flex-col md:flex-row items-center justify-between min-h-screen px-8 py-16 bg-gray-100 min-h-screen">
-        <div className="max-w-xl text-center md:text-left mt-28">
+      <div className="flex flex-col md:flex-row items-center justify-between px-8 py-16 bg-gray-100 min-h-screen">
+        <div className="max-w-xl text-center md:text-left">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">About Us</h1>
           <AnimateHeight duration={500} height={height}>
             <div className="flex flex-col gap-3">

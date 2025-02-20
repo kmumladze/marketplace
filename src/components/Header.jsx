@@ -57,7 +57,7 @@ export default function Header({ setSearch, search }) {
   return (
     <>
       <CartModal ref={modal} title="Your Cart" actions={modalActions} />
-      <header className="bg-gray-900 text-white py-4 fixed w-full z-10">
+      <header className="bg-gray-900 text-white py-4 w-full z-10">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6">
           <NavLink to="/">
             <div className="flex items-center gap-3 mt-4 mb-6 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-700">

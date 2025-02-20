@@ -13,6 +13,7 @@ import { CartContext } from "./providers/CartProvider.js";
 import { UsersContext } from "./providers/UsersProvider.js";
 import AboutUsPage from "./pages/AboutUsPage.jsx";
 import ContactUsPage from "./pages/ContactUsPage.jsx";
+import FaQPage from "./pages/FAQPage.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -79,6 +80,7 @@ function Main() {
                 <Route path="login" element={<LogInPage />} />
                 <Route path="aboutus" element={<AboutUsPage />} />
                 <Route path="contactus" element={<ContactUsPage />} />
+                <Route path="FaQ" element={<FaQPage />} />
               </Routes>
             </BrowserRouter>
           </CartContext.Provider>

@@ -6,7 +6,7 @@ export default function ContactUsPage() {
     <>
       <Header />
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-12">
-        <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 mt-52">
+        <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8">
           <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">
             Contact Us
           </h1>

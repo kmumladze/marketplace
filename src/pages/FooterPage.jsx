@@ -32,9 +32,9 @@ export default function FooterPage() {
               </Link>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-300">
-                FAQs
-              </a>
+              <Link to="FaQ">
+                <p className="hover:text-gray-300">FaQs</p>
+              </Link>
             </li>
           </ul>
         </div>
