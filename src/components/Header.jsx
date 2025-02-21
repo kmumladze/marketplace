@@ -130,14 +130,14 @@ export default function Header({ setSearch, search }) {
           <input
             type="text"
             placeholder="Search products..."
-            className="w-72 px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 hidden sm:block"
+            className="w-72 px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 hidden md:block md:w-auto"
             onChange={(element) => setSearch(element.target.value)}
             value={search}
           />
 
           {/*  */}
           <button
-            className="p-2 rounded-full transition bg-gray-500 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+            className="hidden md:p-2 rounded-full transition bg-gray-500 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
             onClick={() => darkModeHandler()}
           >
             {
@@ -151,11 +151,11 @@ export default function Header({ setSearch, search }) {
           </button>
 
           {/*  */}
-          <div className="flex justify-center items-center gap-3 w-9 mt-4 md:mt-0">
-            <button>
+          <div className="md:flex md:justify-center items-center gap-3 w-9 mt-4 md:w-auto">
+            <button className="md:flex hidden">
               <TiMessages size={32} />
             </button>
-            <button>
+            <button className="hidden md:flex">
               <FaRegHeart size={32} />
             </button>
             <button className="relative" onClick={handleOpenCartClick}>
@@ -167,6 +167,10 @@ export default function Header({ setSearch, search }) {
               )}
             </button>
           </div>
+
+          {/*  */}
+
+          {/*  */}
 
           {user ? (
             <div className="flex items-center gap-3 p-2 border border-blue-500 rounded-lg md:mt-0 dark:bg-gray-700">

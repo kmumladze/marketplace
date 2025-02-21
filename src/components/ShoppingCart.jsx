@@ -24,7 +24,7 @@ export default function ShoppingCart() {
   const formattedPrice = `$${totalPrice.toFixed(2)}`;
 
   return (
-    <div className="flex flex-col p-4">
+    <div className="flex flex-col p-4 md:p-6 max-w-2xl mx-auto">
       {cart.length === 0 ? (
         <p>No items in cart</p>
       ) : (
@@ -32,12 +32,16 @@ export default function ShoppingCart() {
           {cart.map((product, index) => (
             <li
               key={index}
-              className="flex items-center gap-2 p-3 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
+              className="flex flex-col md:flex-row items-center gap-2 p-3 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
             >
-              <div className="flex items-center justify-between w-full">
+              <div className="flex flex-col md:flex-row items-center justify-between w-full">
                 <div className="flex items-center">
-                  <img className="w-14" src={product.thumbnail} alt="" />
-                  <p className="font-bold">{product.title}</p>
+                  <img
+                    className="w-14 md:w-16"
+                    src={product.thumbnail}
+                    alt=""
+                  />
+                  <p className="font-bold md:ml-2">{product.title}</p>
                 </div>
                 <p className="font-bold font-mono w-16 text-center mx-4">
                   ${product.price}
@@ -63,7 +67,7 @@ export default function ShoppingCart() {
           ))}
         </ul>
       )}
-      <p className="text-right mt-2">
+      <p className="text-right mt-2 text-lg md:text-xl">
         Cart Total: <strong>{formattedPrice}</strong>
       </p>
     </div>

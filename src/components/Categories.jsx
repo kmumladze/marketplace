@@ -43,10 +43,10 @@ export default function Categories({ getProductsByCategory }) {
   }, []);
 
   return (
-    <main className="bg-blue-950 bg-opacity-15 flex justify-around items-center dark:bg-gray-900">
+    <main className="bg-blue-950 bg-opacity-15 flex md:flex-row md:justify-around items-center dark:bg-gray-900 flex-col">
       {/*  */}
-      <div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8 m-10">
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
+      <div className="lg:justify-center max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8 md:px-8 m-5 md:m-10">
+        <Card className="col-span-12 md:col-span-6 lg:col-span-4 h-[300px]">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <p className="text-tiny text-white/60 uppercase font-bold">
               What to watch
@@ -63,7 +63,7 @@ export default function Categories({ getProductsByCategory }) {
           />
         </Card>
 
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
+        <Card className="col-span-12 md:col-span-6 lg:col-span-4 h-[300px]">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <p className="text-tiny text-white/60 uppercase font-bold">
               Plant a tree
@@ -79,7 +79,7 @@ export default function Categories({ getProductsByCategory }) {
             src="https://heroui.com/images/card-example-3.jpeg"
           />
         </Card>
-        <Card className="col-span-12 sm:col-span-4 h-[300px]">
+        <Card className="col-span-12 md:col-span-6 lg:col-span-4 h-[300px]">
           <CardHeader className="absolute z-10 top-1 flex-col !items-start">
             <p className="text-tiny text-white/60 uppercase font-bold">
               Supercharged
@@ -97,7 +97,7 @@ export default function Categories({ getProductsByCategory }) {
         </Card>
         <Card
           isFooterBlurred
-          className="w-full h-[300px] col-span-12 sm:col-span-5"
+          className="col-span-12 md:col-span-6 lg:col-span-5 h-[300px]"
         >
           <CardHeader className="absolute z-10 top-1 flex-col items-start">
             <p className="text-tiny text-white/60 uppercase font-bold">New</p>
@@ -126,7 +126,7 @@ export default function Categories({ getProductsByCategory }) {
         </Card>
         <Card
           isFooterBlurred
-          className="w-full h-[300px] col-span-12 sm:col-span-7"
+          className="col-span-12 md:col-span-6 lg:col-span-7 h-[300px]"
         >
           <CardHeader className="absolute z-10 top-1 flex-col items-start">
             <p className="text-tiny text-white/60 uppercase font-bold">
@@ -165,7 +165,7 @@ export default function Categories({ getProductsByCategory }) {
 
       {/*  */}
 
-      <div className="flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg w-80">
+      <div className="mb-4 md:mb-0 flex flex-col items-center bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg w-80">
         <h2 className="text-xl font-semibold mb-4 text-gray-700 dark:text-white">
           Explore
         </h2>

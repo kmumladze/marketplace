@@ -37,7 +37,7 @@ export default function BlogPage() {
       <Header />
 
       <div className="flex justify-center">
-        <div className="grid grid-cols-3 m-4 gap-5 dark:bg-gray-900 dark:text-white">
+        <div className="grid grid-cols-2 md:grid-cols-3 m-4 gap-5 dark:bg-gray-900 dark:text-white">
           {blogs.map((blog, index) => (
             <BlogCard blog={blog} key={index} />
           ))}
