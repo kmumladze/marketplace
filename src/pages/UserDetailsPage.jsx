@@ -30,7 +30,7 @@ export default function UserDetailsPage() {
       <Header />
       <main className="min-h-screen flex flex-col gap-4 items-center">
         <h1 className="font-bold text-xl mt-7">My Profile</h1>
-        <div className="flex">
+        <div className="flex w-full justify-center">
           <div className="flex items-center gap-4 max-w-4xl w-full bg-white shadow-2xl rounded-lg p-8">
             <div>
               <Avatar isBordered src={user.image} className="w-16 h-16" />

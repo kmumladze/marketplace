@@ -38,10 +38,13 @@ export default function BlogCard({ blog }) {
         <div className="flex gap-5">
           <Avatar isBordered radius="full" size="md" src={author?.image} />
           <div className="flex flex-col gap-1 items-start justify-center">
-            <h4 className="text-small font-semibold leading-none text-default-600">
-              {author?.firstName}
-              {author?.lastName}
-            </h4>
+            <Link to={`/users/${blog.userId}`}>
+              <h4 className="text-small font-semibold leading-none text-default-600">
+                {author?.firstName}
+                {author?.lastName}
+              </h4>
+            </Link>
+
             <h5 className="text-small tracking-tight text-default-400">
               @{author?.username}
             </h5>
