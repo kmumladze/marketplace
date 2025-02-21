@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import Header from "../components/Header.jsx";
 import Reviews from "../components/Reviews.jsx";
 import { CartContext } from "../providers/CartProvider.js";
+import FooterPage from "./FooterPage.jsx";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
@@ -93,6 +94,7 @@ export default function ProductDetailsPage() {
           </div>
         </div>
       </div>
+      <FooterPage />
     </>
   );
 }

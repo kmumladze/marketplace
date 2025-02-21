@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import Header from "../components/Header.jsx";
 import BlogCard from "../components/BlogCard.jsx";
+import FooterPage from "./FooterPage.jsx";
 
 export default function BlogPage() {
   const [curPage, setCurPage] = useState(1);
@@ -51,6 +52,7 @@ export default function BlogPage() {
           </div>
         </div>
       </div>
+      <FooterPage />
     </div>
   );
 }

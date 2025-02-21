@@ -68,7 +68,7 @@ export default function Products({ products, setSort }) {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-5">
         {products.length === 0 && (
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center w-full col-span-2 md:col-span-4 min-h-[200px]">
             <p>No exact matches found</p>
             <p>Try searching for something else instead? </p>
           </div>

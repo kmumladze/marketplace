@@ -21,33 +21,65 @@ export default function Header({ setSearch, search }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // TODO: replace with Get current auth user
-
     async function fetchUser() {
       try {
-        const token = localStorage.getItem("token");
-        // TODO: replace with Get current auth user
-        /* providing accessToken in bearer */
-        if (!token) {
+        const accessToken = localStorage.getItem("accessToken");
+        if (!accessToken) {
           return;
         }
 
-        fetch("https://dummyjson.com/auth/me", {
+        const response = await fetch("https://dummyjson.com/auth/me", {
           method: "GET",
           headers: {
-            Authorization: `Bearer ${token}`, // Pass JWT via Authorization header
+            Authorization: `Bearer ${accessToken}`, // Pass JWT via Authorization header
           },
-        })
-          .then((res) => res.json())
-          .then((res) => {
-            console.log(res);
-            setUser(res);
+        });
+
+        const userResponse = await response.json();
+
+        if (userResponse.message === "Token Expired!") {
+          console.log("ReFRESH");
+
+          const refreshToken = localStorage.getItem("refreshToken");
+
+          if (!refreshToken) {
+            setUser(null);
+            return;
+          }
+
+          const refreshResponse = await fetch(
+            "https://dummyjson.com/auth/refresh",
+            {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({
+                refreshToken: refreshToken,
+              }),
+            }
+          );
+          const refreshTokenResponse = await refreshResponse.json();
+          localStorage.setItem(
+            "refreshToken",
+            refreshTokenResponse.refreshToken
+          );
+          localStorage.setItem("accessToken", refreshTokenResponse.accessToken);
+
+          const newUserResponse = await fetch("https://dummyjson.com/auth/me", {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${refreshTokenResponse.accessToken}`, // Pass JWT via Authorization header
+            },
           });
 
-        const storedToken = localStorage.getItem("token");
-        if (!storedToken) return;
-        setUser(JSON.parse(storedToken));
+          const newUser = await newUserResponse.json();
+
+          setUser(newUser);
+        } else {
+          setUser(userResponse);
+        }
       } catch (error) {
+        console.log(error);
+
         console.error("Error fetching data:", error);
       }
     }
@@ -72,7 +104,7 @@ export default function Header({ setSearch, search }) {
   }
 
   const handleLogout = () => {
-    localStorage.removeItem("user");
+    localStorage.removeItem("accessToken");
     setUser(null);
   };
 

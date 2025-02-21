@@ -26,11 +26,8 @@ export default function LogInPage() {
       })
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
-
-          const token = res.accessToken;
-
-          localStorage.setItem("token", token);
+          localStorage.setItem("accessToken", res.accessToken);
+          localStorage.setItem("refreshToken", res.refreshToken);
 
           navigate("/");
         })
