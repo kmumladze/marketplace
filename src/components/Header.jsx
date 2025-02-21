@@ -168,10 +168,6 @@ export default function Header({ setSearch, search }) {
             </button>
           </div>
 
-          {/*  */}
-
-          {/*  */}
-
           {user ? (
             <div className="flex items-center gap-3 p-2 border border-blue-500 rounded-lg md:mt-0 dark:bg-gray-700">
               <Link

@@ -4,7 +4,7 @@ import { CartContext } from "../providers/CartProvider.js";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
-  const [isCart, setIsCart] = useState(false);
+  const [isAddedCart, setIsAddedCart] = useState(false);
 
   return (
     <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2">
@@ -33,17 +33,22 @@ export default function ProductCard({ product }) {
         </div>
 
         <button
-          className={`rounded-3xl px-3 py-2 border-gray-400 text-gray-500 text-sm border-2 cursor-pointer hover:text-white hover:bg-blue-400 hover:border-blue-400 transition w-1/2 ${
-            isCart ? "bg-blue-400 border-blue-400" : ""
+          className={`rounded-3xl px-3 py-2 border-gray-400 text-gray-500 text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:text-white hover:bg-blue-400 hover:border-blue-400 transition w-1/2 ${
+            isAddedCart ? "bg-blue-400 border-blue-400" : ""
           }`}
+          disabled={isAddedCart}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
             addToCart(product);
-            setIsCart((prev) => !prev);
+            setIsAddedCart((prev) => !prev);
+
+            setTimeout(() => {
+              setIsAddedCart(false);
+            }, 1000);
           }}
         >
-          {isCart ? "Added" : "Add to Cart"}
+          {isAddedCart ? "Added" : "Add to Cart"}
         </button>
       </div>
     </div>
