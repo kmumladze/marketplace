@@ -1,49 +1,34 @@
 import { useEffect, useState } from "react";
-
-import {
-  Pagination,
-  PaginationItem,
-  PaginationCursor,
-} from "@heroui/pagination";
+import { Pagination } from "@heroui/pagination";
 import Header from "../components/Header.jsx";
 import Products from "../components/Products.jsx";
 import Categories from "../components/Categories.jsx";
 import FooterPage from "./FooterPage.jsx";
-import AboutUsPage from "./AboutUsPage.jsx";
-
-const LIMIT = 8;
-const TOTAL_ITEMS = 194;
-const TOTAL_PAGES = Math.ceil(TOTAL_ITEMS / LIMIT);
+import {
+  fetchProducts,
+  LIMIT,
+  EMPTY_PRODUCTS,
+} from "../utils/fetchProducts.js";
 
 export default function HomePage() {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(EMPTY_PRODUCTS);
   const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState(null);
 
   useEffect(() => {
-    async function fetchProducts() {
-      const currentSkip = (currentPage - 1) * LIMIT;
-
-      try {
-        const response = await fetch(
-          `https://dummyjson.com/products?limit=${LIMIT}&skip=${currentSkip}${
-            sort !== null ? `&sortBy=price&order=${sort}` : ""
-          }`
-        );
-        const resData = await response.json();
-        setProducts(resData.products);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-    fetchProducts();
+    fetchProducts({ page: currentPage, search, sort }).then((prods) =>
+      setProducts(prods)
+    );
   }, [currentPage, sort]);
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
-  );
+  useEffect(() => {
+    setCurrentPage(1);
+    fetchProducts({ search, sort, page: 1 }).then((prods) =>
+      setProducts(prods)
+    );
+  }, [search]);
 
   async function handleClick(category) {
     try {
@@ -71,14 +56,14 @@ export default function HomePage() {
 
       <Categories getProductsByCategory={handleClick} />
       <Products
-        products={filteredProducts}
+        products={products.products}
         addToCart={addToCart}
         setSort={handleSortClick}
       />
       <Pagination
         className="bg-gray-300 flex justify-center dark:bg-gray-900 py-10 w-full rounded-lg shadow-md items-center gap-2"
         page={currentPage}
-        total={TOTAL_PAGES}
+        total={Math.ceil(products.total / LIMIT)}
         onChange={setCurrentPage}
       />
       <FooterPage />
