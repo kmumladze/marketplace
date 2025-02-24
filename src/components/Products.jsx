@@ -35,9 +35,9 @@ export default function Products({ products, setSort, setSearch, search }) {
   return (
     <main
       id="products"
-      className="bg-gray-300 flex flex-col justify-around items-center min-h-screen dark:bg-gray-900 dark:text-white"
+      className="bg-gray-300 flex flex-col items-center min-h-screen dark:bg-gray-900 dark:text-white w-full"
     >
-      <div className="flex flex-col md:flex-row justify-around w-full items-center gap-4 md:gap-8 p-4">
+      <div className="flex flex-col md:flex-row justify-between p-16 w-full items-center gap-4 md:gap-8">
         <h1 className="font-bold text-2xl text-center md:text-left">
           Products For You!
         </h1>
@@ -80,7 +80,7 @@ export default function Products({ products, setSort, setSearch, search }) {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 p-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full place-items-center">
         {products.length === 0 && (
           <div className="flex flex-col justify-center items-center w-full col-span-2 md:col-span-4 min-h-[200px]">
             <p>No exact matches found</p>
