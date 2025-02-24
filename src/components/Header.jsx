@@ -84,7 +84,6 @@ export default function Header() {
     fetchUser();
   }, []);
 
-  //TOD: reduce sum (item.quantity)
   const cartQuantity = cart.reduce((prevValue, currValue) => {
     return prevValue + currValue.quantity;
   }, 0);
@@ -118,45 +117,52 @@ export default function Header() {
   return (
     <>
       <CartModal ref={modal} title="Your Cart" actions={modalActions} />
-      <header className="bg-gray-900 text-white py-4 w-full z-10">
+      <header className="text-black py-4 w-full z-10">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6">
           <NavLink to="/">
             <div className="flex items-center gap-3 mt-4 mb-6 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer dark:bg-gray-700">
               <HiOutlineShoppingBag size={32} className="text-blue-500" />
-              <h3 className="text-2xl font-semibold dark:text-white">
+              <h3 className="text-xl font-semibold dark:text-white">
                 Marketplace
               </h3>
             </div>
           </NavLink>
 
-          {/* <input
-            type="text"
-            placeholder="Search products..."
-            className="w-72 px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 hidden md:block md:w-auto"
-            onChange={(element) => setSearch(element.target.value)}
-            value={search}
-          /> */}
+          <ul className="flex gap-5">
+            <Link>
+              <li>Home</li>
+            </Link>
+            <Link>
+              <li>Shop</li>
+            </Link>
+            <Link>
+              <li>About Us</li>
+            </Link>
+            <Link>
+              <li>Blog</li>
+            </Link>
+            <Link>
+              <li>Contact Us</li>
+            </Link>
+          </ul>
 
-          {/*  */}
-          <button
-            className="hidden md:p-2 rounded-full transition bg-gray-500 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
-            onClick={() => darkModeHandler()}
-          >
-            {
-              dark && <IoSunnyOutline className="text-yellow-500 text-xl" /> // render sunny when dark is true
-            }
-            {
-              !dark && (
-                <FaRegMoon className="text-gray-800 dark:text-gray-300 text-xl" />
-              ) // render moon when dark is false
-            }
-          </button>
-
-          {/*  */}
           <div className="flex md:justify-center items-center gap-3 w-9 mt-4 md:w-auto">
-            <button className="md:flex ">
-              <TiMessages size={32} />
+            <button
+              className="md:p-2 rounded-full transition bg-gray-300 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600"
+              onClick={() => darkModeHandler()}
+            >
+              {
+                dark && <IoSunnyOutline className="text-yellow-500 text-xl" /> // render sunny when dark is true
+              }
+              {
+                !dark && (
+                  <FaRegMoon className="text-gray-800 dark:text-gray-300 text-xl" />
+                ) // render moon when dark is false
+              }
             </button>
+            {/* <button className="md:flex ">
+              <TiMessages size={32} />
+            </button> */}
             <button className=" md:flex">
               <FaRegHeart size={32} />
             </button>
@@ -168,37 +174,40 @@ export default function Header() {
                 </span>
               )}
             </button>
-          </div>
 
-          {user ? (
-            <div className="flex items-center gap-3 p-2 border border-blue-500 rounded-lg md:mt-0 dark:bg-gray-700">
-              <Link
-                to={`/users/${user.id}`}
-                className="flex items-center gap-2"
-              >
-                <div className="flex gap-2">
-                  <img
-                    className="w-6 h-6 rounded-full"
-                    src={user.image}
-                    alt="user image"
-                  />
-                  <h3>{user.username}</h3>
+            {user ? (
+              <div className="flex items-center gap-3 p-2 border border-blue-500 rounded-lg md:mt-0 dark:bg-gray-700">
+                <Link
+                  to={`/users/${user.id}`}
+                  className="flex items-center gap-2"
+                >
+                  <div className="flex gap-2">
+                    <img
+                      className="w-6 h-6 rounded-full"
+                      src={user.image}
+                      alt="user image"
+                    />
+                    <h3>{user.username}</h3>
+                  </div>
+                </Link>
+                <Link to="/login">
+                  <button
+                    className="text-red-500 text-sm"
+                    onClick={handleLogout}
+                  >
+                    Log Out
+                  </button>
+                </Link>
+              </div>
+            ) : (
+              <Link to="/login">
+                <div className="flex items-center gap-3 p-2 border border-blue-500 rounded-lg hover:border-blue-700 cursor-pointer md:mt-0 dark:bg-gray-700">
+                  <FaRegUser />
+                  <h3>Log In</h3>
                 </div>
               </Link>
-              <Link to="/login">
-                <button className="text-red-500 text-sm" onClick={handleLogout}>
-                  Log Out
-                </button>
-              </Link>
-            </div>
-          ) : (
-            <Link to="/login">
-              <div className="flex items-center gap-3 p-2 border border-blue-500 rounded-lg hover:border-blue-700 cursor-pointer md:mt-0 dark:bg-gray-700">
-                <FaRegUser />
-                <h3>Log In</h3>
-              </div>
-            </Link>
-          )}
+            )}
+          </div>
         </div>
       </header>
     </>
