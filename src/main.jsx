@@ -40,7 +40,7 @@ function Main() {
     const isProduct = cart.find((pro) => pro.id === product.id) !== undefined;
 
     if (isProduct) {
-      const productIdx = cart.findIndex((product) => product.id === product.id);
+      const productIdx = cart.findIndex((prod) => prod.id === product.id);
       const cloneCart = [...cart];
 
       cloneCart[productIdx].quantity += 1;

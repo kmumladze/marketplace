@@ -84,7 +84,11 @@ export default function Header({ setSearch, search }) {
     fetchUser();
   }, []);
 
-  const cartQuantity = cart.length;
+  //TOD: reduce sum (item.quantity)
+  const cartQuantity = cart.reduce((prevValue, currValue) => {
+    return prevValue + currValue.quantity;
+  }, 0);
+  console.log(cart);
 
   function handleOpenCartClick() {
     modal.current.open();
@@ -158,9 +162,9 @@ export default function Header({ setSearch, search }) {
             </button>
             <button className="relative" onClick={handleOpenCartClick}>
               <HiOutlineShoppingBag size={32} />
-              {cart.length > 0 && (
+              {cartQuantity > 0 && (
                 <span className="absolute -top-1 -right-2 bg-red-500 w-5 h-5 flex items-center justify-center text-xs rounded-full">
-                  {cart.length}
+                  {cartQuantity}
                 </span>
               )}
             </button>
