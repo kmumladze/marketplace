@@ -153,11 +153,11 @@ export default function Header() {
           </button>
 
           {/*  */}
-          <div className="md:flex md:justify-center items-center gap-3 w-9 mt-4 md:w-auto">
-            <button className="md:flex hidden">
+          <div className="flex md:justify-center items-center gap-3 w-9 mt-4 md:w-auto">
+            <button className="md:flex ">
               <TiMessages size={32} />
             </button>
-            <button className="hidden md:flex">
+            <button className=" md:flex">
               <FaRegHeart size={32} />
             </button>
             <button className="relative" onClick={handleOpenCartClick}>

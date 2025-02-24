@@ -36,7 +36,7 @@ export default function HomePage() {
         `https://dummyjson.com/products/category/${category}`
       );
       const resData = await response.json();
-      setProducts(resData.products);
+      setProducts(resData);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
