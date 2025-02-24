@@ -28,7 +28,7 @@ export default function HomePage() {
     fetchProducts({ search, sort, page: 1 }).then((prods) =>
       setProducts(prods)
     );
-  }, [search]);
+  }, [search]); //reset skip. always start with first page
 
   async function handleClick(category) {
     try {
