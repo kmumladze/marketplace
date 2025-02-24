@@ -8,37 +8,40 @@ import Swal from "sweetalert2";
 export default function LogInPage() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
 
-  function ProceedLogin(e) {
+  async function ProceedLogin(e) {
     e.preventDefault();
-    if (validate()) {
-      console.log("proceeding with login...");
 
-      fetch("https://dummyjson.com/auth/login", {
+    if (!validate()) return;
+    console.log("proceeding with login...");
+
+    try {
+      const response = await fetch("https://dummyjson.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           username: userName,
           password: password,
         }),
-      })
-        .then((res) => res.json())
-        .then((res) => {
-          localStorage.setItem("accessToken", res.accessToken);
-          localStorage.setItem("refreshToken", res.refreshToken);
+      });
 
-          navigate("/");
-        })
-        .catch((err) => {
-          Swal.fire({
-            icon: "error",
-            title: "Login Failed",
-            text: `due to:  ${err.message}`,
-            footer: '<a href="#">Why do I have this issue?</a>',
-          });
-        });
+      const res = await response.json();
+
+      if (!res.accessToken || !res.refreshToken) {
+        throw new Error("Invalid credentials");
+      }
+      localStorage.setItem("accessToken", res.accessToken);
+      localStorage.setItem("refreshToken", res.refreshToken);
+
+      navigate("/");
+    } catch (err) {
+      Swal.fire({
+        icon: "error",
+        title: "Login Failed",
+        text: `due to:  ${err.message}`,
+        footer: '<a href="#">Why do I have this issue?</a>',
+      });
     }
   }
 

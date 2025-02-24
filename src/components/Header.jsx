@@ -38,8 +38,6 @@ export default function Header({ setSearch, search }) {
         const userResponse = await response.json();
 
         if (userResponse.message === "Token Expired!") {
-          console.log("ReFRESH");
-
           const refreshToken = localStorage.getItem("refreshToken");
 
           if (!refreshToken) {
