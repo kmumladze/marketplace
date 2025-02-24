@@ -52,13 +52,15 @@ export default function HomePage() {
 
   return (
     <main className="dark:bg-gray-900">
-      <Header search={search} setSearch={setSearch} cart={cart} />
+      <Header cart={cart} />
 
       <Categories getProductsByCategory={handleClick} />
       <Products
         products={products.products}
         addToCart={addToCart}
         setSort={handleSortClick}
+        search={search}
+        setSearch={setSearch}
       />
       <Pagination
         className="bg-gray-300 flex justify-center dark:bg-gray-900 py-10 w-full rounded-lg shadow-md items-center gap-2"

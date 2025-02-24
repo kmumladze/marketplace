@@ -10,7 +10,7 @@ import {
   Button,
 } from "@heroui/react";
 
-export default function Products({ products, setSort }) {
+export default function Products({ products, setSort, setSearch, search }) {
   const [selectedKeys, setSelectedKeys] = React.useState(
     new Set(["Sort by ⇵"])
   );
@@ -37,12 +37,26 @@ export default function Products({ products, setSort }) {
       id="products"
       className="bg-gray-300 flex flex-col justify-around items-center min-h-screen dark:bg-gray-900 dark:text-white"
     >
-      <div className="flex justify-around w-full items-center">
-        <h1 className="font-bold text-2xl">Products For You!</h1>
-        <div className="flex justify-center m-5 z-0">
+      <div className="flex flex-col md:flex-row justify-around w-full items-center gap-4 md:gap-8 p-4">
+        <h1 className="font-bold text-2xl text-center md:text-left">
+          Products For You!
+        </h1>
+
+        <input
+          type="text"
+          placeholder="Search products..."
+          className="w-2/3 md:w-72 px-4 py-2 bg-gray-200 rounded-lg border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 shaddow-md"
+          onChange={(element) => setSearch(element.target.value)}
+          value={search}
+        />
+
+        <div className="flex justify-center w-full md:w-auto">
           <Dropdown>
             <DropdownTrigger>
-              <Button className="capitalize" variant="bordered">
+              <Button
+                className="capitalize border border-gray-400 px-6 py-2 rounded-lg bg-gray-200 shadow-md hover:bg-gray-200 transition"
+                variant="bordered"
+              >
                 {selectedValue}
               </Button>
             </DropdownTrigger>
@@ -60,7 +74,7 @@ export default function Products({ products, setSort }) {
               <DropdownItem key="Price(High to Low)">
                 Sort by price: high to low
               </DropdownItem>
-              <DropdownItem key="Reset">Reset</DropdownItem>
+              <DropdownItem key="Sort by ⇵">Reset</DropdownItem>
             </DropdownMenu>
           </Dropdown>
         </div>

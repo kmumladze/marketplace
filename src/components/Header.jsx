@@ -12,7 +12,7 @@ import { FaRegUser } from "react-icons/fa";
 import { CartContext } from "../providers/CartProvider.js";
 import CartModal from "./CartModal.jsx";
 
-export default function Header({ setSearch, search }) {
+export default function Header() {
   const modal = useRef();
 
   const { cart } = useContext(CartContext);
@@ -129,13 +129,13 @@ export default function Header({ setSearch, search }) {
             </div>
           </NavLink>
 
-          <input
+          {/* <input
             type="text"
             placeholder="Search products..."
             className="w-72 px-4 py-2 bg-gray-800 rounded-lg border border-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 hidden md:block md:w-auto"
             onChange={(element) => setSearch(element.target.value)}
             value={search}
-          />
+          /> */}
 
           {/*  */}
           <button
