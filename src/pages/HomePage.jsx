@@ -10,6 +10,7 @@ import {
   EMPTY_PRODUCTS,
 } from "../utils/fetchProducts.js";
 import Home from "./Home.jsx";
+import DealsOfTheMonth from "../components/DealsOfTheMonth.jsx";
 
 export default function HomePage() {
   const [products, setProducts] = useState(EMPTY_PRODUCTS);
@@ -58,7 +59,11 @@ export default function HomePage() {
       {/* <Categories getProductsByCategory={handleClick} /> */}
       <Home />
       <Categories getProductsByCategory={handleClick} />
-      {/* <Products
+      {/* <div>
+        <img src={products.thumbnail} alt="" />
+        <h1>{products.title}</h1>
+      </div> */}
+      <Products
         products={products.products}
         addToCart={addToCart}
         setSort={handleSortClick}
@@ -70,7 +75,8 @@ export default function HomePage() {
         page={currentPage}
         total={Math.ceil(products.total / LIMIT)}
         onChange={setCurrentPage}
-      /> */}
+      />
+      <DealsOfTheMonth />
       <FooterPage />
     </main>
   );

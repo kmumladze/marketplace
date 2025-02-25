@@ -11,7 +11,7 @@ import {
 } from "@heroui/react";
 
 export default function Products({ products, setSort, setSearch, search }) {
-  console.log(products);
+  // console.log(products);
 
   const [selectedKeys, setSelectedKeys] = React.useState(
     new Set(["Sort by ⇵"])

@@ -51,27 +51,33 @@ export default function Categories({ getProductsByCategory }) {
   }, []);
 
   return (
-    <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 min-h-screen">
-      {/* <Swiper slidesPerView={"auto"} spaceBetween={10} className="px-4"> */}
-      {productsByCategory.map((category, index) => (
-        // <SwiperSlide key={index} className="w-auto">
-        <div
-          className="flex items-center justify-center h-40 md:h-48 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform inset-0 bg-black bg-opacity-40"
-          key={index}
-          // onClick={() => {
-          //   getProductsByCategory(category);
-          // }}
-          style={{ backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})` }}
-        >
-          <div className="bg-slate-300 rounded-xl px-2 mt-20">
-            <h1 className="text-black text-medium font-semibold capitalize p-2">
-              {category}
-            </h1>
+    <div className="flex flex-col">
+      <h1 className="font-mono font-bold text-2xl h-11 ml-40">
+        Shop by Categories
+      </h1>
+
+      <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 min-h-screen w-full">
+        {/* <Swiper slidesPerView={"auto"} spaceBetween={10} className="px-4"> */}
+        {productsByCategory.map((category, index) => (
+          // <SwiperSlide key={index} className="w-auto">
+          <div
+            className="flex items-center justify-center h-48 md:h-48 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform inset-0 bg-black bg-opacity-40"
+            key={index}
+            // onClick={() => {
+            //   getProductsByCategory(category);
+            // }}
+            style={{ backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})` }}
+          >
+            <div className="bg-slate-300 rounded-xl px-2 mt-20">
+              <h1 className="text-black text-medium font-semibold capitalize p-2">
+                {category}
+              </h1>
+            </div>
           </div>
-        </div>
-        // </SwiperSlide>
-      ))}
-      {/* </Swiper> */}
-    </main>
+          // </SwiperSlide>
+        ))}
+        {/* </Swiper> */}
+      </main>
+    </div>
   );
 }
