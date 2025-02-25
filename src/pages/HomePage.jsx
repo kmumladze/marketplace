@@ -9,6 +9,7 @@ import {
   LIMIT,
   EMPTY_PRODUCTS,
 } from "../utils/fetchProducts.js";
+import Home from "./Home.jsx";
 
 export default function HomePage() {
   const [products, setProducts] = useState(EMPTY_PRODUCTS);
@@ -54,7 +55,8 @@ export default function HomePage() {
     <main className="dark:bg-gray-900">
       <Header cart={cart} />
 
-      <Categories getProductsByCategory={handleClick} />
+      {/* <Categories getProductsByCategory={handleClick} /> */}
+      <Home />
       <Products
         products={products.products}
         addToCart={addToCart}

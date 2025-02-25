@@ -14,6 +14,7 @@ import { UsersContext } from "./providers/UsersProvider.js";
 import AboutUsPage from "./pages/AboutUsPage.jsx";
 import ContactUsPage from "./pages/ContactUsPage.jsx";
 import FaQPage from "./pages/FAQPage.jsx";
+import Home from "./pages/Home.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -70,6 +71,7 @@ function Main() {
             <BrowserRouter>
               <Routes>
                 <Route path="/" element={<HomePage />} />
+                <Route path="home" element={<Home />} />
                 <Route
                   path="products/:productId"
                   element={<ProductDetailsPage />}

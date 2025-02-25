@@ -12,7 +12,6 @@ import {
 import { Link } from "react-router";
 
 import { Card, CardHeader, CardFooter, Image } from "@heroui/react";
-import { div } from "framer-motion/client";
 
 export default function Categories({ getProductsByCategory }) {
   const [productsByCategory, setProductsByCategory] = useState([]);
