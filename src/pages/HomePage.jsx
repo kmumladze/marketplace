@@ -57,7 +57,8 @@ export default function HomePage() {
 
       {/* <Categories getProductsByCategory={handleClick} /> */}
       <Home />
-      <Products
+      <Categories getProductsByCategory={handleClick} />
+      {/* <Products
         products={products.products}
         addToCart={addToCart}
         setSort={handleSortClick}
@@ -69,7 +70,7 @@ export default function HomePage() {
         page={currentPage}
         total={Math.ceil(products.total / LIMIT)}
         onChange={setCurrentPage}
-      />
+      /> */}
       <FooterPage />
     </main>
   );

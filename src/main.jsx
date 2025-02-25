@@ -22,7 +22,7 @@ function Main() {
   const [cart, setCart] = useState([]);
   const [users, setUsers] = useState([]);
 
-  console.log(cart);
+  // console.log(cart);
 
   useEffect(() => {
     async function fetchUsers() {

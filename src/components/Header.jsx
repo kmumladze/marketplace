@@ -87,7 +87,7 @@ export default function Header() {
   const cartQuantity = cart.reduce((prevValue, currValue) => {
     return prevValue + currValue.quantity;
   }, 0);
-  console.log(cart);
+  // console.log(cart);
 
   function handleOpenCartClick() {
     modal.current.open();
