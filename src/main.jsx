@@ -17,6 +17,7 @@ import FaQPage from "./pages/FAQPage.jsx";
 import Home from "./pages/Home.jsx";
 import ForgotPassword from "./components/ForgotPassword.jsx";
 import EnterOTP from "./components/EnterOTP.jsx";
+import SignUp from "./components/SignUp.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -87,6 +88,7 @@ function Main() {
                 <Route path="FaQ" element={<FaQPage />} />
                 <Route path="forgotpassword" element={<ForgotPassword />} />
                 <Route path="enterOTP" element={<EnterOTP />} />
+                <Route path="signup" element={<SignUp />} />
               </Routes>
             </BrowserRouter>
           </CartContext.Provider>

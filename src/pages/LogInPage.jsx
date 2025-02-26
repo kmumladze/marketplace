@@ -135,6 +135,11 @@ export default function LogInPage() {
               Log In
             </button>
           </form>
+          <Link to="/signup">
+            <p className="text-sm text-gray text-right mt-2 underline">
+              Create New Account
+            </p>
+          </Link>
         </div>
       </div>
     </div>

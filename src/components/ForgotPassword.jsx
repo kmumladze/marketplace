@@ -9,7 +9,9 @@ export default function ForgotPassword() {
         style={{ backgroundImage: `url(${forgotpassword})` }}
       ></div>
       <div className="flex flex-col gap-10">
-        <p>← Back</p>
+        <Link to="/login">
+          <p>← Back</p>
+        </Link>
 
         <div className="flex flex-col gap-2">
           <h1 className="font-bold text-3xl">Forgot Password</h1>
