@@ -15,7 +15,7 @@ export default function Home() {
 
           <Link>
             <button className="bg-black text-white px-6 py-2 text-sm rounded-full mt-4 hover:shadow-lg hover:scale-100">
-              Shop Now
+              Shop Now &nbsp;→
             </button>
           </Link>
         </div>

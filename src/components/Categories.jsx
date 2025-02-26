@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useSwiper } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+
 import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const CATEGORY_IMAGE_MAP = {
   beauty: "/beauty.jpg",
@@ -32,6 +37,11 @@ const CATEGORY_IMAGE_MAP = {
 
 export default function Categories({ getProductsByCategory }) {
   const [productsByCategory, setProductsByCategory] = useState([]);
+  const swiper = useSwiper();
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
+  console.log(swiper);
 
   useEffect(() => {
     async function fetchCategories() {
@@ -51,32 +61,63 @@ export default function Categories({ getProductsByCategory }) {
   }, []);
 
   return (
-    <div className="flex flex-col">
-      <h1 className="font-mono font-bold text-2xl h-11 ml-40">
-        Shop by Categories
-      </h1>
-
-      <main className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 p-4 min-h-screen w-full">
-        {/* <Swiper slidesPerView={"auto"} spaceBetween={10} className="px-4"> */}
-        {productsByCategory.map((category, index) => (
-          // <SwiperSlide key={index} className="w-auto">
-          <div
-            className="flex items-center justify-center h-48 md:h-48 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform inset-0 bg-black bg-opacity-40"
-            key={index}
-            // onClick={() => {
-            //   getProductsByCategory(category);
-            // }}
-            style={{ backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})` }}
+    <div className="flex flex-col m-4 w-full max-w-6xl mx-auto">
+      <div className="flex justify-between">
+        <h1 className="font-mono font-bold text-2xl mb-4 self-start md:self-start">
+          Shop by Categories
+        </h1>
+        <div className="flex gap-4 mb-4">
+          <button className="bg-black text-white p-3 rounded-md" ref={prevRef}>
+            {" "}
+            ← Prev
+          </button>
+          <button
+            className="bg-stone-200 text-black p-3 rounded-md"
+            ref={nextRef}
           >
-            <div className="bg-slate-300 rounded-xl px-2 mt-20">
-              <h1 className="text-black text-medium font-semibold capitalize p-2">
-                {category}
-              </h1>
-            </div>
-          </div>
-          // </SwiperSlide>
-        ))}
-        {/* </Swiper> */}
+            {" "}
+            Next →
+          </button>
+        </div>
+      </div>
+
+      <main className="w-full flex justify-center">
+        <Swiper
+          modules={[Navigation]}
+          spaceBetween={50}
+          slidesPerView={4}
+          navigation={{
+            // nextEl: <div>hah</div>,
+            enabled: true,
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+        >
+          {productsByCategory.map((category, index) => (
+            <SwiperSlide key={index} className="w-60 md:w-72">
+              <div
+                className="w-full h-64 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform"
+                // onClick={() => {
+                //   getProductsByCategory(category);
+                // }}
+                style={{
+                  backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})`,
+                }}
+              >
+                <div className="bg-slate-300 rounded-xl p-4 mt-40 mx-7 text-center">
+                  <h1 className="text-black text-medium font-semibold capitalize p-2">
+                    {category}
+                  </h1>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        {/* <button ref={prevRef}>previous</button>
+        <button ref={nextRef}>next</button> */}
       </main>
     </div>
   );
