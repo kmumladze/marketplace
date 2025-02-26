@@ -15,6 +15,7 @@ import AboutUsPage from "./pages/AboutUsPage.jsx";
 import ContactUsPage from "./pages/ContactUsPage.jsx";
 import FaQPage from "./pages/FAQPage.jsx";
 import Home from "./pages/Home.jsx";
+import ForgotPassword from "./components/ForgotPassword.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -83,6 +84,7 @@ function Main() {
                 <Route path="aboutus" element={<AboutUsPage />} />
                 <Route path="contactus" element={<ContactUsPage />} />
                 <Route path="FaQ" element={<FaQPage />} />
+                <Route path="forgotpassword" element={<ForgotPassword />} />
               </Routes>
             </BrowserRouter>
           </CartContext.Provider>

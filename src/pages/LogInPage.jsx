@@ -2,6 +2,7 @@ import { useState } from "react";
 import loginImg from "../assets/login.jpg";
 import { HiOutlineShoppingBag } from "react-icons/hi";
 import { NavLink, useNavigate } from "react-router";
+import { Link } from "react-router";
 
 import Swal from "sweetalert2";
 
@@ -122,9 +123,9 @@ export default function LogInPage() {
                 Remember Me
               </label>
 
-              <a href="#" className="hover:underline">
+              <Link to="/forgotpassword" className="hover:underline">
                 Forgot Password?
-              </a>
+              </Link>
             </div>
 
             <button
