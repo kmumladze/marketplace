@@ -200,7 +200,7 @@ export default function Header() {
               </div>
             ) : (
               <Link to="/login">
-                <div className="flex items-center gap-3 p-2 border border-blue-500 rounded-lg hover:border-blue-700 cursor-pointer md:mt-0 dark:bg-gray-700">
+                <div className="flex items-center gap-3 p-2 border rounded-lg cursor-pointer md:mt-0">
                   <FaRegUser />
                   <h3>Log In</h3>
                 </div>

@@ -64,13 +64,11 @@ export default function LogInPage() {
         className="w-full md:w-1/2 h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${loginImg})` }}
       >
-        <div className="flex flex-col p-6">
-          <div className="flex w-full md:w-1/3 items-center gap-2 border-2 border-blue-500 hover:border-blue-700 p-4 rounded-xl cursor-pointer transition-all duration-300 shadow-lg hover:shadow-2xl bg-white bg-opacity-70 dark:bg-gray-800 dark:bg-opacity-50">
-            <HiOutlineShoppingBag size={24} className="text-blue-500" />
-            <h3 className="font-mono text-2xl text-gray-800 dark:text-white">
-              Marketplace
-            </h3>
-          </div>
+        <div className="flex items-center justify-center p-3 m-4 border-2 rounded-xl cursor-pointer overflow-hidden w-1/3">
+          <h3 className="text-xl font-semibold dark:text-white">
+            <span className="text-3xl from-content2-foreground">M</span>
+            arketplace
+          </h3>
         </div>
       </div>
 
@@ -120,17 +118,17 @@ export default function LogInPage() {
 
             <div className="flex items-center justify-between text-sm">
               <label className="flex items-center gap-1">
-                <input type="checkbox" className="accent-blue-500" />
+                <input type="checkbox" />
                 Remember Me
               </label>
 
-              <a href="#" className="text-blue-600 hover:underline">
+              <a href="#" className="hover:underline">
                 Forgot Password?
               </a>
             </div>
 
             <button
-              className="mt-3 bg-blue-600 text-white font-mono text-base py-2 rounded-xl w-full hover:bg-blue-700 transition"
+              className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
               type="submit"
             >
               Log In
