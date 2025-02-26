@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import forgotpassword from "../assets/forgotpassword.png";
 
 export default function ForgotPassword() {
@@ -32,12 +33,14 @@ export default function ForgotPassword() {
             />
           </div>
 
-          <button
-            className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
-            type="submit"
-          >
-            Send OTP
-          </button>
+          <Link to="/enterOTP">
+            <button
+              className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
+              type="submit"
+            >
+              Send OTP
+            </button>
+          </Link>
         </form>
       </div>
     </div>

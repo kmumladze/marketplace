@@ -16,6 +16,7 @@ import ContactUsPage from "./pages/ContactUsPage.jsx";
 import FaQPage from "./pages/FAQPage.jsx";
 import Home from "./pages/Home.jsx";
 import ForgotPassword from "./components/ForgotPassword.jsx";
+import EnterOTP from "./components/EnterOTP.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -85,6 +86,7 @@ function Main() {
                 <Route path="contactus" element={<ContactUsPage />} />
                 <Route path="FaQ" element={<FaQPage />} />
                 <Route path="forgotpassword" element={<ForgotPassword />} />
+                <Route path="enterOTP" element={<EnterOTP />} />
               </Routes>
             </BrowserRouter>
           </CartContext.Provider>
