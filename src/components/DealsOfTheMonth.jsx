@@ -42,12 +42,12 @@ export default function DealsOfTheMonth() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center w-full justify-between p-6 bg-gray-100 rounded-xl shadow-lg">
+    <div className="flex flex-col md:flex-row items-center w-full justify-between p-6 bg-gray-100 rounded-xl shadow-lg dark:bg-gray-900">
       <div className="flex flex-col gap-6 md:w-1/2">
-        <h1 className="font-mono font-bold text-3xl text-gray-800">
+        <h1 className="font-mono font-bold text-3xl text-gray-800 dark:text-white">
           Deals of the Month
         </h1>
-        <p className="text-gray-600">
+        <p className="text-gray-600 dark:text-white">
           Don't miss out on this month's hottest deals! Enjoy discounts on your
           favorite products—limited time only. Shop now and save big!
         </p>
@@ -66,7 +66,7 @@ export default function DealsOfTheMonth() {
           ))}
         </div>
         <Link to="/products">
-          <button className="bg-black text-white px-5 py-3 rounded-xl text-sm hover:bg-gray-800 transition duration-300">
+          <button className="bg-black text-white px-5 py-3 rounded-xl text-sm hover:bg-gray-800 transition duration-300 dark:text-black dark:bg-white">
             View All Products &nbsp;→
           </button>
         </Link>

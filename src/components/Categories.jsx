@@ -63,7 +63,7 @@ export default function Categories({ getProductsByCategory }) {
   return (
     <div className="flex flex-col m-4 w-full max-w-6xl mx-auto">
       <div className="flex justify-between">
-        <h1 className="font-mono font-bold text-2xl mb-4 self-start md:self-start">
+        <h1 className="font-mono font-bold text-2xl mb-4 self-start md:self-start dark:text-white">
           Shop by Categories
         </h1>
         <div className="flex gap-4 mb-4">

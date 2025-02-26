@@ -11,14 +11,16 @@ import { MdPayments } from "react-icons/md";
 export default function InstagramStories() {
   return (
     <div className="flex flex-col items-center gap-10 m-10">
-      <h1 className="font-mono font-bold text-2xl">Our Instagram Stories</h1>
+      <h1 className="font-mono font-bold text-2xl dark:text-white">
+        Our Instagram Stories
+      </h1>
       <div className="flex flex-col md:flex-row justify-center gap-10">
         <img className="w-full md:w-60 h-auto" src={womanbag} alt="" />
         <img className="w-full md:w-60 h-auto" src={fashionmodelwoman} alt="" />
         <img className="w-full md:w-60 h-auto" src={fashionmodelman} alt="" />
         <img className="w-full md:w-60 h-auto" src={makeup} alt="" />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 items-center gap-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 items-center gap-10 dark:text-white">
         <div className="flex flex-col gap-2">
           <PiShippingContainerBold size={24} />
           <p className="font-bold">Free Shipping</p>

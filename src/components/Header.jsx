@@ -117,10 +117,10 @@ export default function Header() {
   return (
     <>
       <CartModal ref={modal} title="Your Cart" actions={modalActions} />
-      <header className="text-black py-4 w-full z-10">
+      <header className="text-black py-4 w-full z-10 dark:text-white">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6">
           <NavLink to="/">
-            <div className="flex items-center gap-3 mt-4 mb-6 border-2 p-4 rounded-xl cursor-pointer dark:bg-gray-700">
+            <div className="flex items-center gap-3 mt-4 mb-6 border-2 p-4 rounded-xl cursor-pointer">
               <h3 className="text-xl font-semibold dark:text-white">
                 <span className="text-3xl from-content2-foreground">M</span>
                 arketplace
@@ -175,7 +175,7 @@ export default function Header() {
             </div>
 
             {user ? (
-              <div className="flex items-center gap-3 p-4 border rounded-lg md:mt-0 dark:bg-gray-700">
+              <div className="flex items-center gap-3 p-4 border rounded-lg md:mt-0">
                 <Link
                   to={`/users/${user.id}`}
                   className="flex items-center gap-2"
