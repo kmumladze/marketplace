@@ -11,6 +11,7 @@ import {
 } from "../utils/fetchProducts.js";
 import Home from "./Home.jsx";
 import DealsOfTheMonth from "../components/DealsOfTheMonth.jsx";
+import InstagramStories from "../components/InstagramStories.jsx";
 
 export default function HomePage() {
   const [products, setProducts] = useState(EMPTY_PRODUCTS);
@@ -77,6 +78,7 @@ export default function HomePage() {
         onChange={setCurrentPage}
       />
       <DealsOfTheMonth />
+      <InstagramStories />
       <FooterPage />
     </main>
   );
