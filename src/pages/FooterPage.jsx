@@ -9,143 +9,175 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 
+import { PiShippingContainerBold } from "react-icons/pi";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { SlEarphones } from "react-icons/sl";
+import { MdPayments } from "react-icons/md";
+
 export default function FooterPage() {
   return (
-    <footer className="bg-gray-900 text-white py-10 px-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
-        <div className="flex flex-col gap-6">
-          <h2 className="text-2xl font-semibold">Marketplace</h2>
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2">
-              <MdOutlinePhonePaused size={24} />
-              <p>(011) 555-2133</p>
+    <>
+      <div className="grid grid-cols-2 md:grid-cols-4 items-center gap-10 dark:text-white m-16">
+        <div className="flex flex-col gap-2">
+          <PiShippingContainerBold size={24} />
+          <p className="font-bold">Free Shipping</p>
+          <p className="text-sm">Free shipping for order above $150</p>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <RiMoneyDollarCircleLine size={24} />
+          <p className="font-bold">Money Guarantee</p>
+          <p className="text-sm">Within 30 days for an exchange</p>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <SlEarphones size={24} />
+          <p className="font-bold">Online Support</p>
+          <p className="text-sm">24 hours a day, 7 days a week</p>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <MdPayments size={24} />
+          <p className="font-bold">Flexible Payment</p>
+          <p className="text-sm">Pay with multiple credit cards</p>
+        </div>
+      </div>
+      <footer className="bg-gray-900 text-white py-10 px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
+          <div className="flex flex-col gap-6">
+            <h2 className="text-2xl font-semibold">Marketplace</h2>
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2">
+                <MdOutlinePhonePaused size={24} />
+                <p>(011) 555-2133</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <MdOutlineEmail size={24} />
+                <p>marketplace@example.com</p>
+              </div>
+              <div className="flex items-center gap-2">
+                <IoLocationOutline size={32} />
+                <p>Via Ascanio Sforza, 7, 20136 Milano MI, Italy</p>
+              </div>
             </div>
-            <div className="flex items-center gap-2">
-              <MdOutlineEmail size={24} />
-              <p>marketplace@example.com</p>
-            </div>
-            <div className="flex items-center gap-2">
-              <IoLocationOutline size={32} />
-              <p>Via Ascanio Sforza, 7, 20136 Milano MI, Italy</p>
-            </div>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-3">Information</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/aboutus" className="hover:text-gray-300">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <p className="hover:text-gray-300">My Account</p>
+              </li>
+              <li>
+                <p className="hover:text-gray-300">Log In</p>
+              </li>
+              <li>
+                <p className="hover:text-gray-300">My Cart</p>
+              </li>
+              <li>
+                <p className="hover:text-gray-300">My Wishlist</p>
+              </li>
+              <li>
+                <p className="hover:text-gray-300">Checkout</p>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-3">Services</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="/" className="hover:text-gray-300">
+                  Shop
+                </a>
+              </li>
+              <li>
+                <Link to="/contactUs" className="hover:text-gray-300">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <p className="hover:text-gray-300">Delivery Information</p>
+              </li>
+              <li>
+                <Link to="/FaQ" className="hover:text-gray-300">
+                  FAQs
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="https://policies.google.com/privacy"
+                  target="_blank"
+                  className="hover:text-gray-300"
+                >
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://policies.google.com/terms"
+                  target="_blank"
+                  className="hover:text-gray-300"
+                >
+                  Terms & Conditions
+                </a>
+              </li>
+              <li>
+                <Link to="/contactUs" className="hover:text-gray-300">
+                  Help Center
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-medium mb-3">
+              Subscribe to our Newsletter
+            </h3>
+            <p className="text-gray-400 mb-4">
+              Get the latest updates and offers.
+            </p>
+            <form>
+              <div className="flex items-center bg-gray-800 p-2 rounded-lg">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  required
+                  className="bg-transparent flex-1 outline-none px-2 text-white"
+                />
+                <button className="bg-blue-500 px-4 py-2 rounded-md text-white hover:bg-blue-600 transition">
+                  Subscribe
+                </button>
+              </div>
+            </form>
           </div>
         </div>
 
-        <div>
-          <h3 className="text-xl font-medium mb-3">Information</h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <Link to="/aboutus" className="hover:text-gray-300">
-                About Us
-              </Link>
-            </li>
-            <li>
-              <p className="hover:text-gray-300">My Account</p>
-            </li>
-            <li>
-              <p className="hover:text-gray-300">Log In</p>
-            </li>
-            <li>
-              <p className="hover:text-gray-300">My Cart</p>
-            </li>
-            <li>
-              <p className="hover:text-gray-300">My Wishlist</p>
-            </li>
-            <li>
-              <p className="hover:text-gray-300">Checkout</p>
-            </li>
-          </ul>
+        <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-center text-gray-400 max-w-6xl mx-auto">
+          <div className="flex gap-4 mb-4 md:mb-0">
+            <FaCcVisa className="text-blue-700 text-3xl" />
+            <SiApplepay className="text-stone-300 text-3xl" />
+            <GrPaypal className="text-blue-500 text-xl" />
+          </div>
+          <p>© {new Date().getFullYear()} Marketplace. All rights reserved.</p>
+          <div className="flex gap-4 mt-3">
+            <a href="#" className="hover:text-gray-300 text-xl">
+              <FaFacebookF />
+            </a>
+            <a href="#" className="hover:text-gray-300 text-xl">
+              <FaInstagram />
+            </a>
+            <a href="#" className="hover:text-gray-300 text-xl">
+              <FaTwitter />
+            </a>
+          </div>
         </div>
-
-        <div>
-          <h3 className="text-xl font-medium mb-3">Services</h3>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <a href="/" className="hover:text-gray-300">
-                Shop
-              </a>
-            </li>
-            <li>
-              <Link to="/contactUs" className="hover:text-gray-300">
-                Contact
-              </Link>
-            </li>
-            <li>
-              <p className="hover:text-gray-300">Delivery Information</p>
-            </li>
-            <li>
-              <Link to="/FaQ" className="hover:text-gray-300">
-                FAQs
-              </Link>
-            </li>
-            <li>
-              <a
-                href="https://policies.google.com/privacy"
-                target="_blank"
-                className="hover:text-gray-300"
-              >
-                Privacy Policy
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://policies.google.com/terms"
-                target="_blank"
-                className="hover:text-gray-300"
-              >
-                Terms & Conditions
-              </a>
-            </li>
-            <li>
-              <Link to="/contactUs" className="hover:text-gray-300">
-                Help Center
-              </Link>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-medium mb-3">
-            Subscribe to our Newsletter
-          </h3>
-          <p className="text-gray-400 mb-4">
-            Get the latest updates and offers.
-          </p>
-          <form>
-            <div className="flex items-center bg-gray-800 p-2 rounded-lg">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                required
-                className="bg-transparent flex-1 outline-none px-2 text-white"
-              />
-              <button className="bg-blue-500 px-4 py-2 rounded-md text-white hover:bg-blue-600 transition">
-                Subscribe
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-center text-gray-400 max-w-6xl mx-auto">
-        <div className="flex gap-4 mb-4 md:mb-0">
-          <FaCcVisa className="text-blue-700 text-3xl" />
-          <SiApplepay className="text-stone-300 text-3xl" />
-          <GrPaypal className="text-blue-500 text-xl" />
-        </div>
-        <p>© {new Date().getFullYear()} Marketplace. All rights reserved.</p>
-        <div className="flex gap-4 mt-3">
-          <a href="#" className="hover:text-gray-300 text-xl">
-            <FaFacebookF />
-          </a>
-          <a href="#" className="hover:text-gray-300 text-xl">
-            <FaInstagram />
-          </a>
-          <a href="#" className="hover:text-gray-300 text-xl">
-            <FaTwitter />
-          </a>
-        </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
 }

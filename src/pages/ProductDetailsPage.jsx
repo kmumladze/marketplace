@@ -4,11 +4,15 @@ import Header from "../components/Header.jsx";
 import Reviews from "../components/Reviews.jsx";
 import { CartContext } from "../providers/CartProvider.js";
 import FooterPage from "./FooterPage.jsx";
+import { Spinner } from "@heroui/react";
+import { Tabs, Tab, Card, CardBody } from "@heroui/react";
 
 export default function ProductDetailsPage() {
   const { productId } = useParams();
   const [product, setProduct] = useState(null);
   const { addToCart } = useContext(CartContext);
+  const [isAddedCart, setIsAddedCart] = useState(false);
+
   // console.log(cart);
 
   useEffect(() => {
@@ -30,54 +34,96 @@ export default function ProductDetailsPage() {
     return (
       <>
         <Header />
-        <div>loading...</div>
+        <div>
+          {" "}
+          <Spinner />
+          loading...
+        </div>
       </>
     );
   }
 
+  const variant = "underlined";
   return (
     <>
       <Header />
-      <div className="flex flex-col md:flex-row gap-6 items-center justify-center bg-stone-50 min-h-screen dark:bg-gray-900 dark:text-white">
-        <div className="flex flex-col items-center gap-4">
-          <img
-            className="w-56 bg-stone-100 rounded-xl dark:bg-opacity-25"
-            src={product.thumbnail}
-            alt="Product photo"
-          />
-          <Reviews
-            productId={product.id}
-            review={"⭐".repeat(product.rating)}
-            rating={product.rating}
-            reviewQuantity={product.reviews.length}
-          />
-        </div>
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex flex-col gap-4 w-auto overflow-hidden bg-stone-100 p-6 dark:bg-gray-900 dark:text-white dark:border-4">
-            <h1 className="font-bold text-2xl">{product.title}</h1>
-            <div className="flex gap-4 text-green-600">
-              <h3>
-                {"⭐".repeat(product.rating)} ({product.rating})
-              </h3>
-              <p>{product.reviews.length} reviews</p>
+
+      <main>
+        <div className="flex justify-center gap-10">
+          <div className="flex flex-col w-full md:w-1/3 gap-3">
+            <div>
+              <img
+                className="bg-gray-200 flex justify-center items-center w-full"
+                src={product.thumbnail}
+                alt=""
+              />
             </div>
-            <p>
-              <b>Price: </b>$ {product.price}
-            </p>
-            <p className="w-96 text-sm">{product.description}</p>
-            <div className="flex gap-10 text-sm">
-              <div className="flex flex-col gap-2">
-                <b>Category:</b>
-                <b>Brand:</b>
-                <b>Shipping:</b>
-                <b>Return:</b>
+            <div className="flex gap-3">
+              <div className="bg-gray-200 flex justify-center items-center w-full">
+                <img src={product.thumbnail} alt="" />
+              </div>
+              <div className="bg-gray-200 flex justify-center items-center w-full">
+                <img src={product.thumbnail} alt="" />
+              </div>
+              <div className="bg-gray-200 flex justify-center items-center w-full">
+                <img src={product.thumbnail} alt="" />
+              </div>
+              <div className="bg-gray-200 flex justify-center items-center w-full">
+                <img src={product.thumbnail} alt="" />
+              </div>{" "}
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-col">
+                <h1 className="font-bold text-2xl">{product.title}</h1>
+                <p>{product.category}</p>
               </div>
 
-              <div className="flex flex-col gap-2">
-                <p>{product.category}</p>
-                <p> {product.brand}</p>
-                <p> {product.shippingInformation}</p>
-                <p> {product.returnPolicy}</p>
+              <div className="flex gap-4 text-gray-600">
+                <h3>
+                  {"⭐".repeat(product.rating)} {product.rating}
+                </h3>
+                <p>({product.reviews.length} reviews)</p>
+              </div>
+              <p className="font-mono">$ {product.price}</p>
+              <p className="w-96 text-sm">{product.description}</p>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h1 className="font-bold text-xl">Color</h1>
+              <div className="flex gap-2">
+                <div className="bg-[#d11111] w-10 h-10 rounded-lg"></div>
+                <div className="bg-[#3257a8] w-10 h-10 rounded-lg"></div>
+                <div className="bg-[#d17e11] w-10 h-10 rounded-lg"></div>
+                <div className="bg-[#030303] w-10 h-10 rounded-lg"></div>
+                <div className="bg-[#6aa63a] w-10 h-10 rounded-lg"></div>
+                <div className="bg-[#cbd111] w-10 h-10 rounded-lg"></div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2">
+              <h1 className="font-bold text-xl">Size</h1>
+              <div className="flex gap-2">
+                <div
+                  className="w-10 h-10 border-2 border-black rounded-lg text-lg
+             flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all"
+                >
+                  S
+                </div>
+                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
+                  M
+                </div>
+                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
+                  L
+                </div>
+                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
+                  XL
+                </div>
+                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
+                  XXL
+                </div>
               </div>
             </div>
 
@@ -86,14 +132,66 @@ export default function ProductDetailsPage() {
             </p>
 
             <button
-              className="bg-blue-500 rounded-xl p-2 hover:text-stone-50 cursor-pointer w-1/2 m-4"
-              onClick={() => addToCart(product)}
+              className={`mt-3 rounded-md px-3 py-2 bg-black text-white border-none text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:bg-black hover:text-white transition w-full ${
+                isAddedCart ? "bg-gray-500 text-black" : ""
+              }`}
+              onClick={() => {
+                addToCart(product);
+                setIsAddedCart(true);
+                setTimeout(() => setIsAddedCart(false), 1000);
+              }}
             >
-              Add to Cart
+              {isAddedCart ? "Added" : "Add to Cart"}
             </button>
           </div>
         </div>
-      </div>
+
+        <div className="flex justify-center items-center w-full mt-10">
+          <div className="w-full md:w-2/3">
+            <Tabs key={variant} aria-label={variant} variant={variant}>
+              <Tab key="Descriptions" title="Descriptions">
+                <Card>
+                  <CardBody>{product.description}</CardBody>
+                </Card>
+              </Tab>
+              <Tab key="Additional Information" title="Additional Information">
+                <Card>
+                  <CardBody>
+                    <div className="flex flex-col gap-2">
+                      <p>
+                        <b>Category: </b>
+                        {product.category}
+                      </p>
+                      <p>
+                        <b>Brand: </b> {product.brand}
+                      </p>
+                      <p>
+                        <b>Shipping: </b> {product.shippingInformation}
+                      </p>
+                      <p>
+                        <b>Return: </b> {product.returnPolicy}
+                      </p>
+                    </div>
+                  </CardBody>
+                </Card>
+              </Tab>
+              <Tab key="Reviews" title="Reviews">
+                <Card>
+                  <CardBody>
+                    <Reviews
+                      productId={product.id}
+                      review={"⭐".repeat(product.rating)}
+                      rating={product.rating}
+                      reviewQuantity={product.reviews.length}
+                    />
+                  </CardBody>
+                </Card>
+              </Tab>
+            </Tabs>
+          </div>
+        </div>
+      </main>
+
       <FooterPage />
     </>
   );

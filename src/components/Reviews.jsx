@@ -1,3 +1,4 @@
+import { div } from "framer-motion/client";
 import { useEffect, useState } from "react";
 
 export default function Reviews({ productId, review, rating, reviewQuantity }) {
@@ -22,26 +23,23 @@ export default function Reviews({ productId, review, rating, reviewQuantity }) {
 
   return (
     <>
-      <main className="flex flex-col gap-4 border-4 p-4">
-        <h3 className="font-bold flex justify-between border-4 p-4">
-          Customer Reviews
-          <div>
-            <span className="text-gray-700">{review} </span>
-            <span className="text-gray-500 text-sm">({rating}) </span>
-            <span className="text-green-500 text-sm">
-              {reviewQuantity} review
-            </span>
-          </div>
-        </h3>
-        <div className="flex gap-3 flex-wrap">
+      <main className="flex flex-col gap-4 justify-center">
+        <h1 className="font-extrabold">Customer Reviews</h1>
+        <div className="flex gap-4">
           {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="border mb-2 rounded py-4 px-6 flex flex-col"
-            >
-              <h4 className="font-bold">{review.reviewerName}</h4>
-              <p>Rating: {"⭐".repeat(review.rating)}</p>
-              <p>{review.comment}</p>
+            <div key={index}>
+              <div className="flex gap-2">
+                <h3 className="text-sm font-bold">{review.reviewerName}</h3>
+                <p>({"⭐".repeat(review.rating)})</p>
+              </div>
+              <p className="font-bold">{review.comment}</p>
+              <div className="italic opacity-45">
+                <p className="text-sm text-gray-400">
+                  Review by{" "}
+                  <span className="text-black">{review.reviewerEmail} </span>
+                  Posted on: <span className="text-black">{review.date}</span>
+                </p>
+              </div>
             </div>
           ))}
         </div>

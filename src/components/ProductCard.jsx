@@ -1,56 +1,40 @@
 import { FaRegHeart } from "react-icons/fa";
 import { useContext, useState } from "react";
 import { CartContext } from "../providers/CartProvider.js";
+import FooterPage from "../pages/FooterPage.jsx";
 
 export default function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
   const [isAddedCart, setIsAddedCart] = useState(false);
 
   return (
-    <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2">
-      <div className="dark:border-4 border-gray-800 rounded-lg overflow-hidden p-3 shadow-2xl dark:shadow-slate-800 ">
-        <button className="absolute top-3 right-3 size-25">
-          <FaRegHeart className="hover:text-red-600" />
-        </button>
-
-        <img
-          className="rounded-xl bg-opacity-25 dark:bg-opacity-25"
-          src={product.thumbnail}
-          alt="product image"
-        />
-      </div>
-      <div className="w-full flex flex-col gap-3">
-        <div className="flex flex-col gap-1">
-          <h1 className="font-bold text-sm">{product.title}</h1>
-          <div className="flex justify-between w-full">
-            <p className="text-sm">{product.brand}</p>
-            <p className="font-bold text-sm">{product.price} $</p>
-          </div>
-
-          <p>
-            {"⭐".repeat(product.rating)} ({product.rating})
-          </p>
-        </div>
-
+    <>
+      <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2 bg-stone-100 p-4">
+        <div
+          className="w-full h-56 bg-cover bg-center rounded-xl"
+          style={{ backgroundImage: `url(${product.thumbnail})` }}
+        ></div>
         <button
-          className={`rounded-3xl px-3 py-2 border-gray-400 text-gray-500 text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:text-white hover:bg-blue-400 hover:border-blue-400 transition w-1/2 ${
-            isAddedCart ? "bg-blue-400 border-blue-400" : ""
+          className={`mt-3 rounded-md px-3 py-2 bg-white text-black border-none text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:bg-stone-400 hover:text-black transition w-full ${
+            isAddedCart ? "bg-stone-400 text-black" : ""
           }`}
           disabled={isAddedCart}
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
             addToCart(product);
-            setIsAddedCart((prev) => !prev);
-
-            setTimeout(() => {
-              setIsAddedCart(false);
-            }, 1000);
+            setIsAddedCart(true);
+            setTimeout(() => setIsAddedCart(false), 1000);
           }}
         >
           {isAddedCart ? "Added" : "Add to Cart"}
         </button>
       </div>
-    </div>
+      <div className="w-full flex flex-col gap-1">
+        <h1 className="font-bold text-sm">{product.title}</h1>
+        <p className="text-sm text-gray-500">{product.brand}</p>
+        <p className="font-light font-mono text-sm">${product.price}</p>
+      </div>
+    </>
   );
 }

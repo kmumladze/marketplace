@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-import { Pagination } from "@heroui/pagination";
+// import { Pagination } from "@heroui/pagination";
+import { Pagination } from "@heroui/react";
 
 import { Link } from "react-router";
 import ProductCard from "./ProductCard";
@@ -78,14 +79,14 @@ export default function Products() {
         className="flex flex-col items-center min-h-screen dark:bg-gray-900 dark:text-white w-full"
       >
         <div className="flex flex-col md:flex-row justify-between p-16 w-full items-center gap-4 md:gap-8">
-          <h1 className="font-bold text-2xl text-center md:text-left">
+          {/* <h1 className="font-bold text-2xl text-center md:text-left">
             Products For You!
-          </h1>
+          </h1> */}
 
           <input
             type="text"
             placeholder="Search products..."
-            className="w-2/3 md:w-72 px-4 py-2 bg-gray-200 rounded-lg border border-gray-400 text-black focus:outline-none focus:ring-2 focus:ring-blue-500 shaddow-md"
+            className="w-2/3 md:w-72 px-4 py-2 bg-gray-200 text-black focus:outline-none shaddow-md"
             onChange={(element) => setSearch(element.target.value)}
             value={search}
           />
@@ -94,7 +95,7 @@ export default function Products() {
             <Dropdown>
               <DropdownTrigger>
                 <Button
-                  className="capitalize border border-gray-400 px-6 py-2 rounded-lg bg-gray-200 shadow-md hover:bg-gray-200 transition"
+                  className="capitalize px-6 py-2 rounded-lg hover:bg-gray-200 transition"
                   variant="bordered"
                 >
                   {selectedValue}
@@ -120,7 +121,7 @@ export default function Products() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 w-full place-items-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4 w-full place-items-center">
           {products.products.length === 0 ? (
             <div className="flex flex-col justify-center items-center w-full col-span-2 md:col-span-4 min-h-[200px]">
               <p>No exact matches found</p>
@@ -135,12 +136,15 @@ export default function Products() {
           )}
         </div>
       </main>
+
       <Pagination
         className="flex justify-center dark:bg-gray-900 py-10 w-full rounded-lg shadow-md items-center gap-2"
+        showControls
         page={currentPage}
         total={Math.ceil((products.total || 1) / LIMIT)}
         onChange={setCurrentPage}
       />
+
       <FooterPage />
     </>
   );
