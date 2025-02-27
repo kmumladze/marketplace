@@ -13,7 +13,7 @@ export default function Home() {
           <h1 className="font-bold text-4xl">Women's Collection</h1>
           <p className="text-sm mt-2">UPTO 40% OFF</p>
 
-          <Link>
+          <Link to="/products">
             <button className="bg-black text-white px-6 py-2 text-sm rounded-full mt-4 hover:shadow-lg hover:scale-100">
               Shop Now &nbsp;→
             </button>

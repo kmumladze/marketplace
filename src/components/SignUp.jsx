@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import signup from "../assets/signup.png";
 
 export default function SignUp() {
@@ -91,12 +92,14 @@ export default function SignUp() {
               </label>
             </div>
 
-            <button
-              className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
-              type="submit"
-            >
-              Sign Up
-            </button>
+            <Link to="/">
+              <button
+                className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </Link>
           </form>
         </div>
       </div>

@@ -18,6 +18,7 @@ import Home from "./pages/Home.jsx";
 import ForgotPassword from "./components/ForgotPassword.jsx";
 import EnterOTP from "./components/EnterOTP.jsx";
 import SignUp from "./components/SignUp.jsx";
+import Products from "./components/Products.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -81,6 +82,7 @@ function Main() {
                 />
                 <Route path="blog" element={<BlogPage />} />
                 <Route path="blog/:id" element={<BlogDetails />} />
+                <Route path="products" element={<Products />} />
                 <Route path="users/:userId" element={<UserDetailsPage />} />
                 <Route path="login" element={<LogInPage />} />
                 <Route path="aboutus" element={<AboutUsPage />} />

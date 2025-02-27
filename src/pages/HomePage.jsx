@@ -4,34 +4,34 @@ import Header from "../components/Header.jsx";
 import Products from "../components/Products.jsx";
 import Categories from "../components/Categories.jsx";
 import FooterPage from "./FooterPage.jsx";
-import {
-  fetchProducts,
-  LIMIT,
-  EMPTY_PRODUCTS,
-} from "../utils/fetchProducts.js";
+// import {
+//   fetchProducts,
+//   LIMIT,
+//   EMPTY_PRODUCTS,
+// } from "../utils/fetchProducts.js";
 import Home from "./Home.jsx";
 import DealsOfTheMonth from "../components/DealsOfTheMonth.jsx";
 import InstagramStories from "../components/InstagramStories.jsx";
 
 export default function HomePage() {
-  const [products, setProducts] = useState(EMPTY_PRODUCTS);
-  const [search, setSearch] = useState("");
+  const [product, setProduct] = useState([]);
+  // const [search, setSearch] = useState("");
   const [cart, setCart] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [sort, setSort] = useState(null);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const [sort, setSort] = useState(null);
 
-  useEffect(() => {
-    fetchProducts({ page: currentPage, search, sort }).then((prods) =>
-      setProducts(prods)
-    );
-  }, [currentPage, sort]);
+  // useEffect(() => {
+  //   fetchProducts({ page: currentPage, search, sort }).then((prods) =>
+  //     setProducts(prods)
+  //   );
+  // }, [currentPage, sort]);
 
-  useEffect(() => {
-    setCurrentPage(1);
-    fetchProducts({ search, sort, page: 1 }).then((prods) =>
-      setProducts(prods)
-    );
-  }, [search]); //reset skip. always start with first page
+  // useEffect(() => {
+  //   setCurrentPage(1);
+  //   fetchProducts({ search, sort, page: 1 }).then((prods) =>
+  //     setProducts(prods)
+  //   );
+  // }, [search]); //reset skip. always start with first page
 
   async function handleClick(category) {
     try {
@@ -39,31 +39,27 @@ export default function HomePage() {
         `https://dummyjson.com/products/category/${category}`
       );
       const resData = await response.json();
-      setProducts(resData);
+      setProduct(resData);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   }
 
-  function addToCart(product) {
-    setCart((prevCart) => [...prevCart, product]);
-  }
+  // function addToCart(product) {
+  //   setCart((prevCart) => [...prevCart, product]);
+  // }
 
-  function handleSortClick(newSort) {
-    setSort(newSort);
-  }
+  // function handleSortClick(newSort) {
+  //   setSort(newSort);
+  // }
 
   return (
     <main className="dark:bg-gray-900">
       <Header cart={cart} />
 
-      {/* <Categories getProductsByCategory={handleClick} /> */}
       <Home />
       <Categories getProductsByCategory={handleClick} />
-      {/* <div>
-        <img src={products.thumbnail} alt="" />
-        <h1>{products.title}</h1>
-      </div> */}
+      {/* 
       <Products
         products={products.products}
         addToCart={addToCart}
@@ -76,7 +72,7 @@ export default function HomePage() {
         page={currentPage}
         total={Math.ceil(products.total / LIMIT)}
         onChange={setCurrentPage}
-      />
+      /> */}
       <DealsOfTheMonth />
       <InstagramStories />
       <FooterPage />
