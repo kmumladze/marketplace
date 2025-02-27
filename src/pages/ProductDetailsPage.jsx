@@ -12,6 +12,7 @@ export default function ProductDetailsPage() {
   const [product, setProduct] = useState(null);
   const { addToCart } = useContext(CartContext);
   const [isAddedCart, setIsAddedCart] = useState(false);
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
   // console.log(cart);
 
@@ -21,21 +22,45 @@ export default function ProductDetailsPage() {
         const response = await fetch(
           `https://dummyjson.com/products/${productId}`
         );
-        const product = await response.json();
-        setProduct(product);
+        const productData = await response.json();
+        setProduct(productData);
+
+        // const allProductsResponse = await fetch(
+        //   `https://dummyjson.com/products`
+        // );
+        // const allProductsData = await allProductsResponse.json();
+
+        // const related = allProductsData.products.filter(
+        //   (item) =>
+        //     item.category === productData.category && item.id !== productData.id
+        // );
+
+        const categoryProducts = await fetch(
+          `https://dummyjson.com/products/category/${productData.category}`
+        );
+
+        const allProductsData = await categoryProducts.json();
+
+        const related = allProductsData.products.filter(
+          (item) => item.id !== productData.id
+        );
+
+        console.log(related);
+
+        setRelatedProducts(related);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
     fetchProductsDetails();
   }, [productId]);
+  // console.log("this is", product);
 
   if (product === null) {
     return (
       <>
         <Header />
-        <div>
-          {" "}
+        <div className="flex justify-center items-center w-full">
           <Spinner />
           loading...
         </div>
@@ -44,6 +69,9 @@ export default function ProductDetailsPage() {
   }
 
   const variant = "underlined";
+
+  console.log(relatedProducts);
+
   return (
     <>
       <Header />
@@ -150,47 +178,89 @@ export default function ProductDetailsPage() {
           <div className="w-full md:w-2/3">
             <Tabs key={variant} aria-label={variant} variant={variant}>
               <Tab key="Descriptions" title="Descriptions">
-                <Card>
-                  <CardBody>{product.description}</CardBody>
-                </Card>
+                <p className="w-full m-4"> {product.description}</p>
               </Tab>
               <Tab key="Additional Information" title="Additional Information">
-                <Card>
-                  <CardBody>
-                    <div className="flex flex-col gap-2">
-                      <p>
-                        <b>Category: </b>
-                        {product.category}
-                      </p>
-                      <p>
-                        <b>Brand: </b> {product.brand}
-                      </p>
-                      <p>
-                        <b>Shipping: </b> {product.shippingInformation}
-                      </p>
-                      <p>
-                        <b>Return: </b> {product.returnPolicy}
-                      </p>
-                    </div>
-                  </CardBody>
-                </Card>
+                <div className="flex flex-col gap-2 m-4">
+                  <p>
+                    <b>Category: </b>
+                    {product.category}
+                  </p>
+                  <p>
+                    <b>Brand: </b> {product.brand}
+                  </p>
+                  <p>
+                    <b>Shipping: </b> {product.shippingInformation}
+                  </p>
+                  <p>
+                    <b>Return: </b> {product.returnPolicy}
+                  </p>
+                </div>
               </Tab>
               <Tab key="Reviews" title="Reviews">
-                <Card>
-                  <CardBody>
-                    <Reviews
-                      productId={product.id}
-                      review={"⭐".repeat(product.rating)}
-                      rating={product.rating}
-                      reviewQuantity={product.reviews.length}
-                    />
-                  </CardBody>
-                </Card>
+                <Reviews
+                  productId={product.id}
+                  review={"⭐".repeat(product.rating)}
+                  rating={product.rating}
+                  reviewQuantity={product.reviews.length}
+                />
               </Tab>
             </Tabs>
           </div>
         </div>
+
+        <div className="flex justify-center items-center w-full mt-10">
+          <div className="flex flex-col gap-4">
+            <h1 className="font-bold text-xl">Related Products</h1>
+            <div className="flex justify-center gap-4">
+              {relatedProducts.length > 0 ? (
+                relatedProducts.map((item) => (
+                  <div key={item.id} className="flex flex-col gap-1">
+                    <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2 bg-stone-100 p-4">
+                      <img src={item.thumbnail} alt="" />
+                    </div>
+
+                    <h4 className="font-bold text-sm">{item.title}</h4>
+                    <p className="text-sm">
+                      {item.description.slice(0, 25)}...
+                    </p>
+                    <p className="text-gray-700">$ {item.price}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No related products found</p>
+              )}{" "}
+            </div>
+          </div>
+        </div>
       </main>
+
+      {/* <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2 bg-stone-100 p-4">
+        <div
+          className="w-full h-56 bg-cover bg-center rounded-xl"
+          style={{ backgroundImage: `url(${product.thumbnail})` }}
+        ></div>
+        <button
+          className={`mt-3 rounded-md px-3 py-2 bg-white text-black border-none text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:bg-stone-400 hover:text-black transition w-full ${
+            isAddedCart ? "bg-stone-400 text-black" : ""
+          }`}
+          disabled={isAddedCart}
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            addToCart(product);
+            setIsAddedCart(true);
+            setTimeout(() => setIsAddedCart(false), 1000);
+          }}
+        >
+          {isAddedCart ? "Added" : "Add to Cart"}
+        </button>
+      </div>
+      <div className="w-full flex flex-col gap-1">
+        <h1 className="font-bold text-sm">{product.title}</h1>
+        <p className="text-sm text-gray-500">{product.brand}</p>
+        <p className="font-light font-mono text-sm">${product.price}</p>
+      </div> */}
 
       <FooterPage />
     </>
