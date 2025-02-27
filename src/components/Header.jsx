@@ -98,8 +98,8 @@ export default function Header() {
   if (cartQuantity > 0) {
     modalActions = (
       <div className="flex justify-between m-2">
-        <button>Close</button>
-        <button>Checkout</button>
+        {/* <button>Close</button>
+        <button>Checkout</button> */}
       </div>
     );
   }
@@ -164,6 +164,7 @@ export default function Header() {
               <button className="md:flex">
                 <FaRegHeart size={24} />
               </button>
+
               <button className="relative" onClick={handleOpenCartClick}>
                 <HiOutlineShoppingBag size={24} />
                 {cartQuantity > 0 && (

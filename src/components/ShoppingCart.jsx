@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
 import { CartContext } from "../providers/CartProvider";
+import { Link } from "react-router";
 
 export default function ShoppingCart() {
   const { cart, setCart } = useContext(CartContext);
@@ -67,9 +68,23 @@ export default function ShoppingCart() {
           ))}
         </ul>
       )}
-      <p className="text-right mt-2 text-lg md:text-xl">
-        Cart Total: <strong>{formattedPrice}</strong>
-      </p>
+      <div className="flex justify-between items-center m-4">
+        <p className="font-bold text-lg">Subtotal:</p>
+        <p>
+          <strong>{formattedPrice}</strong>
+        </p>
+      </div>
+
+      <div className="flex flex-col gap-4 m-10">
+        <button className="border-1 border-black p-4 rounded-lg">
+          View Cart
+        </button>
+        <Link to="/checkout" className="w-full">
+          <button className="bg-black text-stone-50 p-4 rounded-lg">
+            Checkout
+          </button>
+        </Link>
+      </div>
     </div>
   );
 }
