@@ -12,6 +12,7 @@ import FooterPage from "./FooterPage.jsx";
 import Home from "./Home.jsx";
 import DealsOfTheMonth from "../components/DealsOfTheMonth.jsx";
 import InstagramStories from "../components/InstagramStories.jsx";
+import UpperFooter from "../components/UpperFooter.jsx";
 
 export default function HomePage() {
   const [product, setProduct] = useState([]);
@@ -75,6 +76,7 @@ export default function HomePage() {
       /> */}
       <DealsOfTheMonth />
       <InstagramStories />
+      <UpperFooter />
       <FooterPage />
     </main>
   );

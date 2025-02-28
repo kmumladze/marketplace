@@ -21,6 +21,7 @@ import {
 } from "@heroui/react";
 import Header from "./Header.jsx";
 import FooterPage from "../pages/FooterPage.jsx";
+import UpperFooter from "./UpperFooter.jsx";
 
 export default function Products() {
   const [products, setProducts] = useState(EMPTY_PRODUCTS);
@@ -145,6 +146,7 @@ export default function Products() {
         onChange={setCurrentPage}
       />
 
+      <UpperFooter />
       <FooterPage />
     </>
   );

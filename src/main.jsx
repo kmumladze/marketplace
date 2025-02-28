@@ -20,6 +20,7 @@ import EnterOTP from "./components/EnterOTP.jsx";
 import SignUp from "./components/SignUp.jsx";
 import Products from "./components/Products.jsx";
 import Checkout from "./components/Checkout.jsx";
+import Shipping from "./components/Shipping.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -93,6 +94,7 @@ function Main() {
                 <Route path="enterOTP" element={<EnterOTP />} />
                 <Route path="signup" element={<SignUp />} />
                 <Route path="checkout" element={<Checkout />} />
+                <Route path="shipping" element={<Shipping />} />
               </Routes>
             </BrowserRouter>
           </CartContext.Provider>
