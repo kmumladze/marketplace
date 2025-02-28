@@ -31,102 +31,96 @@ export default function Checkout() {
   return (
     <>
       <Header />
-      <main className="flex justify-around gap-4">
-        <div className="flex flex-col">
-          <h1 className="font-bold text-2xl">Checkout</h1>
+      <main className="flex justify-around gap-8 p-8">
+        <div className="flex flex-col w-3/5">
+          <h1 className="font-bold text-3xl mb-6">Checkout</h1>
 
-          <div className="flex flex-col w-full">
-            <div className="flex justify-around py-2 font-bold border-b-1">
-              <p>Product</p>
-              <div className="flex gap-2">
-                <p>Price</p>
-                <p>Quantity</p>
-                <p>Subtotal</p>
-              </div>
+          <div className="flex justify-between pb-2 font-bold border-b">
+            <p>Products</p>
+            <div className="flex gap-8">
+              <p>Price</p>
+              <p>Quantity</p>
+              <p>Subtotal</p>
             </div>
+          </div>
 
-            <div className="flex flex-col p-4 md:p-6 max-w-2xl mx-auto">
-              {cart.length === 0 ? (
-                <p>No items in cart</p>
-              ) : (
-                <ul className="space-y-3">
-                  {cart.map((product, index) => (
-                    <li
-                      key={index}
-                      className="flex flex-col md:flex-row items-center gap-4 p-3 dark:bg-gray-600 rounded-lg justify-between border-b-1"
-                    >
-                      <div className="flex flex-col md:flex-row items-center justify-between w-full">
-                        <div className="flex items-center">
-                          <img
-                            className="w-14 md:w-16"
-                            src={product.thumbnail}
-                            alt=""
-                          />
-                          <p className="font-bold md:ml-2">{product.title}</p>
-                        </div>
-                        <p className="font-bold font-mono w-16 text-center mx-4">
-                          ${product.price}
-                        </p>
-                      </div>
+          <div className="flex flex-col p-6">
+            {cart.length === 0 ? (
+              <p>No items in cart</p>
+            ) : (
+              <ul className="space-y-4">
+                {cart.map((product, index) => (
+                  <li
+                    key={index}
+                    className="flex items-center justify-between border-b pb-4"
+                  >
+                    <div className="flex items-center gap-4">
+                      <img
+                        className="w-20"
+                        src={product.thumbnail}
+                        alt={product.title}
+                      />
+                      <p className="font-bold">{product.title}</p>
+                    </div>
 
-                      <div className="flex items-center gap-1 rounded-xl py-2 px-4 border-1 border-black">
-                        <button
-                          className="bg-transparent cursor-pointer"
-                          onClick={() => updateQuantity(product.id, -1)}
-                        >
+                    <div className="flex justify-around gap-4">
+                      <p className="font-bold text-lg">${product.price}</p>
+
+                      <div className="flex items-center border px-4 py-2 rounded-lg">
+                        <button onClick={() => updateQuantity(product.id, -1)}>
                           -
                         </button>
-                        <span>{product.quantity}</span>
-                        <button
-                          className="bg-transparent cursor-pointer"
-                          onClick={() => updateQuantity(product.id, 1)}
-                        >
+                        <span className="mx-3">{product.quantity}</span>
+                        <button onClick={() => updateQuantity(product.id, 1)}>
                           +
                         </button>
                       </div>
 
-                      <p className="font-bold font-mono w-16 text-center mx-4">
-                        ${product.price}
+                      {/* <p className="font-bold font-mono w-16 text-center mx-4">
+                      ${product.price}
+                    </p> */}
+
+                      <p className="font-bold text-lg">
+                        ${product.price * product.quantity}
                       </p>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 
-        <div className="border-1 w-full md:w-1/3 flex flex-col gap-4 p-8">
-          <div className="flex justify-between items-center m-4 border-b-1">
+        <div className="border w-2/5 flex flex-col gap-6 p-6 rounded-lg shadow-lg">
+          <div className="flex justify-between border-b pb-2">
             <p className="font-bold text-lg">Subtotal:</p>
-            <p>
-              <strong>{formattedPrice}</strong>
-            </p>
+            <p className="font-bold">{formattedPrice}</p>
           </div>
-          <div className="flex flex-col px-4 gap-4">
-            <p>Enter Discount Code</p>
-            <input
-              type="number"
-              className="border-1 border-black rounded-lg p-2"
-            />
-          </div>
-          <div className="flex justify-between border-b-1 px-4">
-            <p>Delivery Charge</p>
-            <p>$ 5</p>
+          <div className="flex flex-col gap-2">
+            <p className="font-bold">Enter Discount Code</p>
+            <div className="flex border rounded-lg overflow-hidden">
+              <input
+                type="text"
+                className="w-full px-3 py-2 outline-none"
+                placeholder="FLAT50"
+              />
+              <button className="bg-black text-white px-4 py-2">Apply</button>
+            </div>
           </div>
 
-          <div className="flex justify-between px-4">
-            <p>
-              <b>Grand total</b>
-            </p>
+          <div className="flex justify-between border-b pb-2">
+            <p>Delivery Charge</p>
+            <p>$5.00</p>
+          </div>
+
+          <div className="flex justify-between text-lg font-bold">
+            <p>Grand Total</p>
             <p>{formattedGrandTotal}</p>
           </div>
 
-          <div className="flex justify-center mx-4">
-            <button className="bg-black text-white rounded-lg py-4 px-12 w-full">
-              Proceed to Checkout
-            </button>
-          </div>
+          <button className="bg-black text-white rounded-xl py-3 px-8 w-full text-lg">
+            Proceed to Checkout
+          </button>
         </div>
       </main>
       <FooterPage />

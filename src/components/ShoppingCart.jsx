@@ -80,7 +80,7 @@ export default function ShoppingCart() {
           View Cart
         </button>
         <Link to="/checkout" className="w-full">
-          <button className="bg-black text-stone-50 p-4 rounded-lg">
+          <button className="bg-black text-stone-50 p-4 rounded-lg w-full">
             Checkout
           </button>
         </Link>

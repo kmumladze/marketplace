@@ -99,9 +99,9 @@ export default function Categories({ getProductsByCategory }) {
             <SwiperSlide key={index} className="w-60 md:w-72">
               <div
                 className="w-full h-64 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform"
-                // onClick={() => {
-                //   getProductsByCategory(category);
-                // }}
+                onClick={() => {
+                  getProductsByCategory(category);
+                }}
                 style={{
                   backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})`,
                 }}
@@ -115,9 +115,6 @@ export default function Categories({ getProductsByCategory }) {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* <button ref={prevRef}>previous</button>
-        <button ref={nextRef}>next</button> */}
       </main>
     </div>
   );
