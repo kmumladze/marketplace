@@ -10,6 +10,7 @@ import { MdOutlinePayments } from "react-icons/md";
 import { VscPreview } from "react-icons/vsc";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { Link } from "react-router";
 
 export default function Shipping() {
   const { cart, setCart } = useContext(CartContext);
@@ -110,11 +111,13 @@ export default function Shipping() {
               ))}
             </div>
 
-            <div className="text-center md:text-left mt-4">
-              <button className="bg-black text-white px-10 py-3 rounded-lg text-sm hover:bg-gray-800 transition">
-                Deliver Here
-              </button>
-            </div>
+            <Link to="/payment">
+              <div className="text-center md:text-left mt-4">
+                <button className="bg-black text-white px-10 py-3 rounded-lg text-sm hover:bg-gray-800 transition">
+                  Deliver Here
+                </button>
+              </div>
+            </Link>
           </div>
 
           <div className="border w-1/4 h-2/5 flex flex-col gap-6 p-6 rounded-lg shadow-lg">
@@ -233,12 +236,14 @@ export default function Shipping() {
                 </label>
               </div>
 
-              <button
-                className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
-                type="submit"
-              >
-                Add New Address
-              </button>
+              <Link to="/payment">
+                <button
+                  className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
+                  type="submit"
+                >
+                  Add New Address
+                </button>
+              </Link>
             </form>
           </div>
         </div>

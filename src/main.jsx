@@ -21,6 +21,7 @@ import SignUp from "./components/SignUp.jsx";
 import Products from "./components/Products.jsx";
 import Checkout from "./components/Checkout.jsx";
 import Shipping from "./components/Shipping.jsx";
+import Payment from "./components/Payment.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -95,6 +96,7 @@ function Main() {
                 <Route path="signup" element={<SignUp />} />
                 <Route path="checkout" element={<Checkout />} />
                 <Route path="shipping" element={<Shipping />} />
+                <Route path="payment" element={<Payment />} />
               </Routes>
             </BrowserRouter>
           </CartContext.Provider>
