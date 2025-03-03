@@ -11,6 +11,7 @@ import { HiOutlineShoppingBag } from "react-icons/hi";
 import { FaRegUser } from "react-icons/fa";
 import { CartContext } from "../providers/CartProvider.js";
 import CartModal from "./CartModal.jsx";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 export default function Header() {
   const modal = useRef();
@@ -117,10 +118,10 @@ export default function Header() {
   return (
     <>
       <CartModal ref={modal} title="Your Cart" actions={modalActions} />
-      <header className="text-black py-4 w-full z-10 dark:text-white">
-        <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between px-6">
+      <header className="text-black py-4 w-full z-10 dark:text-white bg-white dark:bg-gray-900">
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-6">
           <NavLink to="/">
-            <div className="flex items-center gap-3 mt-4 mb-6 border-2 p-4 rounded-xl cursor-pointer">
+            <div className="flex items-center gap-3 border-2 p-3 rounded-xl cursor-pointer">
               <h3 className="text-xl font-semibold dark:text-white">
                 <span className="text-3xl from-content2-foreground">M</span>
                 arketplace
@@ -128,80 +129,71 @@ export default function Header() {
             </div>
           </NavLink>
 
-          <ul className="flex gap-5">
-            <Link>
+          <button className="md:hidden text-2xl">
+            <GiHamburgerMenu />
+          </button>
+
+          <ul className="hidden md:flex gap-5 text-lg">
+            <NavLink to="/">
               <li>Home</li>
-            </Link>
-            <Link>
+            </NavLink>
+            <NavLink>
               <li>Shop</li>
-            </Link>
-            <Link>
+            </NavLink>
+            <NavLink>
               <li>About Us</li>
-            </Link>
-            <Link>
+            </NavLink>
+            <NavLink>
               <li>Blog</li>
-            </Link>
-            <Link>
+            </NavLink>
+            <NavLink>
               <li>Contact Us</li>
-            </Link>
+            </NavLink>
           </ul>
+          <div className="flex items-center gap-4">
+            {/* Dark Mode Toggle */}
+            <button className="text-xl" onClick={darkModeHandler}>
+              {dark ? (
+                <IoSunnyOutline className="text-yellow-500" />
+              ) : (
+                <FaRegMoon className="text-gray-800 dark:text-gray-300" />
+              )}
+            </button>
 
-          <div className="flex md:justify-center items-center gap-3 w-9 mt-4 md:w-auto">
-            <div className="flex gap-2 items-center">
-              <button className="text-xl" onClick={() => darkModeHandler()}>
-                {
-                  dark && <IoSunnyOutline className="text-yellow-500" /> // render sunny when dark is true
-                }
-                {
-                  !dark && (
-                    <FaRegMoon className="text-gray-800 dark:text-gray-300" />
-                  ) // render moon when dark is false
-                }
-              </button>
-              {/* <button className="md:flex ">
-              <TiMessages size={32} />
-            </button> */}
-              <button className="md:flex">
-                <FaRegHeart size={24} />
-              </button>
+            {/* Wishlist & Cart */}
+            <button className="relative">
+              <FaRegHeart size={24} />
+            </button>
+            <button className="relative" onClick={handleOpenCartClick}>
+              <HiOutlineShoppingBag size={24} />
+              {cartQuantity > 0 && (
+                <span className="absolute -top-1 -right-2 bg-red-500 w-5 h-5 flex items-center justify-center text-xs rounded-full">
+                  {cartQuantity}
+                </span>
+              )}
+            </button>
 
-              <button className="relative" onClick={handleOpenCartClick}>
-                <HiOutlineShoppingBag size={24} />
-                {cartQuantity > 0 && (
-                  <span className="absolute -top-1 -right-2 bg-red-500 w-5 h-5 flex items-center justify-center text-xs rounded-full">
-                    {cartQuantity}
-                  </span>
-                )}
-              </button>
-            </div>
-
+            {/* User Section */}
             {user ? (
-              <div className="flex items-center gap-3 p-4 border rounded-lg md:mt-0">
+              <div className="hidden md:flex items-center gap-3 p-3 border rounded-lg">
                 <Link
                   to={`/users/${user.id}`}
                   className="flex items-center gap-2"
                 >
-                  <div className="flex gap-2">
-                    <img
-                      className="w-6 h-6 rounded-full"
-                      src={user.image}
-                      alt="user image"
-                    />
-                    <h3>{user.username}</h3>
-                  </div>
+                  <img
+                    className="w-6 h-6 rounded-full"
+                    src={user.image}
+                    alt="user image"
+                  />
+                  <h3>{user.username}</h3>
                 </Link>
-                <Link to="/login">
-                  <button
-                    className="text-red-500 text-sm"
-                    onClick={handleLogout}
-                  >
-                    Log Out
-                  </button>
-                </Link>
+                <button className="text-red-500 text-sm" onClick={handleLogout}>
+                  Log Out
+                </button>
               </div>
             ) : (
               <Link to="/login">
-                <div className="flex items-center gap-3 p-2 border rounded-lg cursor-pointer md:mt-0">
+                <div className="hidden md:flex items-center gap-2 p-2 border rounded-lg cursor-pointer">
                   <FaRegUser />
                   <h3>Log In</h3>
                 </div>
@@ -209,6 +201,27 @@ export default function Header() {
             )}
           </div>
         </div>
+        {/* toggle menu */}
+        <div className="hidden absolute top-16 left-0 w-full bg-white dark:bg-gray-900 shadow-md transition-all">
+          <ul className="flex flex-col items-center py-4 space-y-4">
+            <NavLink to="/">
+              <li>Home</li>
+            </NavLink>
+            <NavLink to="/shop">
+              <li>Shop</li>
+            </NavLink>
+            <NavLink to="/about">
+              <li>About Us</li>
+            </NavLink>
+            <NavLink to="/blog">
+              <li>Blog</li>
+            </NavLink>
+            <NavLink to="/contact">
+              <li>Contact Us</li>
+            </NavLink>
+          </ul>
+        </div>
+        {/*  */}
       </header>
     </>
   );
