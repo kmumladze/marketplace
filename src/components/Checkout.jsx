@@ -33,8 +33,8 @@ export default function Checkout() {
     <>
       <Header />
       <main>
-        <div className="flex justify-around gap-8 p-8">
-          <div className="flex flex-col w-3/5">
+        <div className="flex flex-col md:flex-row items-center md:justify-around gap-8 p-8">
+          <div className="flex flex-col w-full md:w-3/5">
             <h1 className="font-bold text-3xl mb-6">Checkout</h1>
 
             <div className="flex justify-between pb-2 font-bold border-b">
@@ -91,7 +91,7 @@ export default function Checkout() {
             </div>
           </div>
 
-          <div className="border w-2/5 h-2/5 flex flex-col gap-6 p-6 rounded-lg shadow-lg">
+          <div className="border w-full md:w-2/5 md:h-2/5 flex flex-col gap-6 p-6 rounded-lg shadow-lg">
             <div className="flex justify-between border-b pb-2">
               <p className="font-bold text-lg">Subtotal:</p>
               <p className="font-bold">{formattedPrice}</p>

@@ -26,7 +26,7 @@ export default function Shipping() {
     <>
       <Header />
       <main className="flex flex-col p-6 w-full">
-        <div className="flex w-full justify-around items-center">
+        <div className="flex flex-col md:flex-row w-full justify-around items-center">
           <div className="w-full md:w-1/2 max-w-3xl flex flex-col gap-4">
             <h1 className="font-bold text-3xl">Shipping Address</h1>
 
@@ -68,7 +68,7 @@ export default function Shipping() {
               </p>
             </div>
 
-            <div className="flex flex-col items-center overflow-hidden md:flex-row gap-4">
+            <div className="flex items-center overflow-hidden md:flex-row gap-4">
               {[
                 {
                   name: "Robert Fox",
@@ -112,7 +112,7 @@ export default function Shipping() {
             </div>
 
             <Link to="/payment">
-              <div className="text-center md:text-left mt-4">
+              <div className="text-left mt-4">
                 <button className="bg-black text-white px-10 py-3 rounded-lg text-sm hover:bg-gray-800 transition">
                   Deliver Here
                 </button>
@@ -120,7 +120,7 @@ export default function Shipping() {
             </Link>
           </div>
 
-          <div className="border w-1/4 h-2/5 flex flex-col gap-6 p-6 rounded-lg shadow-lg">
+          <div className="border w-full md:w-1/4 md:h-2/5 m-4 flex flex-col gap-6 p-6 rounded-lg shadow-lg">
             <div className="flex justify-between border-b pb-2">
               <p className="font-bold text-lg">Subtotal:</p>
               <p className="font-bold">{formattedPrice}</p>
@@ -149,7 +149,7 @@ export default function Shipping() {
           </div>
         </div>
 
-        <div className="w-full md:w-1/2 p-8 m-14 flex flex-col gap-4 text-sm">
+        <div className="w-full md:w-1/2 md:p-8 md:m-14 flex flex-col gap-4 text-sm">
           <h1 className="font-mono font-bold text-2xl">Add a new address</h1>
 
           <div>
@@ -192,7 +192,7 @@ export default function Shipping() {
                 </label>
                 <input
                   id="address"
-                  className="border border-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-500"
+                  className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-500"
                   type="text"
                   required
                 />

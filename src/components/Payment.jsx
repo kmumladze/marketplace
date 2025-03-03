@@ -22,8 +22,8 @@ export default function Payment() {
   return (
     <>
       <Header />
-      <main className="flex justify-around w-full">
-        <div className="min-h-screen flex flex-col p-6 w-1/2">
+      <main className="flex flex-col md:flex-row items-center md:justify-around w-full">
+        <div className="min-h-screen flex flex-col p-6 w-full md:w-1/2">
           <div className="w-full max-w-5xl flex flex-col lg:flex-row gap-10">
             <div className="flex flex-col gap-8 flex-1">
               <div className="w-full max-w-3xl flex flex-col gap-8">
@@ -135,7 +135,7 @@ export default function Payment() {
           </div>
         </div>
 
-        <div className="border w-1/4 h-2/5 flex flex-col gap-6 p-6 rounded-lg shadow-lg mt-10">
+        <div className="border w-full md:w-1/4 md:h-2/5 m-4 flex flex-col gap-6 p-6 rounded-lg shadow-lg md:mt-10">
           <div className="flex justify-between border-b pb-2">
             <p className="font-bold text-lg">Subtotal:</p>
             <p className="font-bold">{formattedPrice}</p>
