@@ -113,14 +113,14 @@ export default function FooterPage() {
               Get the latest updates and offers.
             </p>
             <form>
-              <div className="flex items-center bg-gray-800 p-2 rounded-lg">
+              <div className="flex flex-col gap-2">
                 <input
                   type="email"
                   placeholder="Enter your email"
                   required
-                  className="bg-transparent flex-1 outline-none px-2 text-white"
+                  className="outline-none text-white bg-gray-800 border border-gray-50  p-2 rounded-lg"
                 />
-                <button className="bg-blue-500 px-4 py-2 rounded-md text-white hover:bg-blue-600 transition">
+                <button className="bg-slate-500 px-4 py-2 rounded-md text-white hover:bg-blue-600">
                   Subscribe
                 </button>
               </div>

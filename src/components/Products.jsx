@@ -110,7 +110,7 @@ export default function Products() {
           />
           <Dropdown>
             <DropdownTrigger>
-              <Button className="px-6 py-2 rounded-lg hover:bg-gray-200 transition">
+              <Button className="z-0 px-6 py-2 rounded-lg hover:bg-gray-200 transition">
                 {selectedValue}
               </Button>
             </DropdownTrigger>

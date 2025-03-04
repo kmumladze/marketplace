@@ -56,7 +56,7 @@ export default function DealsOfTheMonth() {
           {time.map((item, index) => (
             <div
               key={index}
-              className="border-2 p-4 rounded-xl text-center bg-white shadow-md w-20"
+              className="border-2 p-4 rounded-xl text-center bg-white shadow-md w-full md:w-20"
             >
               <span className="text-xl font-bold text-gray-700">
                 {item.value}

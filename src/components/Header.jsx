@@ -143,7 +143,7 @@ export default function Header() {
             {/* toggle menu */}
 
             {open && (
-              <div className="absolute z-99 top-24 left-0 w-full bg-slate-50 dark:bg-gray-900 shadow-md transition-all">
+              <div className="absolute z-10 top-24 left-0 w-full bg-slate-50 dark:bg-gray-900 shadow-md transition-all">
                 <ul className="flex flex-col px-8 py-4 space-y-4">
                   <div className="flex gap-4">
                     <button className="text-xl" onClick={darkModeHandler}>
@@ -201,7 +201,7 @@ export default function Header() {
                       </div>
                     ) : (
                       <Link to="/login">
-                        <div className="md:flex items-center gap-2 p-2 border rounded-lg cursor-pointer">
+                        <div className="flex items-center gap-2 p-2 border rounded-lg cursor-pointer">
                           <FaRegUser />
                           <h3>Log In</h3>
                         </div>
