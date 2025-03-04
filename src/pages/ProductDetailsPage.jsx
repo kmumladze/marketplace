@@ -77,8 +77,8 @@ export default function ProductDetailsPage() {
     <>
       <Header />
 
-      <main>
-        <div className="flex justify-center gap-10">
+      <main className="flex justify-center flex-col items-center min-h-screen w-full">
+        <div className="max-w-7xl flex flex-col items-center w-full md:flex-row justify-center gap-8">
           <div className="flex flex-col w-full md:w-1/3 gap-3">
             <div>
               <img
@@ -103,67 +103,75 @@ export default function ProductDetailsPage() {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-6 p-8 bg-white max-w-xl">
+            <div className="flex flex-col gap-4">
               <div className="flex flex-col">
-                <h1 className="font-bold text-2xl">{product.title}</h1>
-                <p>{product.category}</p>
+                <h1 className="font-extrabold text-3xl text-gray-900">
+                  {product.title}
+                </h1>
+                <p className="text-gray-500 text-lg">{product.category}</p>
               </div>
 
-              <div className="flex gap-4 text-gray-600">
-                <h3>
+              <div className="flex gap-4 text-gray-600 items-center text-lg">
+                <h3 className="flex items-center font-medium">
                   {"⭐".repeat(product.rating)} {product.rating}
                 </h3>
-                <p>({product.reviews.length} reviews)</p>
+                <p className="text-gray-500">
+                  ({product.reviews.length} reviews)
+                </p>
               </div>
-              <p className="font-mono">$ {product.price}</p>
-              <p className="w-96 text-sm">{product.description}</p>
+
+              <p className="font-mono text-2xl font-bold text-gray-800">
+                $ {product.price}
+              </p>
+              <p className="text-md text-gray-700 leading-relaxed">
+                {product.description}
+              </p>
             </div>
 
-            <div className="flex flex-col gap-2">
-              <h1 className="font-bold text-xl">Color</h1>
-              <div className="flex gap-2">
-                <div className="bg-[#d11111] w-10 h-10 rounded-lg"></div>
-                <div className="bg-[#3257a8] w-10 h-10 rounded-lg"></div>
-                <div className="bg-[#d17e11] w-10 h-10 rounded-lg"></div>
-                <div className="bg-[#030303] w-10 h-10 rounded-lg"></div>
-                <div className="bg-[#6aa63a] w-10 h-10 rounded-lg"></div>
-                <div className="bg-[#cbd111] w-10 h-10 rounded-lg"></div>
-              </div>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <h1 className="font-bold text-xl">Size</h1>
-              <div className="flex gap-2">
-                <div
-                  className="w-10 h-10 border-2 border-black rounded-lg text-lg
-             flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all"
-                >
-                  S
-                </div>
-                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
-                  M
-                </div>
-                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
-                  L
-                </div>
-                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
-                  XL
-                </div>
-                <div className="w-10 h-10 border-2 border-black rounded-lg flex justify-center items-center hover:bg-black hover:text-white cursor-pointer transition-all">
-                  XXL
-                </div>
+            <div className="flex flex-col gap-3">
+              <h2 className="font-bold text-lg">Color</h2>
+              <div className="flex gap-3">
+                {[
+                  "#d11111",
+                  "#3257a8",
+                  "#d17e11",
+                  "#030303",
+                  "#6aa63a",
+                  "#cbd111",
+                ].map((color, index) => (
+                  <div
+                    key={index}
+                    className="w-10 h-10 rounded-full border border-gray-300"
+                    style={{ backgroundColor: color }}
+                  ></div>
+                ))}
               </div>
             </div>
 
-            <p className="text-red-600 text-sm">
+            <div className="flex flex-col gap-3">
+              <h2 className="font-bold text-xl">Size</h2>
+              <div className="flex gap-3">
+                {["S", "M", "L", "XL", "XXL"].map((size) => (
+                  <div
+                    key={size}
+                    className="w-12 h-12 border-2 border-gray-700 rounded-lg flex justify-center items-center text-lg font-medium cursor-pointer hover:bg-gray-700 hover:text-white transition-all"
+                  >
+                    {size}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <p className="text-red-500 text-md font-semibold">
               Only {product.stock} Stocks Left!
             </p>
 
             <button
-              className={`mt-3 rounded-md px-3 py-2 bg-black text-white border-none text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:bg-black hover:text-white transition w-full ${
+              className={`mt-4 w-full rounded-md px-4 py-3 bg-black text-white border-none text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:bg-black hover:text-white transition ${
                 isAddedCart ? "bg-gray-500 text-black" : ""
               }`}
+              disabled={isAddedCart}
               onClick={() => {
                 addToCart(product);
                 setIsAddedCart(true);
@@ -179,7 +187,7 @@ export default function ProductDetailsPage() {
           <div className="w-full md:w-2/3">
             <Tabs key={variant} aria-label={variant} variant={variant}>
               <Tab key="Descriptions" title="Descriptions">
-                <p className="w-full m-4"> {product.description}</p>
+                <p className="w-full m-1 md:m-4"> {product.description}</p>
               </Tab>
               <Tab key="Additional Information" title="Additional Information">
                 <div className="flex flex-col gap-2 m-4">
@@ -213,7 +221,7 @@ export default function ProductDetailsPage() {
         <div className="flex justify-center items-center w-full mt-10">
           <div className="flex flex-col gap-4">
             <h1 className="font-bold text-xl">Related Products</h1>
-            <div className="flex justify-center gap-4">
+            <div className="flex flex-col md:flex-row justify-center gap-4">
               {relatedProducts.length > 0 ? (
                 relatedProducts.map((item) => (
                   <div key={item.id} className="flex flex-col gap-1">
