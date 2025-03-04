@@ -25,31 +25,33 @@ export default function ShoppingCart() {
   const formattedPrice = `$${totalPrice.toFixed(2)}`;
 
   return (
-    <div className="flex flex-col p-4 md:p-6 max-w-2xl mx-auto">
+    <div className="flex flex-col p-4 md:p-8 max-w-2xl mx-auto w-full">
       {cart.length === 0 ? (
-        <p>No items in cart</p>
+        <p className="text-center text-gray-500">No items in cart</p>
       ) : (
         <ul className="space-y-3">
           {cart.map((product, index) => (
             <li
               key={index}
-              className="flex flex-col md:flex-row items-center gap-2 p-3 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
+              className="flex flex-col md:flex-row items-center gap-4 p-4 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
             >
               <div className="flex flex-col md:flex-row items-center justify-between w-full">
-                <div className="flex items-center">
+                <div className="flex items-center gap-3">
                   <img
-                    className="w-14 md:w-16"
+                    className="w-16 md:w-20"
                     src={product.thumbnail}
-                    alt=""
+                    alt={product.thumbnail}
                   />
-                  <p className="font-bold md:ml-2">{product.title}</p>
+                  <p className="font-semibold text-gray-900 dark:text-gray-200">
+                    {product.title}
+                  </p>
                 </div>
-                <p className="font-bold font-mono w-16 text-center mx-4">
+                <p className="font-bold font-mono text-lg text-gray-800 dark:text-gray-300">
                   ${product.price}
                 </p>
               </div>
 
-              <div className="flex items-center gap-1 bg-stone-200 rounded-xl p-2">
+              <div className="flex items-center gap-1 bg-stone-200 rounded-xl px-3 py-2">
                 <button
                   className="bg-transparent border-none rounded-md cursor-pointer"
                   onClick={() => updateQuantity(product.id, -1)}

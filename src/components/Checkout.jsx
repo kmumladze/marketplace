@@ -37,7 +37,7 @@ export default function Checkout() {
           <div className="flex flex-col w-full md:w-3/5">
             <h1 className="font-bold text-3xl mb-6">Checkout</h1>
 
-            <div className="flex justify-between pb-2 font-bold border-b">
+            <div className="hidden md:flex justify-between pb-2 font-bold border-b">
               <p>Products</p>
               <div className="flex gap-8">
                 <p>Price</p>
@@ -54,7 +54,7 @@ export default function Checkout() {
                   {cart.map((product, index) => (
                     <li
                       key={index}
-                      className="flex items-center justify-between border-b pb-4"
+                      className="flex flex-col gap-4 md:flex-row items-center justify-between border-b pb-4"
                     >
                       <div className="flex items-center gap-4">
                         <img

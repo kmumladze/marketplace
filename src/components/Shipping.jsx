@@ -68,7 +68,7 @@ export default function Shipping() {
               </p>
             </div>
 
-            <div className="flex items-center overflow-hidden md:flex-row gap-4">
+            <div className="flex flex-col items-center overflow-hidden md:flex-row gap-4">
               {[
                 {
                   name: "Robert Fox",
@@ -83,7 +83,7 @@ export default function Shipping() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col bg-gray-100 rounded-lg p-6 shadow-sm w-1/2 border ${
+                  className={`flex flex-col bg-gray-100 rounded-lg p-6 shadow-sm w-full md:w-1/2 border ${
                     item.selected ? "border-black" : "border-transparent"
                   }`}
                 >

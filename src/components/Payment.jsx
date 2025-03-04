@@ -79,7 +79,7 @@ export default function Payment() {
                       required
                     />
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 md:flex-row flex-col">
                     <div className="flex flex-col gap-1">
                       <label className="text-sm font-medium">Expiry Date</label>
                       <input

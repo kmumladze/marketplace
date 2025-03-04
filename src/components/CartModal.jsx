@@ -30,7 +30,7 @@ const CartModal = forwardRef(function Modal({ title, actions, onClose }, ref) {
     <dialog
       onClick={handleClick}
       ref={dialog}
-      className="backdrop:bg-black/50 backdrop:backdrop-blur-md mt-6 bg-stone-200 dark:bg-gray-500 p-4 rounded-lg w-1/2 shadow-2xl m-auto"
+      className="backdrop:bg-black/50 backdrop:backdrop-blur-md mt-6 bg-stone-200 dark:bg-gray-500 p-4 rounded-lg w-full md:w-1/2 shadow-2xl m-auto"
     >
       <h2 className="font-semi font-mono m-2">{title}:</h2>
       <ShoppingCart />
