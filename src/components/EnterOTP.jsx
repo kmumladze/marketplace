@@ -21,14 +21,14 @@ export default function EnterOTP() {
 
         <div className="flex flex-col gap-2">
           <h1 className="font-bold text-3xl">Enter OTP </h1>
-          <p className="text-sm text-stone-400 w-2/3">
+          <p className="text-sm text-stone-400 w-full md:w-2/3">
             We have share a code of your registered email address
             marketplace@example.com
           </p>
         </div>
 
         <Form
-          className="flex w-full flex-col items-start gap-4"
+          className="flex w-full flex-col items-center md:items-start gap-4"
           onSubmit={(e) => {
             e.preventDefault();
             const formData = new FormData(e.currentTarget);

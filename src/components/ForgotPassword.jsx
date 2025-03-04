@@ -15,7 +15,7 @@ export default function ForgotPassword() {
 
         <div className="flex flex-col gap-2">
           <h1 className="font-bold text-3xl">Forgot Password</h1>
-          <p className="text-sm text-stone-400 w-2/3">
+          <p className="text-sm text-stone-400 w-full md:w-2/3">
             Enter your registered email address. we’ll send you a code to reset
             your password
           </p>
