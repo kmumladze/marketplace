@@ -167,6 +167,20 @@ export default function Header() {
                     </button>
                   </div>
 
+                  <NavLink to="/">
+                    <li>Home</li>
+                  </NavLink>
+                  <NavLink to="/products">
+                    <li>Shop</li>
+                  </NavLink>
+                  <NavLink to="/aboutus">
+                    <li>About Us</li>
+                  </NavLink>
+
+                  <NavLink to="/contactus">
+                    <li>Contact Us</li>
+                  </NavLink>
+
                   <div className="flex">
                     {user ? (
                       <div className="flex gap-4">
@@ -194,20 +208,6 @@ export default function Header() {
                       </Link>
                     )}
                   </div>
-
-                  <NavLink to="/">
-                    <li>Home</li>
-                  </NavLink>
-                  <NavLink to="/products">
-                    <li>Shop</li>
-                  </NavLink>
-                  <NavLink to="/aboutus">
-                    <li>About Us</li>
-                  </NavLink>
-
-                  <NavLink to="/contactus">
-                    <li>Contact Us</li>
-                  </NavLink>
                 </ul>
               </div>
             )}
