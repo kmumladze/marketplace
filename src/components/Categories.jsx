@@ -3,6 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -35,11 +36,13 @@ const CATEGORY_IMAGE_MAP = {
   "womens-watches": "/womens-watches.jpg",
 };
 
-export default function Categories({ getProductsByCategory }) {
+export default function Categories() {
   const [productsByCategory, setProductsByCategory] = useState([]);
   const swiper = useSwiper();
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+  const navigate = useNavigate();
 
   console.log(swiper);
 
@@ -60,13 +63,17 @@ export default function Categories({ getProductsByCategory }) {
     fetchCategories();
   }, []);
 
+  function handleCategoryClick(category) {
+    navigate(`/products?category=${category}`);
+  }
+
   return (
     <div className="flex flex-col m-4 w-full max-w-6xl mx-auto">
-      <div className="flex justify-between">
+      <div className="flex justify-between m-4 md:flex-row flex-col">
         <h1 className="font-mono font-bold text-2xl mb-4 self-start md:self-start dark:text-white">
           Shop by Categories
         </h1>
-        <div className="flex gap-4 mb-4">
+        <div className="flex gap-4 mb-4 w-full md:w-auto">
           <button className="bg-black text-white p-3 rounded-md" ref={prevRef}>
             {" "}
             ← Prev
@@ -81,27 +88,29 @@ export default function Categories({ getProductsByCategory }) {
         </div>
       </div>
 
-      <main className="w-full flex justify-center">
+      <main className="w-full flex justify-center p-2 overflow-hidden">
         <Swiper
           modules={[Navigation]}
           spaceBetween={50}
           slidesPerView={4}
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 16 },
+            480: { slidesPerView: 3, spaceBetween: 16 },
+            640: { slidesPerView: 4, spaceBetween: 16 },
+          }}
           navigation={{
-            // nextEl: <div>hah</div>,
             enabled: true,
             prevEl: prevRef.current,
             nextEl: nextRef.current,
           }}
+          className="w-full px-4"
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
         >
           {productsByCategory.map((category, index) => (
-            <SwiperSlide key={index} className="w-60 md:w-72">
+            <SwiperSlide key={index} className="w-full ">
               <div
                 className="w-full h-64 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform"
-                onClick={() => {
-                  getProductsByCategory(category);
-                }}
                 style={{
                   backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})`,
                 }}
