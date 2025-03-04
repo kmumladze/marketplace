@@ -25,10 +25,10 @@ export default function Reviews({ productId, review, rating, reviewQuantity }) {
     <>
       <main className="flex flex-col gap-4 justify-center m-4">
         <h1 className="font-extrabold">Customer Reviews</h1>
-        <div className="flex gap-4">
+        <div className="flex flex-col md:flex-row gap-4">
           {reviews.map((review, index) => (
-            <div key={index}>
-              <div className="flex gap-4">
+            <div key={index} className="flex flex-col gap-2">
+              <div className="flex gap-4 items-center">
                 <h3 className="text-sm font-bold">{review.reviewerName}</h3>
                 <p>({"⭐".repeat(review.rating)})</p>
               </div>

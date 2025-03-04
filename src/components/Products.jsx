@@ -100,7 +100,7 @@ export default function Products() {
     <>
       <Header />
       <main className="flex flex-col items-center mx-auto max-w-6xl w-full">
-        <div className="flex justify-center items-center py-6 gap-x-4 w-full">
+        <div className="flex flex-col gap-4 md:flex-row justify-center items-center py-6 gap-x-4 w-full">
           <input
             type="text"
             placeholder="Search products..."
@@ -130,7 +130,7 @@ export default function Products() {
           </Dropdown>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {products.products.length === 0 ? (
             <div className="col-span-2 md:col-span-4 text-center">
               No products found

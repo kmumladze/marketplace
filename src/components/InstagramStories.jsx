@@ -6,7 +6,7 @@ import makeup from "../assets/makeup.jpg";
 export default function InstagramStories() {
   return (
     <div className="flex flex-col items-center gap-10 m-10">
-      <h1 className="font-mono font-bold text-2xl dark:text-white">
+      <h1 className="font-mono font-bold text-xl md:text-2xl dark:text-white">
         Our Instagram Stories
       </h1>
       <div className="flex flex-col md:flex-row justify-center gap-10">
