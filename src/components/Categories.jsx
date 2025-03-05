@@ -3,11 +3,11 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiper } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
-import { useNavigate } from "react-router-dom";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router";
 
 const CATEGORY_IMAGE_MAP = {
   beauty: "/beauty.jpg",
@@ -42,8 +42,6 @@ export default function Categories() {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
-  const navigate = useNavigate();
-
   console.log(swiper);
 
   useEffect(() => {
@@ -63,10 +61,6 @@ export default function Categories() {
     fetchCategories();
   }, []);
 
-  function handleCategoryClick(category) {
-    navigate(`/products?category=${category}`);
-  }
-
   return (
     <div className="flex flex-col m-4 w-full max-w-6xl mx-auto">
       <div className="flex justify-between m-4 md:flex-row flex-col">
@@ -75,14 +69,12 @@ export default function Categories() {
         </h1>
         <div className="flex gap-4 mb-4 w-full md:w-auto">
           <button className="bg-black text-white p-3 rounded-md" ref={prevRef}>
-            {" "}
             ← Prev
           </button>
           <button
             className="bg-stone-200 text-black p-3 rounded-md"
             ref={nextRef}
           >
-            {" "}
             Next →
           </button>
         </div>
@@ -109,18 +101,20 @@ export default function Categories() {
         >
           {productsByCategory.map((category, index) => (
             <SwiperSlide key={index} className="w-full ">
-              <div
-                className="w-full h-64 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform"
-                style={{
-                  backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})`,
-                }}
-              >
-                <div className="bg-slate-300 rounded-xl p-4 mt-40 mx-7 text-center">
-                  <h1 className="text-black text-medium font-semibold capitalize p-2">
-                    {category}
-                  </h1>
+              <Link to={`/products?category=${category}`}>
+                <div
+                  className="w-full h-64 bg-cover bg-center rounded-lg shadow-md overflow-hidden cursor-pointer hover:scale-105 transition-transform"
+                  style={{
+                    backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})`,
+                  }}
+                >
+                  <div className="bg-slate-300 rounded-xl p-4 mt-40 mx-7 text-center">
+                    <h1 className="text-black text-medium font-semibold capitalize p-2">
+                      {category}
+                    </h1>
+                  </div>
                 </div>
-              </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

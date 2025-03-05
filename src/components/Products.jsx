@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 // import { Pagination } from "@heroui/pagination";
 import { Pagination } from "@heroui/react";
 
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import ProductCard from "./ProductCard";
 import {
   fetchProducts,
@@ -32,38 +33,57 @@ export default function Products() {
   const [cart, setCart] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [sort, setSort] = useState(null);
-  const [productsByCategory, setProductsByCategory] = useState([]);
+  // const [productsByCategory, setProductsByCategory] = useState([]);
+
+  const [searchParams] = useSearchParams();
+  console.log(searchParams.get("category"));
+
+  const category = searchParams.get("category");
 
   useEffect(() => {
+    const fetchCategoryProducts = async () => {
+      const result = await fetch(
+        `https://dummyjson.com/products/category/${category}`
+      );
+
+      const allItems = await result.json();
+      setProducts(allItems);
+    };
+    fetchCategoryProducts();
+  }, [category]);
+
+  useEffect(() => {
+    if (category) return;
     fetchProducts({ page: currentPage, search, sort }).then((prods) =>
       setProducts(prods)
     );
-  }, [currentPage, sort]);
+  }, [currentPage, sort, category]);
 
   useEffect(() => {
+    if (category) return;
     setCurrentPage(1);
     fetchProducts({ search, sort, page: 1 }).then((prods) =>
       setProducts(prods)
     );
-  }, [search]); //reset skip. always start with first page
+  }, [search, category]); //reset skip. always start with first page
 
   //
-  useEffect(() => {
-    async function fetchCategories() {
-      try {
-        const response = await fetch(
-          "https://dummyjson.com/products/category-list"
-        );
-        const resData = await response.json();
-        console.log(resData);
+  // useEffect(() => {
+  //   async function fetchCategories() {
+  //     try {
+  //       const response = await fetch(
+  //         "https://dummyjson.com/products/category-list"
+  //       );
+  //       const resData = await response.json();
+  //       console.log(resData);
 
-        setProductsByCategory(resData);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-    fetchCategories();
-  }, []);
+  //       setProductsByCategory(resData);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     }
+  //   }
+  //   fetchCategories();
+  // }, []);
 
   //
 
