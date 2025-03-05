@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router";
+import { Link, useParams } from "react-router";
 import Header from "../components/Header.jsx";
 import Reviews from "../components/Reviews.jsx";
 import { CartContext } from "../providers/CartProvider.js";
@@ -224,17 +224,22 @@ export default function ProductDetailsPage() {
             <div className="flex flex-col md:flex-row justify-center gap-4">
               {relatedProducts.length > 0 ? (
                 relatedProducts.map((item) => (
-                  <div key={item.id} className="flex flex-col gap-1">
-                    <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2 bg-stone-100 p-4">
-                      <img src={item.thumbnail} alt="" />
-                    </div>
+                  <Link to={`/products/${item.id}`}>
+                    <div
+                      key={item.id}
+                      className="flex flex-col gap-1 cursor-pointer"
+                    >
+                      <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2 bg-stone-100 p-4">
+                        <img src={item.thumbnail} alt="" />
+                      </div>
 
-                    <h4 className="font-bold text-sm">{item.title}</h4>
-                    <p className="text-sm">
-                      {item.description.slice(0, 25)}...
-                    </p>
-                    <p className="text-gray-700">$ {item.price}</p>
-                  </div>
+                      <h4 className="font-bold text-sm">{item.title}</h4>
+                      <p className="text-sm">
+                        {item.description.slice(0, 25)}...
+                      </p>
+                      <p className="text-gray-700">$ {item.price}</p>
+                    </div>
+                  </Link>
                 ))
               ) : (
                 <p>No related products found</p>
