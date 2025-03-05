@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import FooterPage from "./FooterPage";
 import { Accordion, AccordionItem } from "@heroui/react";
 
-export default function FaQPage() {
+export default function FaQsPage() {
   const question1 =
     "Marketplace is an online marketplace where you can buy and sell products, including electronics, fashion, beauty products, and more.";
   const question2 =
