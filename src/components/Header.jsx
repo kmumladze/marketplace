@@ -192,12 +192,14 @@ export default function Header() {
                           />
                           <h3>{user.username}</h3>
                         </Link>
-                        <button
-                          className="text-red-500 text-sm"
-                          onClick={handleLogout}
-                        >
-                          Log Out
-                        </button>
+                        <Link to="/login">
+                          <button
+                            className="text-red-500 text-sm"
+                            onClick={handleLogout}
+                          >
+                            Log Out
+                          </button>
+                        </Link>
                       </div>
                     ) : (
                       <Link to="/login">
@@ -219,16 +221,14 @@ export default function Header() {
             <NavLink to="/">
               <li>Home</li>
             </NavLink>
-            <NavLink>
+            <NavLink to="/products">
               <li>Shop</li>
             </NavLink>
-            <NavLink>
+            <NavLink to="/aboutus">
               <li>About Us</li>
             </NavLink>
-            <NavLink>
-              <li>Blog</li>
-            </NavLink>
-            <NavLink>
+
+            <NavLink to="/contactus">
               <li>Contact Us</li>
             </NavLink>
           </ul>
@@ -269,9 +269,14 @@ export default function Header() {
                   />
                   <h3>{user.username}</h3>
                 </Link>
-                <button className="text-red-500 text-sm" onClick={handleLogout}>
-                  Log Out
-                </button>
+                <Link to="/login">
+                  <button
+                    className="text-red-500 text-sm"
+                    onClick={handleLogout}
+                  >
+                    Log Out
+                  </button>
+                </Link>
               </div>
             ) : (
               <Link to="/login">

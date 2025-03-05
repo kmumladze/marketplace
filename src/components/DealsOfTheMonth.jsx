@@ -47,7 +47,7 @@ export default function DealsOfTheMonth() {
         <h1 className="font-mono font-bold text-3xl text-gray-800 dark:text-white">
           Deals of the Month
         </h1>
-        <p className="text-gray-600 dark:text-white">
+        <p className="text-gray-600 dark:text-white w-full md:w-3/4">
           Don't miss out on this month's hottest deals! Enjoy discounts on your
           favorite products—limited time only. Shop now and save big!
         </p>
