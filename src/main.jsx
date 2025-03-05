@@ -22,6 +22,7 @@ import Products from "./components/Products.jsx";
 import Checkout from "./components/Checkout.jsx";
 import Shipping from "./components/Shipping.jsx";
 import Payment from "./components/Payment.jsx";
+import ScrollToTop from "./components/ScrollToTop.jsx";
 
 createRoot(document.getElementById("root")).render(<Main />);
 
@@ -76,28 +77,30 @@ function Main() {
             }}
           >
             <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="home" element={<Home />} />
-                <Route
-                  path="products/:productId"
-                  element={<ProductDetailsPage />}
-                />
-                <Route path="blog" element={<BlogPage />} />
-                <Route path="blog/:id" element={<BlogDetails />} />
-                <Route path="products" element={<Products />} />
-                <Route path="users/:userId" element={<UserDetailsPage />} />
-                <Route path="login" element={<LogInPage />} />
-                <Route path="aboutus" element={<AboutUsPage />} />
-                <Route path="contactus" element={<ContactUsPage />} />
-                <Route path="FaQ" element={<FaQPage />} />
-                <Route path="forgotpassword" element={<ForgotPassword />} />
-                <Route path="enterOTP" element={<EnterOTP />} />
-                <Route path="signup" element={<SignUp />} />
-                <Route path="checkout" element={<Checkout />} />
-                <Route path="shipping" element={<Shipping />} />
-                <Route path="payment" element={<Payment />} />
-              </Routes>
+              <ScrollToTop>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="home" element={<Home />} />
+                  <Route
+                    path="products/:productId"
+                    element={<ProductDetailsPage />}
+                  />
+                  <Route path="blog" element={<BlogPage />} />
+                  <Route path="blog/:id" element={<BlogDetails />} />
+                  <Route path="products" element={<Products />} />
+                  <Route path="users/:userId" element={<UserDetailsPage />} />
+                  <Route path="login" element={<LogInPage />} />
+                  <Route path="aboutus" element={<AboutUsPage />} />
+                  <Route path="contactus" element={<ContactUsPage />} />
+                  <Route path="FaQ" element={<FaQPage />} />
+                  <Route path="forgotpassword" element={<ForgotPassword />} />
+                  <Route path="enterOTP" element={<EnterOTP />} />
+                  <Route path="signup" element={<SignUp />} />
+                  <Route path="checkout" element={<Checkout />} />
+                  <Route path="shipping" element={<Shipping />} />
+                  <Route path="payment" element={<Payment />} />
+                </Routes>
+              </ScrollToTop>
             </BrowserRouter>
           </CartContext.Provider>
         </UsersContext.Provider>
