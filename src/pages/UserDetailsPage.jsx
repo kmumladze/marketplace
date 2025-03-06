@@ -48,7 +48,7 @@ export default function UserDetailsPage() {
         </div>
         <div className="flex flex-col items-start gap-4 max-w-4xl w-full bg-white shadow-2xl rounded-lg p-8">
           <p className="font-mono font-bold">Personal Information</p>
-          <div className="flex w-full gap-12">
+          <div className="flex flex-col md:flex-row w-full gap-12">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col">
                 <p className="text-gray-500">First Name</p>
@@ -77,7 +77,7 @@ export default function UserDetailsPage() {
 
         <div className="flex flex-col items-start gap-4 max-w-4xl w-full bg-white shadow-2xl rounded-lg p-8">
           <p className="font-mono font-bold">Address</p>
-          <div className="flex w-full gap-12">
+          <div className="flex flex-col md:flex-row w-full gap-12">
             <div className="flex flex-col gap-4">
               <div className="flex flex-col">
                 <p className="text-gray-500">Country</p>
