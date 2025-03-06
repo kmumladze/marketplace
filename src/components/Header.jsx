@@ -135,6 +135,28 @@ export default function Header() {
             </div>
           </NavLink>
 
+          <div className="md:hidden flex gap-2">
+            <button className="text-xl" onClick={darkModeHandler}>
+              {dark ? (
+                <IoSunnyOutline className="text-yellow-500" />
+              ) : (
+                <FaRegMoon className="text-gray-800 dark:text-gray-300" />
+              )}
+            </button>
+            {/* Wishlist & Cart */}
+            <button className="relative">
+              <FaRegHeart size={24} />
+            </button>
+            <button className="relative" onClick={handleOpenCartClick}>
+              <HiOutlineShoppingBag size={24} />
+              {cartQuantity > 0 && (
+                <span className="absolute -top-1 -right-2 bg-red-500 w-5 h-5 flex items-center justify-center text-xs rounded-full">
+                  {cartQuantity}
+                </span>
+              )}
+            </button>
+          </div>
+          {/* mobile */}
           <div>
             <button className="md:hidden text-2xl" onClick={toggleNavbar}>
               {open ? <IoMdClose /> : <GiHamburgerMenu />}
@@ -145,28 +167,6 @@ export default function Header() {
             {open && (
               <div className="absolute z-10 top-24 left-0 w-full bg-slate-50 dark:bg-gray-900 shadow-md transition-all">
                 <ul className="flex flex-col px-8 py-4 space-y-4">
-                  <div className="flex gap-4">
-                    <button className="text-xl" onClick={darkModeHandler}>
-                      {dark ? (
-                        <IoSunnyOutline className="text-yellow-500" />
-                      ) : (
-                        <FaRegMoon className="text-gray-800 dark:text-gray-300" />
-                      )}
-                    </button>
-
-                    <button className="relative">
-                      <FaRegHeart size={24} />
-                    </button>
-                    <button className="relative" onClick={handleOpenCartClick}>
-                      <HiOutlineShoppingBag size={24} />
-                      {cartQuantity > 0 && (
-                        <span className="absolute -top-1 -right-2 bg-red-500 w-5 h-5 flex items-center justify-center text-xs rounded-full">
-                          {cartQuantity}
-                        </span>
-                      )}
-                    </button>
-                  </div>
-
                   <NavLink to="/">
                     <li>Home</li>
                   </NavLink>
@@ -216,6 +216,7 @@ export default function Header() {
 
             {/*  */}
           </div>
+          {/* mobile end */}
 
           <ul className="hidden md:flex gap-5 text-lg">
             <NavLink to="/">
