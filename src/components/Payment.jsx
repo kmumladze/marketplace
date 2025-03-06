@@ -36,7 +36,7 @@ export default function Payment() {
   };
 
   return (
-    <>
+    <section className="dark:bg-gray-900 dark:text-white">
       <Header />
       <main className="flex flex-col md:flex-row items-center md:justify-around w-full">
         <div className="min-h-screen flex flex-col p-6 w-full md:w-1/2">
@@ -186,6 +186,6 @@ export default function Payment() {
         </div>
       </main>
       <FooterPage />
-    </>
+    </section>
   );
 }

@@ -13,10 +13,10 @@ export default function AboutUsPage() {
   }
 
   return (
-    <>
+    <section className="dark:bg-gray-900">
+      <Header />
       <main className="flex flex-col items-center px-4 sm:px-6 lg:px-8">
-        <Header />
-        <div className="max-w-4xl w-full bg-white shadow-lg rounded-xl p-6 sm:p-8 my-10">
+        <div className="max-w-4xl w-full bg-white shadow-lg rounded-xl p-6 sm:p-8 my-10 dark:bg-gray-700">
           <h1 className="text-4xl font-extrabold text-gray-900 mb-6 text-center sm:text-left">
             About Us
           </h1>
@@ -25,7 +25,7 @@ export default function AboutUsPage() {
             height={height}
             className="overflow-hidden"
           >
-            <div className="flex flex-col gap-6 text-gray-700 text-lg leading-relaxed">
+            <div className="flex flex-col gap-6 text-gray-700 text-lg leading-relaxed dark:text-gray-300">
               <p>
                 Welcome to <b>Marketplace</b> – your go-to marketplace for all
                 things tech and beauty! Our mission is simple: to provide a
@@ -76,7 +76,7 @@ export default function AboutUsPage() {
           <div className="flex justify-center sm:justify-start mt-6">
             <button
               onClick={toggleHeight}
-              className="px-6 py-3 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition text-lg"
+              className="px-6 py-3 bg-black text-white rounded-lg shadow-md transition text-lg"
             >
               {height === 200 ? "Read More" : "Read Less"}
             </button>
@@ -84,6 +84,6 @@ export default function AboutUsPage() {
         </div>
       </main>
       <FooterPage />
-    </>
+    </section>
   );
 }

@@ -129,7 +129,7 @@ export default function FooterPage() {
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-center text-gray-400 max-w-6xl mx-auto">
-          <div className="flex gap-4 mb-4 md:mb-0">
+          <div className="flex items-center gap-4 mb-4 md:mb-0">
             <FaCcVisa className="text-blue-700 text-3xl" />
             <SiApplepay className="text-stone-300 text-3xl" />
             <GrPaypal className="text-blue-500 text-xl" />

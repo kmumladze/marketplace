@@ -40,18 +40,18 @@ export default function ShoppingCart() {
                   <img
                     className="w-16 md:w-20"
                     src={product.thumbnail}
-                    alt={product.thumbnail}
+                    alt={product.title}
                   />
-                  <p className="font-semibold text-gray-900 dark:text-gray-200">
+                  <p className="font-semibold text-gray-900 dark:text-black dark:font-bold">
                     {product.title}
                   </p>
                 </div>
-                <p className="font-bold font-mono text-lg text-gray-800 dark:text-gray-300">
+                <p className="font-bold font-mono text-lg text-gray-800">
                   ${product.price}
                 </p>
               </div>
 
-              <div className="flex items-center gap-1 bg-stone-200 rounded-xl px-3 py-2">
+              <div className="flex items-center gap-1 bg-stone-200 rounded-xl px-3 py-2 dark:bg-stone-400 dark:text-black">
                 <button
                   className="bg-transparent border-none rounded-md cursor-pointer"
                   onClick={() => updateQuantity(product.id, -1)}
@@ -71,8 +71,8 @@ export default function ShoppingCart() {
         </ul>
       )}
       <div className="flex justify-between items-center m-4">
-        <p className="font-bold text-lg">Subtotal:</p>
-        <p>
+        <p className="font-bold text-lg dark:text-black">Subtotal:</p>
+        <p className="dark:text-black">
           <strong>{formattedPrice}</strong>
         </p>
       </div>

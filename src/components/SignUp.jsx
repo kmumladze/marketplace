@@ -8,8 +8,8 @@ export default function SignUp() {
         className="w-full md:w-1/2 h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${signup})` }}
       >
-        <div className="flex items-center justify-center p-3 m-4 border-2 rounded-xl cursor-pointer overflow-hidden w-1/3">
-          <h3 className="text-medium md:text-xl font-semibold dark:text-white">
+        <div className="flex items-center justify-center p-3 m-4 border-2 rounded-xl cursor-pointer overflow-hidden w-1/3 dark:border-gray-800">
+          <h3 className="text-medium md:text-xl font-semibold dark:text-black">
             <span className="text-3xl from-content2-foreground">M</span>
             arketplace
           </h3>

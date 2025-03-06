@@ -3,28 +3,30 @@ import FooterPage from "./FooterPage";
 
 export default function ContactUsPage() {
   return (
-    <>
+    <section>
       <Header />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-12">
-        <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-12 dark:bg-gray-900">
+        <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 dark:bg-gray-700">
+          <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center dark:text-black">
             Contact Us
           </h1>
-          <p className="text-lg text-gray-600 text-center mb-8">
+          <p className="text-lg text-gray-600 text-center mb-8 dark:text-white">
             Email, call, or fill out the form below to reach us.
           </p>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h2 className="text-xl font-semibold text-gray-700">
+              <h2 className="text-xl font-semibold text-gray-700 dark:text-white">
                 Customer Support
               </h2>
-              <p className="text-gray-600 mt-2">
+              <p className="text-gray-600 mt-2 dark:text-stone-300">
                 Available 24/7 for any inquiries.
               </p>
-              <p className="text-gray-800 mt-2 font-semibold">
+              <p className="text-gray-800 mt-2 font-semibold dark:text-gray-500">
                 info@yourmarketplace.com
               </p>
-              <p className="text-gray-800 font-semibold">+123 456 789</p>
+              <p className="text-gray-800 font-semibold dark:text-gray-500">
+                +123 456 789
+              </p>
             </div>
 
             <div>
@@ -57,7 +59,7 @@ export default function ContactUsPage() {
                 />
                 <button
                   type="submit"
-                  className="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+                  className="w-full py-3 bg-black text-white rounded-md transition"
                 >
                   Submit
                 </button>
@@ -67,6 +69,6 @@ export default function ContactUsPage() {
         </div>
       </div>
       <FooterPage />
-    </>
+    </section>
   );
 }

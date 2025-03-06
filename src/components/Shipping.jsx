@@ -23,7 +23,7 @@ export default function Shipping() {
   const grandTotal = totalPrice + 5;
   const formattedGrandTotal = `$${grandTotal.toFixed(2)}`;
   return (
-    <>
+    <section className="dark:bg-gray-900 dark:text-white">
       <Header />
       <main className="flex flex-col p-6 w-full">
         <div className="flex flex-col md:flex-row w-full justify-around items-center">
@@ -57,11 +57,11 @@ export default function Shipping() {
               </div>
             </div>
 
-            <div className="bg-white py-6 mt-4 rounded-lg">
+            <div className="bg-white py-6 mt-4 rounded-lg dark:bg-transparent">
               <h2 className="font-bold text-xl mb-2">
                 Select a delivery address
               </h2>
-              <p className="text-gray-600">
+              <p className="text-gray-600 dark:text-white">
                 Is the address you'd like to use displayed below? If so, click
                 the corresponding "Deliver to this address" button. Or you can
                 enter a new delivery address.
@@ -83,12 +83,14 @@ export default function Shipping() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col bg-gray-100 rounded-lg p-6 shadow-sm w-full md:w-1/2 border ${
+                  className={`flex flex-col bg-gray-100 rounded-lg p-6 shadow-sm w-full md:w-1/2 border dark:bg-gray-500 ${
                     item.selected ? "border-black" : "border-transparent"
                   }`}
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="font-bold text-lg">{item.name}</h3>
+                    <h3 className="font-bold text-lg dark:text-black">
+                      {item.name}
+                    </h3>
                     <input
                       type="checkbox"
                       // checked={item.selected}
@@ -96,7 +98,9 @@ export default function Shipping() {
                       required
                     />
                   </div>
-                  <p className="text-gray-600">{item.address}</p>
+                  <p className="text-gray-600 dark:text-gray-800">
+                    {item.address}
+                  </p>
                   <div className="flex gap-4 mt-4 overflow-hidden">
                     <button className="flex items-center gap-2 bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition">
                       <FaRegEdit />
@@ -157,7 +161,7 @@ export default function Shipping() {
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="name"
-                  className="text-gray-700 text-sm md:text-base"
+                  className="text-gray-700 text-sm md:text-base dark:text-white"
                 >
                   Name
                 </label>
@@ -173,7 +177,7 @@ export default function Shipping() {
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="Mobile Number"
-                  className="text-gray-700 text-sm md:text-base"
+                  className="text-gray-700 text-sm md:text-base dark:text-white"
                 >
                   Mobile Number
                 </label>
@@ -216,7 +220,7 @@ export default function Shipping() {
               <div className="flex flex-col gap-2">
                 <label
                   htmlFor="pin code"
-                  className="text-gray-700 text-sm md:text-base"
+                  className="text-gray-700 text-sm md:text-base dark:text-white"
                 >
                   Pin Code
                 </label>
@@ -249,6 +253,6 @@ export default function Shipping() {
         </div>
       </main>
       <FooterPage />
-    </>
+    </section>
   );
 }

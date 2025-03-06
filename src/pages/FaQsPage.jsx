@@ -16,14 +16,18 @@ export default function FaQsPage() {
     "Delivery times depend on the seller’s location and shipping method.";
   const question7 = "Shipping costs vary by product and location. ";
   return (
-    <>
+    <section>
       <Header />
-      <div className="min-h-screen flex flex-col items-center justify-evenly bg-gray-100 px-6 py-12">
+      <div className="min-h-screen flex flex-col items-center justify-evenly bg-gray-100 px-6 py-12 dark:bg-gray-900">
         <div className="flex flex-col justify-center items-center">
-          <h1 className="font-extrabold text-3xl font-mono">FaQ</h1>
-          <p className="text-sm italic">Your questions answered here.</p>
+          <h1 className="font-extrabold text-3xl font-mono dark:text-white">
+            FaQ
+          </h1>
+          <p className="text-sm italic dark:text-stone-300">
+            Your questions answered here.
+          </p>
         </div>
-        <div className="max-w-4xl w-full bg-white shadow-2xl rounded-lg p-8">
+        <div className="max-w-4xl w-full bg-white shadow-2xl rounded-lg p-8 dark:bg-gray-500">
           <Accordion variant="light">
             <AccordionItem
               className="font-bold"
@@ -85,6 +89,6 @@ export default function FaQsPage() {
         </div>
       </div>
       <FooterPage />
-    </>
+    </section>
   );
 }
