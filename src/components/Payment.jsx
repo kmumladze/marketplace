@@ -7,6 +7,7 @@ import Header from "./Header";
 import { TiHomeOutline } from "react-icons/ti";
 import { MdOutlinePayments } from "react-icons/md";
 import { VscPreview } from "react-icons/vsc";
+import Swal from "sweetalert2";
 
 export default function Payment() {
   const { cart, setCart } = useContext(CartContext);
@@ -18,6 +19,21 @@ export default function Payment() {
   const formattedPrice = `$${totalPrice.toFixed(2)}`;
   const grandTotal = totalPrice + 5;
   const formattedGrandTotal = `$${grandTotal.toFixed(2)}`;
+
+  const successAlert = () => {
+    Swal.fire({
+      title: "<strong>Your order is confirmed</strong>",
+      icon: "success",
+      html: `
+      Thanks for shopping! your order hasn't shipped yet,
+      but we will send you email when it done.
+    `,
+      showCloseButton: true,
+      focusConfirm: false,
+      timer: 3000,
+      timerProgressBar: true,
+    });
+  };
 
   return (
     <>
@@ -101,7 +117,10 @@ export default function Payment() {
                     </div>
                   </div>
                 </div>
-                <button className="mt-6 w-full bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition">
+                <button
+                  className="mt-6 w-full bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition"
+                  onClick={successAlert}
+                >
                   Add Card
                 </button>
               </div>
@@ -129,7 +148,10 @@ export default function Payment() {
                 <strong>Cash on Delevery</strong>
               </label>
             </div>
-            <button className="mt-6 w-1/2 bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition">
+            <button
+              className="mt-6 w-1/2 bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition"
+              onClick={successAlert}
+            >
               Continue
             </button>
           </div>
