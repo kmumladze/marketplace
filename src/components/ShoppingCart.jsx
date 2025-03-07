@@ -33,7 +33,7 @@ export default function ShoppingCart() {
           {cart.map((product, index) => (
             <li
               key={index}
-              className="flex flex-col md:flex-row items-center gap-4 p-4 bg-gray-100 dark:bg-gray-600 rounded-lg justify-between"
+              className="flex flex-col md:flex-row items-center gap-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg justify-between"
             >
               <div className="flex flex-col md:flex-row items-center justify-between w-full">
                 <div className="flex items-center gap-3">
@@ -42,7 +42,7 @@ export default function ShoppingCart() {
                     src={product.thumbnail}
                     alt={product.title}
                   />
-                  <p className="font-semibold text-gray-900 dark:text-black dark:font-bold">
+                  <p className="font-semibold text-gray-900 dark:text-white dark:font-bold">
                     {product.title}
                   </p>
                 </div>
@@ -51,7 +51,7 @@ export default function ShoppingCart() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-1 bg-stone-200 rounded-xl px-3 py-2 dark:bg-stone-400 dark:text-black">
+              <div className="flex items-center gap-1 bg-stone-200 rounded-xl px-3 py-2 dark:bg-gray-400 dark:text-black">
                 <button
                   className="bg-transparent border-none rounded-md cursor-pointer"
                   onClick={() => updateQuantity(product.id, -1)}
@@ -71,8 +71,8 @@ export default function ShoppingCart() {
         </ul>
       )}
       <div className="flex justify-between items-center m-4">
-        <p className="font-bold text-lg dark:text-black">Subtotal:</p>
-        <p className="dark:text-black">
+        <p className="font-bold text-lg dark:text-white">Subtotal:</p>
+        <p className="dark:text-white">
           <strong>{formattedPrice}</strong>
         </p>
       </div>

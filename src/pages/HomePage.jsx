@@ -24,7 +24,7 @@ export default function HomePage() {
   // }
 
   return (
-    <main className="dark:bg-gray-900">
+    <main className="dark:bg-black">
       <Header cart={cart} />
 
       <Home />

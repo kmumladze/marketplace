@@ -12,7 +12,7 @@ import { FaTwitter } from "react-icons/fa";
 export default function FooterPage() {
   return (
     <>
-      <footer className="bg-gray-900 text-white py-10 px-6">
+      <footer className="bg-black border-t border-gray-500 text-white py-10 px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
           <div className="flex flex-col gap-6">
             <h2 className="text-2xl font-semibold">Marketplace</h2>
@@ -120,7 +120,7 @@ export default function FooterPage() {
                   required
                   className="outline-none text-white bg-gray-800 border border-gray-50  p-2 rounded-lg"
                 />
-                <button className="bg-slate-500 px-4 py-2 rounded-md text-white hover:bg-blue-600">
+                <button className="bg-slate-500 px-4 py-2 rounded-md text-white hover:bg-gray-800">
                   Subscribe
                 </button>
               </div>

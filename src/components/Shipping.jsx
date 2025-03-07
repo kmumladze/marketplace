@@ -23,7 +23,7 @@ export default function Shipping() {
   const grandTotal = totalPrice + 5;
   const formattedGrandTotal = `$${grandTotal.toFixed(2)}`;
   return (
-    <section className="dark:bg-gray-900 dark:text-white">
+    <section className="dark:bg-black dark:text-white">
       <Header />
       <main className="flex flex-col p-6 w-full">
         <div className="flex flex-col md:flex-row w-full justify-around items-center">
@@ -117,7 +117,7 @@ export default function Shipping() {
 
             <Link to="/payment">
               <div className="text-left mt-4">
-                <button className="bg-black text-white px-10 py-3 rounded-lg text-sm hover:bg-gray-800 transition">
+                <button className="bg-black text-white px-10 py-3 rounded-lg text-sm hover:bg-gray-800 transition dark:bg-gray-900">
                   Deliver Here
                 </button>
               </div>
@@ -242,7 +242,7 @@ export default function Shipping() {
 
               <Link to="/payment">
                 <button
-                  className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition"
+                  className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition dark:bg-gray-900"
                   type="submit"
                 >
                   Add New Address

@@ -30,7 +30,7 @@ export default function Checkout() {
   const formattedGrandTotal = `$${grandTotal.toFixed(2)}`;
 
   return (
-    <section className="dark:bg-gray-900 dark:text-white">
+    <section className="dark:bg-black dark:text-white">
       <Header />
       <main>
         <div className="flex flex-col md:flex-row items-center md:justify-around gap-8 p-8">
@@ -121,7 +121,7 @@ export default function Checkout() {
             </div>
 
             <Link to="/shipping">
-              <button className="bg-black text-white rounded-xl py-3 px-8 w-full text-lg">
+              <button className="bg-black text-white rounded-xl py-3 px-8 w-full text-lg dark:bg-gray-900">
                 Proceed to Checkout
               </button>
             </Link>

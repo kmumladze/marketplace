@@ -13,7 +13,7 @@ export default function AboutUsPage() {
   }
 
   return (
-    <section className="dark:bg-gray-900">
+    <section className="dark:bg-black">
       <Header />
       <main className="flex flex-col items-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl w-full bg-white shadow-lg rounded-xl p-6 sm:p-8 my-10 dark:bg-gray-700">

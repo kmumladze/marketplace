@@ -92,7 +92,7 @@ export default function LogInPage() {
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 id="name"
-                className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-800"
+                className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:text-white"
                 type="text"
                 placeholder="Enter your name"
                 required
@@ -110,7 +110,7 @@ export default function LogInPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 id="password"
-                className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-800"
+                className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-800 dark:text-white dark:placeholderbg-gray-200"
                 type="password"
                 placeholder="Create your password"
                 required

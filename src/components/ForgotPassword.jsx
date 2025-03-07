@@ -35,7 +35,7 @@ export default function ForgotPassword() {
             </label>
             <input
               id="name"
-              className="border border-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-500"
+              className="border border-gray-500 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-500 dark:text-white"
               type="email"
               placeholder="marketplace@example.com"
               required

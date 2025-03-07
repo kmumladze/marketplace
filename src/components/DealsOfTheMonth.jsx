@@ -42,7 +42,7 @@ export default function DealsOfTheMonth() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center w-full justify-between p-6 bg-gray-100 rounded-xl shadow-lg dark:bg-gray-900">
+    <div className="flex flex-col md:flex-row items-center w-full justify-between p-6 bg-gray-100 rounded-xl shadow-lg dark:bg-black">
       <div className="flex flex-col gap-6 md:w-1/2">
         <h1 className="font-mono font-bold text-3xl text-gray-800 dark:text-white">
           Deals of the Month

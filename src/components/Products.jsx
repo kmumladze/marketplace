@@ -95,10 +95,10 @@ export default function Products() {
   if (!products) return <p>Loading...</p>;
 
   return (
-    <section className="dark:bg-gray-900">
+    <section className="dark:bg-black">
       <Header />
 
-      <main className="flex flex-col items-center mx-auto max-w-6xl w-full dark:bg-gray-900 dark:text-white">
+      <main className="flex flex-col items-center mx-auto max-w-6xl w-full dark:bg-black dark:text-white">
         <div className="flex flex-col gap-4 md:flex-row justify-center items-center py-6 gap-x-4 w-full">
           <input
             type="text"
@@ -130,7 +130,7 @@ export default function Products() {
           </Dropdown>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-4">
           {products.products.length === 0
             ? new Array(8).fill(0).map((el) => (
                 <Card className="w-[200px] space-y-5 p-4" radius="2xl">

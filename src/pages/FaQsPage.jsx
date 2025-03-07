@@ -18,7 +18,7 @@ export default function FaQsPage() {
   return (
     <section>
       <Header />
-      <div className="min-h-screen flex flex-col items-center justify-evenly bg-gray-100 px-6 py-12 dark:bg-gray-900">
+      <div className="min-h-screen flex flex-col items-center justify-evenly bg-gray-100 px-6 py-12 dark:bg-black">
         <div className="flex flex-col justify-center items-center">
           <h1 className="font-extrabold text-3xl font-mono dark:text-white">
             FaQ

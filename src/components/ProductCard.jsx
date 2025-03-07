@@ -9,13 +9,13 @@ export default function ProductCard({ product }) {
 
   return (
     <>
-      <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2 bg-stone-100 p-4 dark:bg-gray-800">
+      <div className="flex flex-col items-start w-56 cursor-pointer relative gap-2 bg-stone-100 p-4 dark:bg-gray-900">
         <div
-          className="w-full h-56 bg-cover bg-center rounded-xl dark:bg-gray-800"
+          className="w-full h-56 bg-cover bg-center rounded-xl dark:bg-transparent"
           style={{ backgroundImage: `url(${product.thumbnail})` }}
         ></div>
         <button
-          className={`mt-3 rounded-md px-3 py-2 bg-white text-black border-none text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:bg-stone-400 hover:text-black transition w-full dark:bg-gray-700 dark:text-white ${
+          className={`mt-3 rounded-md px-3 py-2 bg-white text-black border-none text-sm disabled:cursor-not-allowed border-2 cursor-pointer hover:bg-stone-400 hover:text-black transition w-full dark:bg-black dark:text-white ${
             isAddedCart ? "bg-stone-400 text-black" : ""
           }`}
           disabled={isAddedCart}

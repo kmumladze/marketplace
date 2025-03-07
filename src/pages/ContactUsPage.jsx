@@ -5,7 +5,7 @@ export default function ContactUsPage() {
   return (
     <section>
       <Header />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-12 dark:bg-gray-900">
+      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-12 dark:bg-black">
         <div className="max-w-4xl w-full bg-white shadow-lg rounded-lg p-8 dark:bg-gray-700">
           <h1 className="text-4xl font-bold text-gray-800 mb-4 text-center dark:text-black">
             Contact Us

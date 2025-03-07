@@ -26,7 +26,7 @@ export default function UserDetailsPage() {
   if (!user) return <p>Loading...</p>;
 
   return (
-    <section className="dark:bg-gray-900">
+    <section className="dark:bg-black">
       <Header />
       <main className="min-h-screen flex flex-col gap-4 items-center">
         <h1 className="font-bold text-xl mt-7 dark:text-white">My Profile</h1>

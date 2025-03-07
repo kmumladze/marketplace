@@ -36,7 +36,7 @@ export default function Payment() {
   };
 
   return (
-    <section className="dark:bg-gray-900 dark:text-white">
+    <section className="dark:bg-black dark:text-white">
       <Header />
       <main className="flex flex-col md:flex-row items-center md:justify-around w-full">
         <div className="min-h-screen flex flex-col p-6 w-full md:w-1/2">
@@ -118,7 +118,7 @@ export default function Payment() {
                   </div>
                 </div>
                 <button
-                  className="mt-6 w-full bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition"
+                  className="mt-6 w-full bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition dark:bg-gray-900"
                   onClick={successAlert}
                 >
                   Add Card
@@ -149,7 +149,7 @@ export default function Payment() {
               </label>
             </div>
             <button
-              className="mt-6 w-1/2 bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition"
+              className="mt-6 w-1/2 bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition dark:bg-gray-900"
               onClick={successAlert}
             >
               Continue
