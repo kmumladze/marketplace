@@ -36,4 +36,4 @@ This is a React-based e-commerce marketplace where users can browse products, fi
 
 ## Deployment
 
-The project is deployed on Vercel. You can access the live website here: [text](https://marketplace-z9hl.vercel.app/)
+The project is deployed on Vercel. You can access the live website here: https://marketplace-z9hl.vercel.app/
