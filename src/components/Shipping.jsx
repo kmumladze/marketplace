@@ -25,7 +25,7 @@ export default function Shipping() {
   return (
     <section className="dark:bg-neutral-950 dark:text-white min-h-screen">
       <Header />
-      <main className="flex ">
+      <main className="flex flex-col md:flex-row">
         <div className="flex flex-col w-full items-center">
           <div className="w-full max-w-3xl flex flex-col gap-6 bg-white dark:bg-neutral-950 p-6 rounded-lg shadow-md">
             <h1 className="font-bold text-3xl">Shipping Address</h1>
@@ -175,7 +175,7 @@ export default function Shipping() {
         </div>
 
         {/*  */}
-        <div className="border w-full md:w-1/2 md:h-1/2 flex flex-col gap-6 p-6 rounded-lg shadow-lg m-10">
+        <div className="border w-full md:w-1/2 md:h-1/2 flex flex-col gap-6 p-6 rounded-lg shadow-lg md:m-10">
           <div className="flex justify-between border-b pb-2">
             <p className="font-bold text-lg">Subtotal:</p>
             <p className="font-bold">{formattedPrice}</p>

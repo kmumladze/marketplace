@@ -124,8 +124,8 @@ export default function Header() {
   return (
     <>
       <CartModal ref={modal} title="Your Cart" actions={modalActions} />
-      <header className="text-black py-4 w-full z-10 dark:text-white bg-white dark:bg-neutral-950">
-        <div className="m-auto flex items-center justify-around p-6">
+      <header className="text-black w-full z-10 dark:text-white bg-white dark:bg-neutral-950">
+        <div className="mx-auto flex items-center justify-around p-6">
           <NavLink to="/">
             <div className="flex items-center gap-3 border-2 p-3 rounded-xl cursor-pointer">
               <h3 className="text-xl font-semibold dark:text-white">

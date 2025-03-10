@@ -157,7 +157,7 @@ export default function Payment() {
           </div>
         </div>
 
-        <div className="border w-full md:w-1/4 md:h-2/5 m-4 flex flex-col gap-6 p-6 rounded-lg shadow-lg md:m-10">
+        <div className="border w-full md:w-1/4 md:h-2/5 flex flex-col gap-6 p-6 rounded-lg shadow-lg md:m-10">
           <div className="flex justify-between border-b pb-2">
             <p className="font-bold text-lg">Subtotal:</p>
             <p className="font-bold">{formattedPrice}</p>

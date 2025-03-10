@@ -58,7 +58,7 @@ export default function DealsOfTheMonth() {
               key={index}
               className="border-2 p-4 rounded-xl text-center dark:bg-transparent shadow-md w-full md:w-20 dark:text-white"
             >
-              <span className="text-xl font-bold text-gray-700 bg:text-white">
+              <span className="text-xl font-bold text-gray-700 dark:text-white">
                 {item.value}
               </span>
               <p className="text-gray-500 text-sm dark:text-white">
