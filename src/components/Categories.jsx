@@ -68,7 +68,10 @@ export default function Categories() {
           Shop by Categories
         </h1>
         <div className="flex gap-4 mb-4 w-full md:w-auto">
-          <button className="bg-black text-white p-3 rounded-md" ref={prevRef}>
+          <button
+            className="bg-neutral-950 text-white p-3 rounded-md"
+            ref={prevRef}
+          >
             ← Prev
           </button>
           <button
@@ -108,7 +111,7 @@ export default function Categories() {
                     backgroundImage: `url(${CATEGORY_IMAGE_MAP[category]})`,
                   }}
                 >
-                  <div className="bg-slate-300 rounded-xl p-4 mt-40 mx-7 text-center">
+                  <div className="backdrop-blur-2xl rounded-xl p-4 mt-40 mx-7 text-center">
                     <h1 className="text-black text-medium font-semibold capitalize p-2">
                       {category}
                     </h1>

@@ -124,7 +124,7 @@ export default function Header() {
   return (
     <>
       <CartModal ref={modal} title="Your Cart" actions={modalActions} />
-      <header className="text-black py-4 w-full z-10 dark:text-white bg-white dark:bg-black">
+      <header className="text-black py-4 w-full z-10 dark:text-white bg-white dark:bg-neutral-950">
         <div className="m-auto flex items-center justify-around p-6">
           <NavLink to="/">
             <div className="flex items-center gap-3 border-2 p-3 rounded-xl cursor-pointer">
@@ -144,9 +144,9 @@ export default function Header() {
               )}
             </button>
             {/* Wishlist & Cart */}
-            <button className="relative">
+            {/* <button className="relative">
               <FaRegHeart size={24} />
-            </button>
+            </button> */}
             <button className="relative" onClick={handleOpenCartClick}>
               <HiOutlineShoppingBag size={24} />
               {cartQuantity > 0 && (
@@ -165,7 +165,7 @@ export default function Header() {
             {/* toggle menu */}
 
             {open && (
-              <div className="absolute z-10 top-24 left-0 w-full bg-slate-50 dark:bg-black shadow-md transition-all">
+              <div className="absolute z-10 top-24 left-0 w-full bg-slate-50 dark:bg-neutral-950 shadow-md transition-all">
                 <ul className="flex flex-col px-8 py-4 space-y-4">
                   <NavLink to="/">
                     <li>Home</li>
@@ -244,9 +244,9 @@ export default function Header() {
             </button>
 
             {/* Wishlist & Cart */}
-            <button className="relative">
+            {/* <button className="relative">
               <FaRegHeart size={24} />
-            </button>
+            </button> */}
             <button className="relative" onClick={handleOpenCartClick}>
               <HiOutlineShoppingBag size={24} />
               {cartQuantity > 0 && (

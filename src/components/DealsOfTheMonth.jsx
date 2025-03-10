@@ -42,7 +42,7 @@ export default function DealsOfTheMonth() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center w-full justify-between p-6 bg-gray-100 rounded-xl shadow-lg dark:bg-black">
+    <div className="flex flex-col md:flex-row items-center w-full justify-between p-6 bg-gray-100 rounded-xl shadow-lg dark:bg-neutral-950">
       <div className="flex flex-col gap-6 md:w-1/2">
         <h1 className="font-mono font-bold text-3xl text-gray-800 dark:text-white">
           Deals of the Month
@@ -56,17 +56,19 @@ export default function DealsOfTheMonth() {
           {time.map((item, index) => (
             <div
               key={index}
-              className="border-2 p-4 rounded-xl text-center bg-white shadow-md w-full md:w-20"
+              className="border-2 p-4 rounded-xl text-center dark:bg-transparent shadow-md w-full md:w-20 dark:text-white"
             >
-              <span className="text-xl font-bold text-gray-700">
+              <span className="text-xl font-bold text-gray-700 bg:text-white">
                 {item.value}
               </span>
-              <p className="text-gray-500 text-sm">{item.label}</p>
+              <p className="text-gray-500 text-sm dark:text-white">
+                {item.label}
+              </p>
             </div>
           ))}
         </div>
         <Link to="/products">
-          <button className="bg-black text-white px-5 py-3 rounded-xl text-sm hover:bg-gray-800 transition duration-300 dark:text-black dark:bg-white">
+          <button className="bg-neutral-950 text-white px-5 py-3 rounded-xl text-sm hover:bg-gray-800 transition duration-300 dark:text-black dark:bg-white dark:hover:bg-black dark:hover:text-white dark:hover:border-white dark:hover:border-2">
             View All Products &nbsp;→
           </button>
         </Link>

@@ -121,7 +121,7 @@ export default function Checkout() {
             </div>
 
             <Link to="/shipping">
-              <button className="bg-black text-white rounded-xl py-3 px-8 w-full text-lg dark:bg-gray-900">
+              <button className="bg-black text-white rounded-xl py-3 px-8 w-full text-lg dark:bg-gray-800 dark:hover:bg-gray-700">
                 Proceed to Checkout
               </button>
             </Link>

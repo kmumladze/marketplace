@@ -36,7 +36,7 @@ export default function Payment() {
   };
 
   return (
-    <section className="dark:bg-black dark:text-white">
+    <section className="dark:bg-neutral-950 dark:text-white">
       <Header />
       <main className="flex flex-col md:flex-row md:justify-around w-full">
         <div className="min-h-screen flex flex-col p-6 w-full md:w-1/2">
@@ -48,13 +48,13 @@ export default function Payment() {
                   <div className="bg-gray-300 h-px w-full"></div>
                   <div className="absolute top-1/2 left-0 w-full flex justify-between -translate-y-1/2">
                     <div className="flex flex-col items-center">
-                      <div className="p-3 rounded-lg mt-4 bg-black text-slate-200">
+                      <div className="p-3 rounded-lg mt-4 bg-black text-slate-200 dark:bg-gray-700 dark:text-black">
                         <TiHomeOutline />
                       </div>
                       <p className="text-sm mt-2">Address</p>
                     </div>
                     <div className="flex flex-col items-center">
-                      <div className="p-3 rounded-lg mt-4 text-slate-200 bg-black">
+                      <div className="p-3 rounded-lg mt-4 text-slate-200 bg-black dark:bg-gray-700 dark:text-black">
                         <MdOutlinePayments />
                       </div>
                       <p className="text-sm mt-2">Payment Method</p>
@@ -118,7 +118,7 @@ export default function Payment() {
                   </div>
                 </div>
                 <button
-                  className="mt-6 w-full bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition dark:bg-gray-900"
+                  className="mt-6 w-full bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition dark:bg-gray-800 dark:hover:bg-gray-700"
                   onClick={successAlert}
                 >
                   Add Card
@@ -149,7 +149,7 @@ export default function Payment() {
               </label>
             </div>
             <button
-              className="mt-6 w-1/2 bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition dark:bg-gray-900"
+              className="mt-6 w-1/2 bg-black text-white py-3 rounded-lg text-base font-medium hover:bg-gray-800 transition dark:bg-gray-800 dark:hover:bg-gray-700"
               onClick={successAlert}
             >
               Continue

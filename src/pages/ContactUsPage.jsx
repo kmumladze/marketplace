@@ -35,25 +35,25 @@ export default function ContactUsPage() {
               </h2>
               <div className="mt-4">
                 <input
-                  className="w-full p-3 border rounded-md mb-4"
+                  className="w-full p-3 border rounded-md mb-4 dark:text-white"
                   type="text"
                   placeholder="First Name"
                   required
                 />
                 <input
-                  className="w-full p-3 border rounded-md mb-4"
+                  className="w-full p-3 border rounded-md mb-4 dark:text-white"
                   type="text"
                   placeholder="Last Name"
                   required
                 />
                 <input
-                  className="w-full p-3 border rounded-md mb-4"
+                  className="w-full p-3 border rounded-md mb-4 dark:text-white"
                   type="email"
                   placeholder="Your Email"
                   required
                 />
                 <textarea
-                  className="w-full p-3 border rounded-md mb-4"
+                  className="w-full p-3 border rounded-md mb-4 dark:text-white"
                   rows="4"
                   placeholder="How can we help?"
                 />

@@ -33,7 +33,7 @@ export default function ShoppingCart() {
           {cart.map((product, index) => (
             <li
               key={index}
-              className="flex flex-col md:flex-row items-center gap-4 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg justify-between"
+              className="flex flex-col md:flex-row items-center gap-4 p-4 bg-gray-100 dark:bg-transparent dark:border-1 dark:border-gray-500 rounded-lg justify-between"
             >
               <div className="flex flex-col md:flex-row items-center justify-between w-full">
                 <div className="flex items-center gap-3">
@@ -46,7 +46,7 @@ export default function ShoppingCart() {
                     {product.title}
                   </p>
                 </div>
-                <p className="font-bold font-mono text-lg text-gray-800">
+                <p className="font-bold font-mono text-lg text-gray-800 dark:text-white">
                   ${product.price}
                 </p>
               </div>
@@ -78,11 +78,11 @@ export default function ShoppingCart() {
       </div>
 
       <div className="flex flex-col gap-4 m-10">
-        <button className="border-1 border-black p-4 rounded-lg">
+        <button className="border-1 border-black p-4 rounded-lg dark:border-1 dark:border-gray-500 dark:bg-gray-400 dark:text-black">
           View Cart
         </button>
         <Link to="/checkout" className="w-full">
-          <button className="bg-black text-stone-50 p-4 rounded-lg w-full">
+          <button className="bg-black text-stone-50 p-4 rounded-lg w-full dark:border-1 dark:border-gray-500">
             Checkout
           </button>
         </Link>

@@ -23,11 +23,11 @@ export default function Shipping() {
   const grandTotal = totalPrice + 5;
   const formattedGrandTotal = `$${grandTotal.toFixed(2)}`;
   return (
-    <section className="dark:bg-black dark:text-white min-h-screen">
+    <section className="dark:bg-neutral-950 dark:text-white min-h-screen">
       <Header />
       <main className="flex ">
         <div className="flex flex-col w-full items-center">
-          <div className="w-full max-w-3xl flex flex-col gap-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <div className="w-full max-w-3xl flex flex-col gap-6 bg-white dark:bg-neutral-950 p-6 rounded-lg shadow-md">
             <h1 className="font-bold text-3xl">Shipping Address</h1>
 
             <div className="relative mt-8">
@@ -35,7 +35,7 @@ export default function Shipping() {
 
               <div className="absolute top-1/2 left-0 w-full flex justify-between -translate-y-1/2">
                 <div className="flex flex-col items-center">
-                  <div className="text-slate-200 bg-black p-3 rounded-lg mt-4">
+                  <div className="text-slate-200 bg-black p-3 rounded-lg mt-4 dark:bg-gray-700 dark:text-black">
                     <TiHomeOutline />
                   </div>
                   <p className="text-sm mt-2">Address</p>
@@ -81,7 +81,7 @@ export default function Shipping() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex flex-col bg-gray-100 dark:bg-gray-700 rounded-lg p-6 shadow-sm border border-gray-300"
+                  className="flex flex-col bg-gray-100 dark:bg-gray-800 rounded-lg p-6 shadow-sm border border-gray-300"
                 >
                   <div className="flex justify-between items-center">
                     <h3 className="font-bold text-lg">{item.name}</h3>
@@ -108,7 +108,7 @@ export default function Shipping() {
 
             <Link to="/payment">
               <div className="text-left mt-4">
-                <button className="bg-black text-white px-10 py-3 rounded-lg text-sm hover:bg-gray-800 transition dark:bg-gray-900">
+                <button className="bg-black text-white px-10 py-3 rounded-lg text-sm hover:bg-gray-800 transition dark:bg-gray-800 dark:hover:bg-gray-700">
                   Deliver Here
                 </button>
               </div>
@@ -116,7 +116,7 @@ export default function Shipping() {
           </div>
 
           {/*  */}
-          <div className="w-full max-w-3xl bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+          <div className="w-full max-w-3xl bg-white dark:bg-neutral-950 p-6 rounded-lg shadow-md">
             <h1 className="font-mono font-bold text-2xl mb-4">
               Add a new address
             </h1>
@@ -165,7 +165,7 @@ export default function Shipping() {
               <Link to="/payment">
                 <button
                   type="submit"
-                  className="mt-3 bg-black text-white font-mono text-base p-4 rounded-xl w-full transition dark:bg-gray-900"
+                  className="mt-3 bg-black text-white font-mono text-base p-4 rounded-xl w-full transition dark:bg-gray-800 dark:hover:bg-gray-700"
                 >
                   Add New Address
                 </button>
