@@ -5,11 +5,11 @@ import makeup from "../assets/makeup.jpg";
 
 export default function InstagramStories() {
   return (
-    <div className="flex flex-col items-center gap-10 m-10">
-      <h1 className="font-mono font-bold text-xl md:text-2xl dark:text-white">
+    <div className="flex flex-col m-4 w-full max-w-screen-2xl mx-auto gap-8">
+      <h1 className="font-mono font-bold text-2xl md:text-2xl dark:text-white">
         Our Instagram Stories
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         <img className="w-60 h-60 object-cover" src={womanbag} alt="" />
         <img
           className="w-60 h-60 object-cover"

@@ -23,11 +23,11 @@ export default function Shipping() {
   const grandTotal = totalPrice + 5;
   const formattedGrandTotal = `$${grandTotal.toFixed(2)}`;
   return (
-    <section className="dark:bg-black dark:text-white">
+    <section className="dark:bg-black dark:text-white min-h-screen">
       <Header />
-      <main className="flex flex-col p-6 w-full">
-        <div className="flex flex-col md:flex-row w-full justify-around items-center">
-          <div className="w-full md:w-1/2 max-w-3xl flex flex-col gap-4">
+      <main className="flex ">
+        <div className="flex flex-col w-full items-center">
+          <div className="w-full max-w-3xl flex flex-col gap-6 bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <h1 className="font-bold text-3xl">Shipping Address</h1>
 
             <div className="relative mt-8">
@@ -68,47 +68,38 @@ export default function Shipping() {
               </p>
             </div>
 
-            <div className="flex flex-col items-center overflow-hidden md:flex-row gap-4">
+            <div className="grid md:grid-cols-2 gap-4">
               {[
                 {
                   name: "Robert Fox",
                   address: "4517 Washington Ave. Manchester, Kentucky 39495",
-                  selected: false,
                 },
                 {
                   name: "John Willions",
                   address: "3891 Ranchview Dr. Richardson, California 62639",
-                  selected: false,
                 },
               ].map((item, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col bg-gray-100 rounded-lg p-6 shadow-sm w-full md:w-1/2 border dark:bg-gray-500 ${
-                    item.selected ? "border-black" : "border-transparent"
-                  }`}
+                  className="flex flex-col bg-gray-100 dark:bg-gray-700 rounded-lg p-6 shadow-sm border border-gray-300"
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="font-bold text-lg dark:text-black">
-                      {item.name}
-                    </h3>
+                    <h3 className="font-bold text-lg">{item.name}</h3>
                     <input
-                      type="checkbox"
-                      // checked={item.selected}
+                      type="radio"
+                      name="selectedAddress"
                       className="w-5 h-5 accent-black"
-                      required
                     />
                   </div>
-                  <p className="text-gray-600 dark:text-gray-800">
+                  <p className="text-gray-600 dark:text-gray-300 mt-2">
                     {item.address}
                   </p>
-                  <div className="flex gap-4 mt-4 overflow-hidden">
+                  <div className="flex gap-4 mt-4">
                     <button className="flex items-center gap-2 bg-gray-300 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-400 transition">
-                      <FaRegEdit />
-                      Edit
+                      <FaRegEdit /> Edit
                     </button>
                     <button className="flex items-center gap-2 bg-red-200 text-red-700 px-4 py-2 rounded-lg hover:bg-red-400 transition">
-                      <RiDeleteBin6Line />
-                      Delete
+                      <RiDeleteBin6Line /> Delete
                     </button>
                   </div>
                 </div>
@@ -124,126 +115,57 @@ export default function Shipping() {
             </Link>
           </div>
 
-          <div className="border w-full md:w-1/4 md:h-2/5 m-4 flex flex-col gap-6 p-6 rounded-lg shadow-lg">
-            <div className="flex justify-between border-b pb-2">
-              <p className="font-bold text-lg">Subtotal:</p>
-              <p className="font-bold">{formattedPrice}</p>
-            </div>
-            <div className="flex flex-col gap-2">
-              <p className="font-bold">Enter Discount Code</p>
-              <div className="flex border rounded-lg overflow-hidden">
-                <input
-                  type="text"
-                  className="w-full px-3 py-2 outline-none"
-                  placeholder="FLAT50"
-                />
-                <button className="bg-black text-white px-4 py-2">Apply</button>
-              </div>
-            </div>
-
-            <div className="flex justify-between border-b pb-2">
-              <p>Delivery Charge</p>
-              <p>$5.00</p>
-            </div>
-
-            <div className="flex justify-between text-lg font-bold">
-              <p>Grand Total</p>
-              <p>{formattedGrandTotal}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full md:w-1/2 md:p-8 md:m-14 flex flex-col gap-4 text-sm">
-          <h1 className="font-mono font-bold text-2xl">Add a new address</h1>
-
-          <div>
-            <form className="w-full flex flex-col gap-4">
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="name"
-                  className="text-gray-700 text-sm md:text-base dark:text-white"
-                >
-                  Name
-                </label>
-                <input
-                  id="name"
-                  className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                  type="text"
-                  placeholder="Enter Name"
-                  required
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="Mobile Number"
-                  className="text-gray-700 text-sm md:text-base dark:text-white"
-                >
-                  Mobile Number
-                </label>
-                <input
-                  id="Mobile Number"
-                  className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                  type="mobile"
-                  placeholder="Enter Mobile Number"
-                  required
-                />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label htmlFor="address" className="text-sm">
-                  Flat, House no., Building, Company, Apartment
-                </label>
-                <input
-                  id="address"
-                  className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-500"
-                  type="text"
-                  required
-                />
-              </div>
-              <label for="country">Country</label>
-              <select
-                id="country"
-                name="country"
-                className="p-4 rounded-lg bg-transparent border"
-              >
-                <option value="Georgia">Georgia</option>
-                <option value="UK">UK</option>
-                <option value="USA">USA</option>
-                <option value="Spain">Spain</option>
-                <option value="Italy">Italy</option>
-                <option value="France">France</option>
-                <option value="Poland">Poland</option>
-                <option value="Japan">Japan</option>
+          {/*  */}
+          <div className="w-full max-w-3xl bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+            <h1 className="font-mono font-bold text-2xl mb-4">
+              Add a new address
+            </h1>
+            <form className="flex flex-col gap-4">
+              {[
+                { label: "Name", id: "name", type: "text" },
+                { label: "Mobile Number", id: "mobile", type: "tel" },
+                { label: "Address", id: "address", type: "text" },
+                { label: "Pin Code", id: "pin", type: "number" },
+              ].map((field, index) => (
+                <div key={index} className="flex flex-col gap-2">
+                  <label
+                    htmlFor={field.id}
+                    className="text-gray-700 dark:text-white"
+                  >
+                    {field.label}
+                  </label>
+                  <input
+                    id={field.id}
+                    type={field.type}
+                    className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                    required
+                  />
+                </div>
+              ))}
+              <label className="text-gray-700 dark:text-white">Country</label>
+              <select className="p-4 rounded-lg bg-transparent border">
+                {[
+                  "Georgia",
+                  "UK",
+                  "USA",
+                  "Spain",
+                  "Italy",
+                  "France",
+                  "Poland",
+                  "Japan",
+                ].map((country, index) => (
+                  <option key={index} value={country}>
+                    {country}
+                  </option>
+                ))}
               </select>
-
-              <div className="flex flex-col gap-2">
-                <label
-                  htmlFor="pin code"
-                  className="text-gray-700 text-sm md:text-base dark:text-white"
-                >
-                  Pin Code
-                </label>
-                <input
-                  id="pin code"
-                  className="border rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-gray-400"
-                  type="number"
-                  placeholder="Enter Pin Code"
-                  required
-                />
-              </div>
-
-              <div className="flex items-center justify-between text-sm">
-                <label className="flex items-center gap-1">
-                  <input type="checkbox" />
-                  Use as my default address
-                </label>
-              </div>
-
+              <label className="flex items-center gap-2">
+                <input type="checkbox" /> Use as my default address
+              </label>
               <Link to="/payment">
                 <button
-                  className="mt-3 text-white bg-black font-mono text-base p-4 rounded-xl w-full transition dark:bg-gray-900"
                   type="submit"
+                  className="mt-3 bg-black text-white font-mono text-base p-4 rounded-xl w-full transition dark:bg-gray-900"
                 >
                   Add New Address
                 </button>
@@ -251,6 +173,36 @@ export default function Shipping() {
             </form>
           </div>
         </div>
+
+        {/*  */}
+        <div className="border w-full md:w-1/2 md:h-1/2 flex flex-col gap-6 p-6 rounded-lg shadow-lg m-10">
+          <div className="flex justify-between border-b pb-2">
+            <p className="font-bold text-lg">Subtotal:</p>
+            <p className="font-bold">{formattedPrice}</p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <p className="font-bold">Enter Discount Code</p>
+            <div className="flex border rounded-lg overflow-hidden">
+              <input
+                type="text"
+                className="w-full px-3 py-2 outline-none"
+                placeholder="FLAT50"
+              />
+              <button className="bg-black text-white px-4 py-2">Apply</button>
+            </div>
+          </div>
+
+          <div className="flex justify-between border-b pb-2">
+            <p>Delivery Charge</p>
+            <p>$5.00</p>
+          </div>
+
+          <div className="flex justify-between text-lg font-bold">
+            <p>Grand Total</p>
+            <p>{formattedGrandTotal}</p>
+          </div>
+        </div>
+        {/*  */}
       </main>
       <FooterPage />
     </section>

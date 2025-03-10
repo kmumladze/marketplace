@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <main className="flex justify-center items-center m-2">
       <div
-        className="w-full md:w-5/6 h-screen bg-cover bg-center flex items-center"
+        className="w-full h-screen bg-cover bg-center flex items-center"
         style={{ backgroundImage: `url(${womensCollection})` }}
       >
         <div className="w-1/2 pl-10 text-black items-start flex flex-col justify-center ml-10">

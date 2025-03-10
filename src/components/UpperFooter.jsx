@@ -5,8 +5,8 @@ import { MdPayments } from "react-icons/md";
 
 export default function UpperFooter() {
   return (
-    <div className="flex justify-center items-center w-full mt-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center gap-8 mx-auto max-w-6xl dark:text-white my-16">
+    <div className="flex justify-around items-center w-full mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 items-center gap-8 mx-auto max-w-screen-2xl dark:text-white my-16">
         <div className="flex flex-col gap-2">
           <PiShippingContainerBold size={28} />
           <p className="font-bold text-lg">Free Shipping</p>

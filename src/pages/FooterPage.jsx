@@ -13,7 +13,7 @@ export default function FooterPage() {
   return (
     <>
       <footer className="bg-black border-t border-gray-500 text-white py-10 px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto max-w-screen-2xl">
           <div className="flex flex-col gap-6">
             <h2 className="text-2xl font-semibold">Marketplace</h2>
             <div className="flex flex-col gap-3">

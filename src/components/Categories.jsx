@@ -62,7 +62,7 @@ export default function Categories() {
   }, []);
 
   return (
-    <div className="flex flex-col m-4 w-full max-w-6xl mx-auto">
+    <div className="flex flex-col m-4 w-full max-w-screen-2xl mx-auto">
       <div className="flex justify-between m-4 md:flex-row flex-col">
         <h1 className="font-mono font-bold text-2xl mb-4 self-start md:self-start dark:text-white">
           Shop by Categories
