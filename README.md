@@ -1,9 +1,5 @@
 # E-Commerce Marketplace
 
-## Overview
-
-This is a React-based e-commerce marketplace where users can browse products, filter by category and price, search by keywords, and manage their shopping cart. Customers can also log in to access personalized features.
-
 ## Features
 
 - **Product Listing:** Browse a variety of products.
@@ -32,7 +28,7 @@ This is a React-based e-commerce marketplace where users can browse products, fi
 4. Run the development server:
    -npm run dev
 5. Open in browser:
-   - http://localhost:3000
+   - http://localhost:5173
 
 ## Deployment
 
