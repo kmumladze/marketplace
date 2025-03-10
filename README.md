@@ -26,7 +26,7 @@
 3. Install dependencies:
    - `npm install`
 4. Run the development server:
-   -`npm run dev`
+   - `npm run dev`
 5. Open in browser:
    - http://localhost:5173
 
